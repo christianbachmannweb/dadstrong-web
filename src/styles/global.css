@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url('/fonts/BebasNeue-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --color-bg:           #000000;
+  --color-surface:      #1a1a1a;
+  --color-surface-high: #262626;
+  --color-text:         #ffffff;
+  --color-muted:        #808080;
+  --color-accent:       #d4ff00;
+  --color-zone2:        #ff8c1a;
+  --color-sprint:       #f22626;
+
+  --font-display: 'Bebas Neue', cursive;
+  --font-body:    'Barlow', system-ui, sans-serif;
+  --font-mono:    'DM Mono', 'Courier New', monospace;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background: #000000;
+  color: #ffffff;
+  font-family: 'Barlow', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #000000;
+  overflow-x: hidden;
+}
