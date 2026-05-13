@@ -8,11 +8,11 @@ _Last updated: Mai 2026_
 Dad Strong ist kein Fitness-Programm mit 50 Übungen und wöchentlichem Challenge-Druck.
 
 Es ist ein fixer Trainingsplan – zwei Einheiten, klare Progression, ehrliche Dokumentation.
-Gedacht für Väter, die echte Ergebnisse wollen, aber kein System brauchen das sie zwingt, jeden Tag drüber nachzudenken.
+Gedacht für Väter, die echte Ergebnisse wollen: stark sein, nackt gut aussehen, keine Zeit verschwenden.
 
 > „Zwei Einheiten. Echter Fortschritt."
 
-**Nicht:** Influencer-Optimierung, Bro-Science, „maximale Intensität"
+**Nicht:** Influencer-Optimierung, Bro-Science, „maximale Intensität", 15-Minuten-Daily-Workouts
 **Ja:** Wenige Übungen, linearer Fortschritt, reale Lebensrealität
 
 ---
@@ -21,20 +21,23 @@ Gedacht für Väter, die echte Ergebnisse wollen, aber kein System brauchen das 
 
 - Väter 30–45
 - Beschäftigt. Arbeit, Familie, Verpflichtungen.
-- Wollen trainieren – brauchen kein kompliziertes System
+- Wollen stark sein und gut aussehen – kein kompliziertes System
 - Suchen: Klarheit, Struktur, messbare Ergebnisse
+- **Nicht** die Zielgruppe: Leute die 15 min täglich trainieren wollen oder jeden Tag müssen
 
 ---
 
 ## Das Trainingskonzept
 
-### Training A
+### Training A (~60 Min)
 Kniebeuge · Bankdrücken · Rudern · BSS (Bulgarian Split Squat, bilateral) · Farmer Walk (timed)
 
-### Training B
+### Training B (~45 Min)
 Kreuzheben · OHP (Overhead Press) · Klimmzüge · Frontkniebeuge
 
-**Progression:** Linear. Nach jedem Trainingsblock Gewicht erhöhen wenn alle Sätze ≥ Threshold.
+**Arbeitssätze:** 2 pro Übung
+**Pausenzeiten:** 3 min zwischen Sätzen, ~3 min Übergang zwischen Übungen
+**Progression:** Linear. App schlägt Gewichtserhöhung vor wenn Threshold (8 Wdh) erreicht.
 **Frequenz:** Realistisch, keine fixen Tage – Konstanz > Perfektion.
 
 ---
@@ -51,6 +54,7 @@ Dad Strong basiert auf wenigen, gut gestützten Prinzipien:
 3. **Fokus auf Beine & hintere Kette** – Kraft, Stabilität, Muskelmasse, gesundes Altern
 4. **Ausreichende Intensität** – wenige harte Arbeitssätze statt Volumen-Inflation
 5. **Langfristige Konstanz** – ein Plan den du trotz echtem Leben durchziehst
+6. **Planbarkeit** – fixe Pausen, standardisierter Ablauf → du weißt vorher wann du fertig bist
 
 ### Warum dieser Plan? (USP)
 
@@ -61,43 +65,61 @@ Sondern: **Reduktion auf das, was langfristig wirklich zählt.**
 
 ---
 
-## Website-Struktur (geplant)
+## Website-Struktur (gebaut, Stand Mai 2026)
 
 ### 1. Hero
-- Headline + kurze Aussage
+- Animierte Progressionsbalken im Hintergrund (wie App-Icon)
+- Bebas Neue Headline "DAD STRONG"
+- Tagline in #d4ff00
 - CTA: App Store Download
 
-### 2. Das Problem
-- Warum die meisten scheitern (zu komplex, zu viel, zu unruhig)
-- Kurz, direkt, ohne Besserwisserei
+### 2. Kennst du das? (Pain Points)
+- 8 Karten mit typischen Problemen von Vätern
+- Kein Streak-Druck, kein Gamification als Pain Point (da App selbst Streaks hat)
+- Stattdessen: Gamification-Druck und künstliche Challenges
 
-### 3. Warum genau dieser Trainingsplan?
-- Die Philosophie in Karten: Wenige Übungen / Fokus Beine & hintere Kette / Progression statt Zerstörung / Für echtes Leben entwickelt
-- Ziel: Leser denkt "Ah. Das ergibt endlich Sinn." – nicht "Ich brauche noch 40 Optimierungen"
+### 3. Philosophie
+- 2×2 Karten links (Grundübungen, Beine & hintere Kette, Progression, Fürs echte Leben)
+- CSS-only iPhone 17 Mockup rechts mit App-Screenshot
 
-### 4. Der Trainingsplan
-- Training A mit Erklärung warum jede Übung
-- Training B mit Erklärung warum jede Übung
-- Ton: ruhig, verständlich, pragmatisch – kein Sportwissenschafts-Jargon
+### 4. Die Geschichte
+- Persönliche Story von Christian Bachmann
+- Pull-Quote sticky links
 
-### 5. Die App
-- Screenshots
-- Was die App kann: Progression tracken, Körper dokumentieren, Zone 2 + Sprint loggen
-- Widget für Home Screen
+### 5. Der Plan
+- Training A + B mit Erklärung warum jede Übung
+- "Warum nicht veränderbar" Callout
+- Interaktive Progressionsbar-Demo
 
-### 6. App Store Download
-- CTA
+### 6. Die App (Features-Grid)
+- Workout-Tracking mit Progressions-Mock
+- Streaks (3 unabhängig: Kraft/Ausdauer/Sprint + Superstreak)
+- Körper-Dokumentation mit Body-Silhouetten-Mock
+- Zone 2 & Sprint
+- Planbar wie ein Meeting (Trainingsdauer ~60/~45 Min)
+- Home Screen Widget
+- Papa-CTA (Energie, Stabilität, Gesundheit, Selbstrespekt)
+
+### 7. FAQ
+- `<details>/<summary>` Accordion (kein JS)
+
+### 8. CTA
+- App Store Download
+
+### 9. Footer
 
 ---
 
 ## App-Features (für Website-Beschreibung)
 
-- **Workout-Tracking:** Training A + B, Sets/Reps/Gewicht, automatische Progression
-- **Journey / Körper-Check-In:** Gewicht, Körpermaße, Fotos (Front/Back/Side), Fortschrittsgrafik
-- **Zone 2 Training:** Cardio-Sessions mit Herzfrequenz über HealthKit
+- **Workout-Tracking:** Training A + B, Sets/Reps/Gewicht, automatische Progressionsvorschläge
+- **Streak-System:** 3 unabhängige Wochenstreaks (Kraft 2×, Ausdauer 100min Zone 2, Sprint 1×) + Superstreak
+- **Journey / Körper-Check-In:** Gewicht, Körpermaße, Fotos (Front/Back/Side)
+- **Zone 2 Training:** Cardio-Sessions mit Herzfrequenz via HealthKit
 - **Sprint Training:** Sprint-Sessions loggen
-- **Widget:** Home Screen Widget (Small/Medium/Large) – letzte Sessions + Streak
+- **Widget:** Home Screen Widget (Small/Medium/Large) – Streaks + letzte Sessions
 - **Keine Accounts, kein Backend** – alles lokal, iCloud Backup
+- **Standardisierter Ablauf** – fixe Pausen → klare Vergleichbarkeit + planbare Dauer
 
 ---
 
@@ -114,7 +136,7 @@ Sondern: **Reduktion auf das, was langfristig wirklich zählt.**
 
 ### Noch offen (für App Store):
 - Privacy Manifest (PrivacyInfo.xcprivacy)
-- Privacy Policy Seite auf dadstrong.app
+- Privacy Policy Seite auf dadstrong.app → `/privacy`
 - Bundle ID für public Version
 - Widget-Bild ersetzen
 - Screenshots (6.5" + 5.5" iPhone)
@@ -125,17 +147,27 @@ Sondern: **Reduktion auf das, was langfristig wirklich zählt.**
 
 ## Webseite Stand (Mai 2026)
 
-Frisch aufgesetzt. Astro + Tailwind installiert.
-
-### Offen:
-- Layout.astro (Base Layout)
+### Fertig:
+- Layout.astro (Base Layout mit Google Fonts)
 - global.css mit Design Tokens
-- Hero-Sektion
-- Philosophie-Sektion
-- Trainingsplan-Sektion
-- App-Screenshots Sektion
-- App Store CTA
-- Privacy Policy Seite
+- index.astro – vollständige One-Page-Website mit 9 Pain-Cards, 8 FAQ-Einträgen, vollständigem Features-Grid
+- privacy.astro – Datenschutz + Impressum unter /privacy
+- PrivacyInfo.xcprivacy – Privacy Manifest für iOS App Store (in iOS-App-Repo)
+- Hero mit animierten Progressionsbalken
+- Pain Points Sektion (9 Karten, 3×3 Grid)
+- Philosophie mit CSS iPhone Mockup
+- Die Geschichte
+- Der Plan (Training A + B)
+- Die App (4-reihiges Features-Grid mit Mocks)
+- FAQ (9 Einträge inkl. Sixpack, Bulk, Ergebnisse der letzten Trainings)
+- CTA + Footer (mit /privacy Link und info@dadstrong.app)
+
+### Noch offen:
+- App Store Link eintragen (steht überall noch auf `#`)
+- E-Mail-Weiterleitung info@dadstrong.app einrichten
+- Echte App Store Screenshots einbauen (aktuell CSS-Mocks)
+- Deploy: Cloudflare Pages (bevorzugt) – noch nicht aufgesetzt
+- Open Graph / Social Meta Tags
 
 ---
 
@@ -143,13 +175,16 @@ Frisch aufgesetzt. Astro + Tailwind installiert.
 
 Wie ein Trainingsplan. Nicht wie eine Wellness-App.
 
-- Schwarz, Gelbgrün (#D4FF00), starke Typografie
+- Schwarz, Gelbgrün (#d4ff00), starke Typografie (Bebas Neue)
 - Wenig Text, klare Aussagen
 - Keine Floskeln, keine Versprechungen
-- Zahlen wenn möglich: "Training A: 5 Übungen. 45 Minuten. Fertig."
+- Zahlen: "2 Sätze. 3 Min Pause. ~60 Min. Fertig."
+- Kein KI-Schreib-Ton – klingt wie ein Vater schreibt, nicht wie Marketing
 
 ---
 
 ## Verwandte Projekte
 - iOS App: `/Users/christianbachmann/Development/projects/dad-strong-swift`
-- Design Tokens: `dadstrong-web-tokens.md` (im iOS-App-Ordner und Webprojekt)
+- Übungen: `ExercisesData.swift`
+- Pausenzeiten: `WorkoutSessionState.swift`
+- Design Tokens: `dadstrong-web-tokens.md`

@@ -1,0 +1,225 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Datenschutz & Impressum – Dad Strong"
+  description="Datenschutzerklärung und Impressum der Dad Strong App."
+>
+
+<style>
+  .legal-page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 100px 24px 80px;
+  }
+
+  .legal-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    padding: 16px 24px;
+    background: rgba(0,0,0,.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,.06);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .legal-nav__brand {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 18px;
+    letter-spacing: .12em;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .legal-nav__back {
+    font-size: 13px;
+    color: #888;
+    text-decoration: none;
+    transition: color .18s;
+  }
+
+  .legal-nav__back:hover { color: #fff; }
+
+  .legal-section {
+    margin-bottom: 64px;
+  }
+
+  .legal-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #d4ff00;
+    margin-bottom: 12px;
+  }
+
+  .legal-title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(32px, 6vw, 52px);
+    letter-spacing: .04em;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 32px;
+  }
+
+  h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    margin: 32px 0 10px;
+    letter-spacing: .02em;
+  }
+
+  h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #ccc;
+    margin: 24px 0 8px;
+  }
+
+  p, li {
+    font-size: 15px;
+    color: #aaa;
+    line-height: 1.75;
+  }
+
+  ul {
+    padding-left: 20px;
+    margin: 8px 0;
+  }
+
+  li { margin-bottom: 4px; }
+
+  .divider {
+    border: none;
+    border-top: 1px solid rgba(255,255,255,.08);
+    margin: 64px 0;
+  }
+
+  .highlight-box {
+    background: #0d0d0d;
+    border: 1px solid rgba(212,255,0,.12);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 20px 0;
+  }
+
+  .highlight-box p {
+    color: #ccc;
+    margin: 0;
+    font-size: 14px;
+  }
+
+  strong { color: #ddd; font-weight: 600; }
+
+  a { color: #d4ff00; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+</style>
+
+<nav class="legal-nav">
+  <a href="/" class="legal-nav__brand">DAD STRONG</a>
+  <a href="/" class="legal-nav__back">← Zurück</a>
+</nav>
+
+<div class="legal-page">
+
+  <!-- ═══════════════════════════════ DATENSCHUTZ -->
+  <section class="legal-section">
+    <p class="legal-label">Rechtliches</p>
+    <h1 class="legal-title">Datenschutz&shy;erklärung</h1>
+
+    <div class="highlight-box">
+      <p><strong>Kurzfassung:</strong> Dad Strong sammelt keine persönlichen Daten, sendet nichts an Server und enthält keine Tracking- oder Analyse-Tools. Alle Daten bleiben auf deinem Gerät.</p>
+    </div>
+
+    <h2>Verantwortlicher</h2>
+    <p>
+      Christian Bachmann<br>
+      Lachgasse 4<br>
+      73110 Hattenhofen<br>
+      <a href="mailto:info@dadstrong.app">info@dadstrong.app</a>
+    </p>
+
+    <h2>Grundsatz</h2>
+    <p>Die App Dad Strong verarbeitet ausschließlich Daten, die für die Kernfunktionen der App notwendig sind. Es werden keine Daten an Dritte weitergegeben, kein Nutzerverhalten analysiert und keine Werbung geschaltet.</p>
+
+    <h2>Datenspeicherung</h2>
+    <p>Alle Daten werden <strong>lokal auf deinem Gerät</strong> gespeichert:</p>
+    <ul>
+      <li>Trainingsdaten (Training A &amp; B, Sätze, Gewichte, Wiederholungen)</li>
+      <li>Körperdaten (Gewicht, Körpermaße)</li>
+      <li>Fortschrittsfotos</li>
+    </ul>
+    <p>Es gibt keinen Server, kein Backend, keine Cloud-Synchronisation durch Dad Strong. iOS kann die App-Daten im Rahmen des normalen iCloud-Backups sichern — das liegt vollständig in Apples Verantwortung und deiner Kontrolle.</p>
+
+    <h2>Berechtigungen</h2>
+
+    <h3>Kamera</h3>
+    <p>Dad Strong nutzt die Kamera ausschließlich für Fortschrittsfotos im Körper-Dokumentations-Bereich. Fotos werden lokal gespeichert und nicht übertragen.</p>
+
+    <h3>Fotobibliothek</h3>
+    <p>Zugriff auf die Fotobibliothek wird benötigt um Fortschrittsfotos zu lesen und anzuzeigen. Kein Zugriff auf andere Fotos.</p>
+
+    <h3>Apple Health (HealthKit)</h3>
+    <p>Dad Strong liest und schreibt folgende Gesundheitsdaten:</p>
+    <ul>
+      <li><strong>Lesen:</strong> Körpergewicht (zur Anzeige im Körper-Check-In)</li>
+      <li><strong>Schreiben:</strong> Absolvierte Workouts (Krafttraining, Zone 2, Sprint) inkl. Herzfrequenz-Verlauf</li>
+    </ul>
+    <p>Alle HealthKit-Daten verbleiben in deiner Apple Health App. Dad Strong sendet diese Daten nicht an Server.</p>
+
+    <h3>Bluetooth</h3>
+    <p>Bluetooth wird zur Verbindung mit einem externen Herzfrequenzsensor genutzt (z.&thinsp;B. Brustgurt). Die Verbindung ist temporär während einer Trainingseinheit.</p>
+
+    <h3>Benachrichtigungen</h3>
+    <p>Dad Strong sendet lokale Benachrichtigungen als Trainings-Erinnerung (standardmäßig: Sonntags 6:30 Uhr). Es werden keine Remote-Push-Benachrichtigungen über externe Server versendet.</p>
+
+    <h2>Drittanbieter</h2>
+    <p>Dad Strong enthält keine Drittanbieter-SDKs, keine Analyse-Tools (z.&thinsp;B. Firebase, Crashlytics), keine Werbenetze und kein Tracking.</p>
+
+    <h2>Deine Rechte</h2>
+    <p>Da Dad Strong keine personenbezogenen Daten auf Servern speichert, entfallen die meisten DSGVO-Auskunftspflichten. Alle deine Daten liegen auf deinem Gerät und können dort jederzeit gelöscht werden — durch Löschen der App oder einzelner Einträge in der App selbst.</p>
+    <p>Bei Fragen erreichst du mich unter: <a href="mailto:info@dadstrong.app">info@dadstrong.app</a></p>
+
+    <h2>Änderungen</h2>
+    <p>Diese Datenschutzerklärung gilt für die App Dad Strong und diese Website. Bei wesentlichen Änderungen wird die App-Version aktualisiert.</p>
+    <p>Stand: Mai 2026</p>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ═══════════════════════════════ IMPRESSUM -->
+  <section class="legal-section">
+    <p class="legal-label">Impressum</p>
+    <h1 class="legal-title">Impressum</h1>
+
+    <h2>Angaben gemäß § 5 TMG</h2>
+    <p>
+      Christian Bachmann<br>
+      Lachgasse 4<br>
+      73110 Hattenhofen
+    </p>
+
+    <h2>Kontakt</h2>
+    <p>
+      E-Mail: <a href="mailto:info@dadstrong.app">info@dadstrong.app</a>
+    </p>
+
+    <h2>Hinweis</h2>
+    <p>Dad Strong ist ein privates Freizeitprojekt und wird nicht gewerblich betrieben.</p>
+
+    <h2>Haftung für Inhalte</h2>
+    <p>Die Inhalte dieser Website wurden mit Sorgfalt erstellt. Als Privatperson übernehme ich keine Gewähr für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte. Die auf dieser Website enthaltenen Trainings- und Ernährungshinweise ersetzen keine medizinische Beratung.</p>
+
+    <h2>Haftung für Links</h2>
+    <p>Diese Website enthält Links zu externen Websites Dritter (App Store). Auf deren Inhalte haben wir keinen Einfluss und übernehmen daher keine Gewähr.</p>
+  </section>
+
+</div>
+
+</Layout>

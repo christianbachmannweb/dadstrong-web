@@ -4,12 +4,16 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  canonical?: string;
 }
 
 const {
-  title = 'Dad Strong – Zwei Einheiten. Echter Fortschritt.',
-  description = 'Dad Strong ist ein Krafttrainingsprogramm für Väter. Fixer Plan, lineare Progression, keine Ausreden.',
+  title = 'Dad Strong – Krafttraining App für Väter',
+  description = 'Krafttraining App für Väter 30–45. Fixer Plan, 2 Einheiten pro Woche, lineare Progression. Kein Chaos, keine Ausreden — echter Fortschritt. Kostenlos für iPhone.',
+  canonical = 'https://dadstrong.app/',
 } = Astro.props;
+
+const ogImage = 'https://dadstrong.app/screenshots/dadstrong-app-home-screen.png';
 ---
 
 <!doctype html>
@@ -18,13 +22,60 @@ const {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:site_name" content="Dad Strong" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Mobile -->
+    <meta name="theme-color" content="#000000" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+    <!-- Structured Data: SoftwareApplication -->
+    <script type="application/ld+json" is:inline>
+      {JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Dad Strong",
+        "operatingSystem": "iOS",
+        "applicationCategory": "HealthApplication",
+        "description": "Krafttraining App für Väter. Fixer Plan, 2 Einheiten pro Woche, lineare Progression.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "EUR"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Christian Bachmann"
+        }
+      })}
+    </script>
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
-    <title>{title}</title>
+    <link rel="preload" href="/fonts/BebasNeue-Regular.ttf" as="font" type="font/ttf" crossorigin />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
   </head>
   <body>
     <slot />

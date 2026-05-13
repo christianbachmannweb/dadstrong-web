@@ -1,5 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import appHome from '../assets/images/dadstrong-app-home-screen.png';
+import appMockupJourney from '../assets/images/app-mockup-journey.png';
+import appMockupWarmup from '../assets/images/app-mockup-warmup.png';
+import appMockupWidget from '../assets/images/app-mockup-widget.png';
+import appMockupPause from '../assets/images/app-mockup-pause.png';
+import appMockupZone2 from '../assets/images/iPhone-16-Pro-Max-zone-2.png';
+import appMockupSprint from '../assets/images/iphone-16-sprint.png';
 ---
 
 <Layout>
@@ -46,7 +54,7 @@ import Layout from '../layouts/Layout.astro';
       <h1 class="hero__title">DAD<br>STRONG</h1>
       <div class="hero__sub">
         <p class="hero__tagline">Zwei Einheiten.<br>Echter Fortschritt.</p>
-        <p class="hero__body">Als Papa hast du keine Zeit für Trainings-Chaos.<br>Dad Strong gibt dir einen fixen Plan — und sonst nichts.</p>
+        <p class="hero__body">Für Papas die wenig Zeit haben, stark sein<br>und nackt gut aussehen wollen.</p>
         <a href="#download" class="btn-primary">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
@@ -84,16 +92,60 @@ import Layout from '../layouts/Layout.astro';
         </div>
         <div class="pain reveal" style="--delay:.32s">
           <span class="pain__num">—</span>
-          <p class="pain__text">Du vergleichst dich mit Influencern, die keinen Vollzeitjob haben. Und fühlst dich schlecht dabei.</p>
+          <p class="pain__text">Du vergleichst dich mit Influencern, die keinen Vollzeitjob haben, keine Kinder, Anfang 20 sind — und täglich zwei Stunden Zeit für Training haben. Das ist nicht dein Leben.</p>
         </div>
         <div class="pain reveal" style="--delay:.4s">
           <span class="pain__num">—</span>
-          <p class="pain__text">Du weißt, dass du eigentlich fit sein willst — aber der Kopf ist schon den ganzen Tag woanders.</p>
+          <p class="pain__text">Du willst trainieren — aber irgendwie sabotierst du dich selbst. Kein Drama, keine Ausrede. Es passiert einfach. Immer wieder.</p>
+        </div>
+        <div class="pain reveal" style="--delay:.48s">
+          <span class="pain__num">—</span>
+          <p class="pain__text">Du denkst, du müsstest täglich trainieren. Schaffst es nicht. Also gar nichts.</p>
+        </div>
+        <div class="pain reveal" style="--delay:.56s">
+          <span class="pain__num">—</span>
+          <p class="pain__text">Du machst 15-Minuten-Workouts täglich — und fragst dich, warum sich nach Monaten nichts verändert hat.</p>
+        </div>
+        <div class="pain reveal" style="--delay:.64s">
+          <span class="pain__num">—</span>
+          <p class="pain__text">Du weißt eigentlich was du tun müsstest. Du suchst trotzdem noch den perfekten Plan. Und fängst deshalb nie wirklich an.</p>
         </div>
       </div>
-      <div class="pain__answer reveal" style="--delay:.5s">
+      <div class="pain__answer reveal" style="--delay:.65s">
         <p class="pain__answer-text">Dann ist Dad Strong für dich.</p>
-        <p class="pain__answer-sub">Kein System das dich überfordert. Kein Druck. Nur ein Plan, den du trotz echtem Leben durchziehen kannst.</p>
+        <p class="pain__answer-sub">Für Papas die wenig Zeit haben, stark sein und nackt gut aussehen wollen. Du musst nicht täglich trainieren — zwei echte Einheiten pro Woche reichen. Und zwar wirklich.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ DIE REALITÄT -->
+  <section class="section reality-section">
+    <div class="container">
+      <div class="reality__inner reveal">
+        <p class="label label--muted">DIE REALITÄT</p>
+        <h2 class="reality__claim">Du brauchst keine fünf Tage.<br>Du brauchst zwei gute.</h2>
+        <p class="reality__body">Viele Väter scheitern nicht an fehlendem Wissen — sondern an unrealistischen Erwartungen. Zu viel Volumen, zu wenig Schlaf, ständig wechselnde Pläne. Fortschritt entsteht nicht durch möglichst viele Trainingstage.</p>
+        <div class="reality__formula">
+          <div class="reality__factor">
+            <span class="reality__factor-icon">⚡</span>
+            <span class="reality__factor-label">Trainingsreiz</span>
+          </div>
+          <span class="reality__op">+</span>
+          <div class="reality__factor">
+            <span class="reality__factor-icon">🔋</span>
+            <span class="reality__factor-label">Regeneration</span>
+          </div>
+          <span class="reality__op">+</span>
+          <div class="reality__factor">
+            <span class="reality__factor-icon">📅</span>
+            <span class="reality__factor-label">Konsistenz</span>
+          </div>
+          <span class="reality__op reality__op--approx">≈</span>
+          <div class="reality__factor reality__factor--result">
+            <span class="reality__factor-label">Fortschritt</span>
+          </div>
+        </div>
+        <p class="reality__close">Zwei harte, ehrliche Ganzkörpereinheiten pro Woche. Kein Influencer-Lifestyle. Kein stundenlanges Pumpen. Nur das, was wirklich funktioniert — für Männer mit Verantwortung.</p>
       </div>
     </div>
   </section>
@@ -139,13 +191,7 @@ import Layout from '../layouts/Layout.astro';
             <div class="iphone__btn iphone__btn--vol-down" aria-hidden="true"></div>
             <div class="iphone__btn iphone__btn--side" aria-hidden="true"></div>
             <div class="iphone__screen">
-              <img
-                src="/screenshots/dadstrong-app-home-screen.png"
-                alt="Dad Strong App – Home Screen"
-                width="390"
-                height="844"
-                loading="lazy"
-              />
+              <Image src={appHome} alt="Dad Strong iOS App – Übersicht Kraft-, Ausdauer- und Sprint-Streaks auf dem Home Screen" format="avif" loading="lazy" />
             </div>
           </div>
           <div class="mockup__label">
@@ -164,24 +210,33 @@ import Layout from '../layouts/Layout.astro';
         <div class="about__left">
           <p class="label label--muted">WARUM DAD STRONG?</p>
           <blockquote class="about__pull">
-            "Ich habe Training jahrelang falsch betrachtet."
+            "Viele Fitness-Inhalte vermitteln das Gefühl, dass ein fitter Körper das Zentrum des Lebens sein sollte."
           </blockquote>
           <p class="about__byline">— Christian Bachmann, Entwickler</p>
         </div>
         <div class="about__right reveal">
-          <p>Ich dachte: mehr ist besser. Härter ist besser. Erschöpfter ist besser.</p>
-          <p>Ich habe versucht, Trainingspläne von Menschen nachzuleben, deren Alltag nichts mit meinem zu tun hatte. Menschen ohne Vollzeitjob, Schlafmangel, Kinder, Verantwortung.</p>
-          <p>Und jedes Mal hatte ich das Gefühl: nicht diszipliniert genug zu sein.</p>
+          <p>Mehr Disziplin. Mehr Härte. Mehr Optimierung. Mehr Motivation.</p>
+          <p>Lange habe ich genau so gedacht. Ich habe Ergebnisse riesig gemacht — so, als würde ein bestimmter Körper irgendwann alles verändern.</p>
 
           <div class="about__rule"></div>
 
-          <p>Mein eigentliches Problem war nicht Motivation. Es war: zu hohe Erwartungen, zu komplizierte Systeme, die Idee perfekt trainieren zu müssen.</p>
-          <p>Der Kreislauf war immer gleich: maximal motiviert starten → zu viel wollen → ausbrennen → neu anfangen.</p>
+          <p>Aber irgendwann wurde mir etwas klar: Die meisten Menschen leben kein Leben, das sich um Training dreht.</p>
+          <div class="about__list">
+            <span>Arbeit</span><span>Kinder</span><span>Schlafmangel</span><span>Stress</span><span>Verantwortung</span>
+          </div>
+          <p>Und genau darin liegt die eigentliche Herausforderung. Nicht die einzelne Trainingseinheit. Sondern die Fähigkeit, trotz eines normalen, oft repetitiven Lebens langfristig dranzubleiben.</p>
 
           <div class="about__rule"></div>
 
-          <p>Irgendwann wurde mir klar: Ich brauche kein perfektes Programm. Ich brauche ein System, das auch in ein echtes Leben passt — mit wenig Schlaf, wenig Zeit, viel Verantwortung.</p>
-          <p class="about__conclusion">Dad Strong entstand nicht aus einer Business-Idee. Sondern aus echten Problemen. Genau das macht es glaubwürdig.</p>
+          <p>Die Wahrheit ist: Fortschritt entsteht meistens nicht spektakulär. Er entsteht durch normale Tage, kleine Entscheidungen, Wiederholung und Konsequenz trotz Alltag.</p>
+
+          <div class="about__rule"></div>
+
+          <p>Denn am Ende interessiert sich kaum jemand so sehr für deinen Körper wie du selbst. Aber:</p>
+          <div class="about__values">
+            <span>Energie</span><span>Stabilität</span><span>Gesundheit</span><span>Selbstrespekt</span><span>Belastbarkeit</span>
+          </div>
+          <p class="about__conclusion">Dad Strong soll dabei helfen — nicht perfekt zu werden. Sondern langfristig stark zu bleiben.</p>
         </div>
       </div>
     </div>
@@ -290,6 +345,191 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
+  <!-- ══════════════════════════════════════ MID-PAGE CTA STRIP -->
+  <div class="midcta reveal">
+    <div class="container">
+      <div class="midcta__inner">
+        <div class="midcta__line" aria-hidden="true"></div>
+        <div class="midcta__content">
+          <p class="midcta__heading">Du weißt genug.</p>
+          <a href="#download" class="midcta__btn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+            </svg>
+            Kostenlos laden
+          </a>
+        </div>
+        <div class="midcta__line" aria-hidden="true"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════ ZONE 2 -->
+  <section class="section section--surface zone2-section" id="zone2">
+
+    <!-- Background pulse decoration -->
+    <div class="zone2__bg-pulse" aria-hidden="true">
+      <svg viewBox="0 0 1200 160" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0 100 L120 100 L150 100 L170 30 L195 140 L215 55 L240 100 L360 100 L390 100 L410 20 L435 148 L455 42 L480 100 L600 100 L630 100 L650 14 L675 152 L695 38 L720 100 L840 100 L870 100 L890 22 L915 146 L935 46 L960 100 L1080 100 L1110 100 L1130 18 L1155 150 L1175 40 L1200 100"
+          stroke="#ff8c1a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.12"/>
+      </svg>
+    </div>
+
+    <div class="container">
+      <div class="zone2__layout">
+
+        <!-- Left: Text -->
+        <div class="zone2__text reveal">
+          <p class="label label--zone2">ZONE 2 & SPRINT</p>
+          <h2 class="zone2__title">Kein weiteres<br>„Du musst mehr."</h2>
+          <p class="zone2__lead">Zone 2 ist eher das Gegenteil. Eine lockere Cardio-Einheit, die den Kopf runterfährt, die Regeneration unterstützt — und dich wieder wie ein Mensch fühlen lässt.</p>
+
+          <blockquote class="zone2__quote">
+            30–45 Minuten aufs Bike. Netflix an. Kein Druck. Kein Vollgas.
+            <cite>Ich nutze dafür selbst ein Yesoul Bike und schaue dabei einfach Netflix oder YouTube. Kein kompliziertes Setup. Einfach bewegen.</cite>
+          </blockquote>
+
+          <ul class="zone2__benefits">
+            <li>Ausdauer aufbauen</li>
+            <li>Regeneration verbessern</li>
+            <li>Stress runterfahren</li>
+            <li>Kalorien verbrennen</li>
+            <li>Langfristig fitter werden — ohne den Körper zu zerstören</li>
+          </ul>
+
+          <div class="zone2__optional">
+            <span class="zone2__optional-label">Das Beste daran</span>
+            <p>Es ist optional. Dad Strong basiert nicht auf maximalem Aufwand, sondern auf einem System, das du trotz Arbeit, Kindern und Alltag langfristig durchziehen kannst.</p>
+          </div>
+
+          <div class="zone2__healthkit">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+            <span>Herzfrequenz via Apple Health — kein separates Gerät nötig.</span>
+          </div>
+        </div>
+
+        <!-- Right: Mockup -->
+        <div class="zone2__visual reveal" style="--delay:.12s">
+          <Image
+            src={appMockupZone2}
+            alt="Dad Strong App – Zone 2 Cardio Tracking mit Herzfrequenz via Apple Health"
+            format="avif"
+            loading="lazy"
+            class="zone2__mockup-img"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════ SPRINT -->
+  <section class="section sprint-section" id="sprint">
+
+    <!-- Bars: section-level, span both columns -->
+    <div class="sprint__bars reveal" aria-hidden="true">
+      <!-- Block 1 -->
+      <div class="sbar" style="--w:12%;--delay:.05s"></div>
+      <div class="sbar" style="--w:14%;--delay:.1s"></div>
+      <div class="sbar" style="--w:16%;--delay:.15s"></div>
+      <div class="sbar sbar--mark" style="--w:19%;--delay:.2s"></div>
+      <div class="sbar sbar--gap"></div>
+      <!-- Block 2 -->
+      <div class="sbar" style="--w:24%;--delay:.25s"></div>
+      <div class="sbar" style="--w:27%;--delay:.3s"></div>
+      <div class="sbar" style="--w:31%;--delay:.35s"></div>
+      <div class="sbar sbar--mark" style="--w:35%;--delay:.4s"></div>
+      <div class="sbar sbar--gap"></div>
+      <!-- Block 3 -->
+      <div class="sbar" style="--w:40%;--delay:.45s"></div>
+      <div class="sbar" style="--w:46%;--delay:.5s"></div>
+      <div class="sbar" style="--w:53%;--delay:.55s"></div>
+      <div class="sbar sbar--mark" style="--w:60%;--delay:.6s"></div>
+      <div class="sbar sbar--gap"></div>
+      <!-- Block 4 – peak, in die Textspalte -->
+      <div class="sbar" style="--w:66%;--delay:.65s"></div>
+      <div class="sbar" style="--w:74%;--delay:.7s"></div>
+      <div class="sbar" style="--w:82%;--delay:.75s"></div>
+      <div class="sbar sbar--peak" style="--w:91%;--delay:.8s"></div>
+    </div>
+
+    <div class="container">
+      <div class="sprint__layout">
+
+        <!-- Left: Mockup -->
+        <div class="sprint__visual reveal">
+          <Image
+            src={appMockupSprint}
+            alt="Dad Strong App – Sprint Training mit 6 Sprints steigender Intensität"
+            format="avif"
+            loading="lazy"
+            class="sprint__mockup-img"
+          />
+        </div>
+
+        <!-- Right: Text -->
+        <div class="sprint__text reveal" style="--delay:.12s">
+          <p class="label label--sprint">SPRINT</p>
+          <h2 class="sprint__title">Dein Körper<br>weiß noch,<br>wie das geht.</h2>
+          <p class="sprint__lead">Sprinten ist kein Pflichtprogramm. Aber es erinnert deinen Körper daran, wofür er gemacht wurde. Kurz. Schnell. Explosiv.</p>
+
+          <blockquote class="sprint__quote">
+            Nicht stundenlanges Cardio — sondern echte Intensität. Du sprintest, drückst „Fertig" wenn du durch bist, wartest die Pause ab. Fertig.
+          </blockquote>
+
+          <!-- Sprint progression -->
+          <div class="sprint__progression" aria-label="6 Sprints mit steigender Intensität">
+            <div class="sprint__prog-sprint">
+              <span class="sprint__prog-num">S1</span>
+              <div class="sprint__prog-bar"><div class="sprint__prog-fill" style="width:50%"></div></div>
+              <span class="sprint__prog-pct">50%</span>
+              <span class="sprint__prog-rest">1:00</span>
+            </div>
+            <div class="sprint__prog-sprint">
+              <span class="sprint__prog-num">S2</span>
+              <div class="sprint__prog-bar"><div class="sprint__prog-fill" style="width:60%"></div></div>
+              <span class="sprint__prog-pct">60%</span>
+              <span class="sprint__prog-rest">1:00</span>
+            </div>
+            <div class="sprint__prog-sprint">
+              <span class="sprint__prog-num">S3</span>
+              <div class="sprint__prog-bar"><div class="sprint__prog-fill" style="width:70%"></div></div>
+              <span class="sprint__prog-pct">70%</span>
+              <span class="sprint__prog-rest">1:00</span>
+            </div>
+            <div class="sprint__prog-sprint">
+              <span class="sprint__prog-num">S4</span>
+              <div class="sprint__prog-bar"><div class="sprint__prog-fill" style="width:80%"></div></div>
+              <span class="sprint__prog-pct">80%</span>
+              <span class="sprint__prog-rest">1:15</span>
+            </div>
+            <div class="sprint__prog-sprint">
+              <span class="sprint__prog-num">S5</span>
+              <div class="sprint__prog-bar"><div class="sprint__prog-fill" style="width:90%"></div></div>
+              <span class="sprint__prog-pct">90%</span>
+              <span class="sprint__prog-rest">1:30</span>
+            </div>
+            <div class="sprint__prog-sprint sprint__prog-sprint--last">
+              <span class="sprint__prog-num">S6</span>
+              <div class="sprint__prog-bar"><div class="sprint__prog-fill sprint__prog-fill--peak" style="width:100%"></div></div>
+              <span class="sprint__prog-pct">100%</span>
+              <span class="sprint__prog-rest sprint__prog-rest--cooldown">3 Min Cool Down</span>
+            </div>
+          </div>
+
+          <p class="sprint__sub">AirBike, Bergsprints, Laufintervalle — egal was. Viele Männer vergessen irgendwann, wie es sich anfühlt, sich wirklich kraftvoll zu bewegen. Das hier bringt es zurück.</p>
+
+          <div class="sprint__optional">
+            <span class="sprint__optional-label">Und wie immer bei Dad Strong</span>
+            <p>Optional. Das Ziel ist kein perfekter Trainingsplan — sondern ein System, das dir langfristig gut tut und dich stärker durchs Leben gehen lässt.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- ══════════════════════════════════════════════════ DIE APP -->
   <section class="section" id="app">
     <div class="container">
@@ -298,87 +538,236 @@ import Layout from '../layouts/Layout.astro';
         <h2 class="section__title">Dein Training.<br>Deine Zahlen.</h2>
         <p class="section__lead">Entwickelt für Väter, die keine Zeit haben — aber trotzdem Ergebnisse wollen.</p>
       </div>
+
+      <div class="phones-showcase reveal">
+        <div class="phones-showcase__phone">
+          <Image src={appMockupWarmup} alt="Dad Strong App – geführtes Warmup vor dem Krafttraining" format="avif" loading="lazy" />
+          <p class="phones-showcase__label">Warmup</p>
+        </div>
+        <div class="phones-showcase__phone phones-showcase__phone--raised">
+          <Image src={appMockupPause} alt="Dad Strong App – Pausentimer zwischen Arbeitssätzen im Krafttraining" format="avif" loading="lazy" />
+          <p class="phones-showcase__label">Training</p>
+        </div>
+        <div class="phones-showcase__phone">
+          <Image src={appMockupJourney} alt="Dad Strong App – Körper-Dokumentation mit Gewicht, Maßen und Fortschrittsfotos" format="avif" loading="lazy" />
+          <p class="phones-showcase__label">Meine Reise</p>
+        </div>
+      </div>
+
       <div class="features">
 
+        <!-- Row 1: Workout-Tracking + Streak -->
         <div class="feature reveal">
-          <div class="feature__icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-            </svg>
+          <div class="feature__top">
+            <div class="feature__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="feature__title">Workout-Tracking</h3>
+              <p class="feature__body">Sets, Reps, Gewicht. Nach jedem Block ein klarer Progressionsvorschlag.</p>
+            </div>
           </div>
-          <div>
-            <h3 class="feature__title">Workout-Tracking</h3>
-            <p class="feature__body">Sets, Reps, Gewicht. Nach jedem Block bekommst du einen klaren Progressionsvorschlag — einfach bestätigen und steigern.</p>
-          </div>
-        </div>
-
-        <div class="feature feature--accent reveal" style="--delay:.08s">
-          <div class="feature__icon feature__icon--accent">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><circle cx="8" cy="15" r="1" fill="currentColor"/><circle cx="12" cy="15" r="1" fill="currentColor"/><circle cx="16" cy="15" r="1" fill="currentColor"/>
-            </svg>
-          </div>
-          <div>
-            <h3 class="feature__title">So funktioniert dein Streak</h3>
-            <p class="feature__body">Jedes abgeschlossene Training zählt als ein Tag. Der Wochen-Kalender zeigt schwarz auf weiß: warst du dabei oder nicht. Kein Punkte-System, keine künstliche Gamification — nur deine echten Trainingstage. Das reicht.</p>
-            <div class="streak__demo" aria-hidden="true">
-              <span class="streak__day streak__day--done">Mo</span>
-              <span class="streak__day streak__day--done">Di</span>
-              <span class="streak__day streak__day--skip">Mi</span>
-              <span class="streak__day streak__day--done">Do</span>
-              <span class="streak__day streak__day--skip">Fr</span>
-              <span class="streak__day streak__day--rest">Sa</span>
-              <span class="streak__day streak__day--rest">So</span>
+          <!-- Progression Mock -->
+          <div class="prog-mock">
+            <div class="prog-mock__header">
+              <span>ÜBUNG</span><span>VORHER</span><span>JETZT</span>
+            </div>
+            <div class="prog-mock__row">
+              <span>Kniebeuge</span><span>85 kg</span><span class="prog-mock__up">90 kg ↑</span>
+            </div>
+            <div class="prog-mock__row">
+              <span>Bankdrücken</span><span>70 kg</span><span class="prog-mock__up">72.5 kg ↑</span>
+            </div>
+            <div class="prog-mock__row">
+              <span>Kreuzheben</span><span>110 kg</span><span class="prog-mock__up">115 kg ↑</span>
             </div>
           </div>
         </div>
 
-        <div class="feature reveal" style="--delay:.16s">
-          <div class="feature__icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
-            </svg>
+        <div class="feature feature--accent reveal" style="--delay:.08s">
+          <div class="feature__top">
+            <div class="feature__icon feature__icon--accent">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><circle cx="8" cy="15" r="1" fill="currentColor"/><circle cx="12" cy="15" r="1" fill="currentColor"/><circle cx="16" cy="15" r="1" fill="currentColor"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="feature__title">Streaks als Motivationsstütze — nicht als Druck.</h3>
+              <p class="feature__body">Jede Woche kannst du drei Streaks sammeln. Schaffst du alle drei — gibt's den Superstreak. Erreichst du einen mal nicht? Kein Problem. Die anderen Streaks bleiben. Kein Reset, kein Verlust, kein schlechtes Gewissen.</p>
+            </div>
           </div>
-          <div>
-            <h3 class="feature__title">Körper-Dokumentation</h3>
-            <p class="feature__body">Gewicht, Maße, Fotos — Front, Back, Side. Du siehst wo du gestartet bist und wohin die Reise geht.</p>
+          <div class="streak__types">
+            <div class="streak__type">
+              <span class="streak__type-icon">💪</span>
+              <div>
+                <span class="streak__type-name">Kraft</span>
+                <span class="streak__type-rule">2× Training A oder B</span>
+              </div>
+            </div>
+            <div class="streak__type">
+              <span class="streak__type-icon">🫀</span>
+              <div>
+                <span class="streak__type-name">Ausdauer</span>
+                <span class="streak__type-rule">100 Min Zone 2</span>
+              </div>
+            </div>
+            <div class="streak__type">
+              <span class="streak__type-icon">⚡</span>
+              <div>
+                <span class="streak__type-name">Sprint</span>
+                <span class="streak__type-rule">1× Sprint-Session</span>
+              </div>
+            </div>
+          </div>
+          <div class="streak__super">
+            <span class="streak__super-label">Alle 3 in einer Woche</span>
+            <span class="streak__super-badge">SUPERSTREAK</span>
           </div>
         </div>
 
-        <div class="feature reveal" style="--delay:.24s">
-          <div class="feature__icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-            </svg>
+        <!-- Row 2: Körper-Doku (2 cols) + Zone 2 -->
+        <div class="feature feature--body reveal" style="--delay:.12s">
+          <div class="feature__top">
+            <div class="feature__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="feature__title">Körper-Dokumentation</h3>
+              <p class="feature__body">Gewicht, Maße, Fotos. Du siehst wo du angefangen hast — und wohin die Reise geht.</p>
+            </div>
           </div>
-          <div>
-            <h3 class="feature__title">Zone 2 & Sprint</h3>
-            <p class="feature__body">Ausdauer und Kondition — als Ergänzung zum Krafttraining. Herzfrequenz direkt via HealthKit.</p>
+          <!-- Body check-in mock -->
+          <div class="body-mock">
+            <div class="body-mock__photos">
+              <div class="body-mock__photo">
+                <svg viewBox="0 0 60 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <circle cx="30" cy="14" r="10" fill="rgba(255,255,255,0.08)"/>
+                  <rect x="18" y="26" width="24" height="36" rx="4" fill="rgba(255,255,255,0.06)"/>
+                  <rect x="6" y="28" width="10" height="28" rx="4" fill="rgba(255,255,255,0.05)"/>
+                  <rect x="44" y="28" width="10" height="28" rx="4" fill="rgba(255,255,255,0.05)"/>
+                  <rect x="20" y="64" width="10" height="42" rx="4" fill="rgba(255,255,255,0.06)"/>
+                  <rect x="30" y="64" width="10" height="42" rx="4" fill="rgba(255,255,255,0.06)"/>
+                </svg>
+                <span>FRONT</span>
+              </div>
+              <div class="body-mock__photo">
+                <svg viewBox="0 0 60 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <circle cx="30" cy="14" r="10" fill="rgba(255,255,255,0.08)"/>
+                  <rect x="18" y="26" width="24" height="36" rx="4" fill="rgba(255,255,255,0.06)"/>
+                  <rect x="6" y="28" width="10" height="28" rx="4" fill="rgba(255,255,255,0.05)"/>
+                  <rect x="44" y="28" width="10" height="28" rx="4" fill="rgba(255,255,255,0.05)"/>
+                  <rect x="20" y="64" width="10" height="42" rx="4" fill="rgba(255,255,255,0.06)"/>
+                  <rect x="30" y="64" width="10" height="42" rx="4" fill="rgba(255,255,255,0.06)"/>
+                </svg>
+                <span>BACK</span>
+              </div>
+              <div class="body-mock__photo">
+                <svg viewBox="0 0 60 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <circle cx="30" cy="14" r="10" fill="rgba(255,255,255,0.08)"/>
+                  <rect x="20" y="26" width="20" height="36" rx="4" fill="rgba(255,255,255,0.06)"/>
+                  <rect x="8"  y="28" width="10" height="28" rx="4" fill="rgba(255,255,255,0.05)"/>
+                  <rect x="22" y="64" width="14" height="42" rx="4" fill="rgba(255,255,255,0.06)"/>
+                </svg>
+                <span>SEITE</span>
+              </div>
+            </div>
+            <div class="body-mock__stats">
+              <div class="body-mock__stat">
+                <span class="body-mock__stat-label">Gewicht</span>
+                <span class="body-mock__stat-val">82.4 kg</span>
+              </div>
+              <div class="body-mock__stat">
+                <span class="body-mock__stat-label">Brust</span>
+                <span class="body-mock__stat-val">98 cm</span>
+              </div>
+              <div class="body-mock__stat">
+                <span class="body-mock__stat-label">Hüfte</span>
+                <span class="body-mock__stat-val">91 cm</span>
+              </div>
+              <div class="body-mock__stat">
+                <span class="body-mock__stat-label">Taille</span>
+                <span class="body-mock__stat-val">86 cm</span>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="feature reveal" style="--delay:.32s">
-          <div class="feature__icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
-            </svg>
-          </div>
-          <div>
-            <h3 class="feature__title">Home Screen Widget</h3>
-            <p class="feature__body">Streak, letzte Sessions, nächstes Training — direkt auf dem Home Screen. Morgens aufmachen und sofort wissen: dran oder nicht.</p>
+        <div class="feature reveal" style="--delay:.2s">
+          <div class="feature__top">
+            <div class="feature__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="feature__title">Zone 2 & Sprint</h3>
+              <p class="feature__body">Ausdauer und Kondition als Ergänzung zum Krafttraining. Herzfrequenz direkt via HealthKit.</p>
+            </div>
           </div>
         </div>
 
-        <div class="feature reveal" style="--delay:.4s">
-          <div class="feature__icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/>
-            </svg>
+        <!-- Row 3: Widget (span 2, horizontal) + Planbar (1 col) -->
+        <div class="feature feature--widget reveal" style="--delay:.16s">
+          <div class="feature__widget-text">
+            <div class="feature__top">
+              <div class="feature__icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="feature__title">Home Screen Widget</h3>
+                <p class="feature__body">Jeden Mal wenn du dein Handy entsperrst, siehst du deinen Streak. Kein Push, kein Alarm — nur ein stiller, täglicher Reminder. Unterbewusst. Das reicht.</p>
+              </div>
+            </div>
           </div>
-          <div>
-            <h3 class="feature__title">Kein Account. Kein Abo.</h3>
-            <p class="feature__body">Alles lokal auf deinem iPhone. iCloud Backup inklusive. Einmal kaufen — für immer nutzen.</p>
+          <Image src={appMockupWidget} alt="Dad Strong Home Screen Widget – Streak-Übersicht direkt auf dem iPhone Startbildschirm" format="avif" loading="lazy" class="widget-mockup-img" />
+        </div>
+
+        <!-- Standardized training -->
+        <div class="feature feature--structured reveal" style="--delay:.24s">
+          <div class="feature__top">
+            <div class="feature__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="feature__title">Planbar wie ein Meeting.</h3>
+              <p class="feature__body">Fixe Pausen sind Pflicht — nicht optional. Das schafft Vergleichbarkeit von Einheit zu Einheit. Und weil der Ablauf standardisiert ist, weißt du vorher wie lang du brauchst.</p>
+            </div>
           </div>
+          <div class="duration-mock">
+            <div class="duration-mock__row">
+              <span class="duration-mock__label">TRAINING A</span>
+              <div class="duration-mock__bar"><div class="duration-mock__fill" style="width:100%"></div></div>
+              <span class="duration-mock__time">~60 Min</span>
+            </div>
+            <div class="duration-mock__row">
+              <span class="duration-mock__label">TRAINING B</span>
+              <div class="duration-mock__bar"><div class="duration-mock__fill" style="width:75%"></div></div>
+              <span class="duration-mock__time">~45 Min</span>
+            </div>
+            <p class="duration-mock__note">Kein Schätzen. Kein Improvisieren. Du weißt vorher, wann du fertig bist.</p>
+          </div>
+        </div>
+
+        <!-- Papa-Text spanning 2 cols -->
+        <div class="feature feature--papa reveal" style="--delay:.3s">
+          <p class="papa__eyebrow">WARUM DAS ALLES?</p>
+          <p class="papa__text">Nicht wegen Instagram.<br>Nicht wegen eines perfekten Körpers.</p>
+          <div class="papa__values">
+            <span>Energie</span>
+            <span>Stabilität</span>
+            <span>Gesundheit</span>
+            <span>Selbstrespekt</span>
+            <span>Belastbarkeit</span>
+          </div>
+          <p class="papa__close">Dinge, die sich auf alles auswirken — auf die Arbeit, auf die Familie, auf dich selbst.</p>
         </div>
 
       </div>
@@ -416,12 +805,27 @@ import Layout from '../layouts/Layout.astro';
 
         <details class="faq reveal" style="--delay:.24s">
           <summary class="faq__q">Brauche ich ein Gym oder bestimmte Geräte?</summary>
-          <p class="faq__a">Du brauchst eine Langhantel, Gewichte und eine Bank. Ein normales Gym reicht vollkommen. Kein Hightech-Equipment, kein teures Abo.</p>
+          <p class="faq__a">Ein Rack, eine Langhantel, Gewichtsscheiben. Das war's. Kein Kabelzug, kein Gerät, kein Smith Machine. Was du brauchst, gibt es in jedem normalen Gym.</p>
         </details>
 
         <details class="faq reveal" style="--delay:.3s">
           <summary class="faq__q">Was wenn ich mal ein Training verpasse?</summary>
           <p class="faq__a">Dann machst du das nächste Training. Fertig. Dad Strong hat keinen künstlichen Streak-Druck. Leben passiert — das System ist dafür gebaut.</p>
+        </details>
+
+        <details class="faq reveal" style="--delay:.36s">
+          <summary class="faq__q">Warum sehe ich nicht meine Ergebnisse der letzten Trainings?</summary>
+          <p class="faq__a">Absicht. Die einzige Frage die zählt: Bin ich heute stärker als beim letzten Mal? Die App zeigt dir genau das — den Progressionsvorschlag für heute. Alles andere ist Rauschen.</p>
+        </details>
+
+        <details class="faq reveal" style="--delay:.48s">
+          <summary class="faq__q">Bekomme ich mit Dad Strong einen Sixpack?</summary>
+          <p class="faq__a">Ein Sixpack entsteht durch ein Kaloriendefizit — nicht durch Bauchübungen. Dad Strong macht keine Versprechen in diese Richtung. Was das Training leistet: du baust die großen Muskelgruppen auf — Beine, Rücken, Brust. Mehr Muskelmasse bedeutet einen höheren Grundumsatz, du verbrennst also im Alltag mehr Kalorien. Das unterstützt ein Defizit langfristig. Aber sichtbare Bauchmuskeln kommen über die Küche, nicht über das Gym.</p>
+        </details>
+
+        <details class="faq reveal" style="--delay:.54s">
+          <summary class="faq__q">Funktioniert der Plan auch in einer Aufbauphase (Bulk)?</summary>
+          <p class="faq__a">Ja. Das Training ist unabhängig davon was du isst. Lineare Progression funktioniert sowohl im Kalorienüberschuss (du wirst stärker und größer) als auch im Defizit (du erhältst Kraft und Muskelmasse). Die App trackt keine Ernährung — das bleibt deine Entscheidung. Der Plan passt zu beiden Zielen.</p>
         </details>
 
       </div>
@@ -452,7 +856,7 @@ import Layout from '../layouts/Layout.astro';
     <div class="container footer__inner">
       <span class="footer__brand">DAD STRONG</span>
       <nav class="footer__links" aria-label="Footer Navigation">
-        <a href="/privacy">Datenschutz</a>
+        <a href="/privacy">Datenschutz & Impressum</a>
         <a href="mailto:info@dadstrong.app">Kontakt</a>
       </nav>
       <p class="footer__copy">© 2026 Christian Bachmann</p>
@@ -481,7 +885,7 @@ import Layout from '../layouts/Layout.astro';
     margin-bottom: 20px;
   }
   .label--accent { color: #d4ff00; }
-  .label--muted  { color: #555; }
+  .label--muted  { color: #888; }
 
   .section__header { margin-bottom: clamp(48px, 7vw, 88px); }
   .section__title {
@@ -492,7 +896,7 @@ import Layout from '../layouts/Layout.astro';
     color: #fff;
     margin-bottom: 20px;
   }
-  .section__lead { font-size: 17px; color: #808080; line-height: 1.65; max-width: 520px; }
+  .section__lead { font-size: 17px; color: #aaaaaa; line-height: 1.65; max-width: 520px; }
 
   /* ─────────────────────────────── BUTTON */
   .btn-primary {
@@ -577,7 +981,7 @@ import Layout from '../layouts/Layout.astro';
     line-height: 1.05;
     margin-bottom: 18px;
   }
-  .hero__body { font-size: 16px; color: #808080; line-height: 1.7; margin-bottom: 36px; }
+  .hero__body { font-size: 16px; color: #aaaaaa; line-height: 1.7; margin-bottom: 36px; }
   .hero__divider {
     position: absolute;
     bottom: 0; left: 0; right: 0;
@@ -657,7 +1061,7 @@ import Layout from '../layouts/Layout.astro';
     flex-shrink: 0;
     line-height: 1.4;
   }
-  .pain__text { font-size: 15px; color: #aaa; line-height: 1.6; }
+  .pain__text { font-size: 15px; color: #bbb; line-height: 1.6; }
 
   .pain__answer {
     border-top: 1px solid rgba(255,255,255,.06);
@@ -672,7 +1076,7 @@ import Layout from '../layouts/Layout.astro';
     letter-spacing: .04em;
     color: #d4ff00;
   }
-  .pain__answer-sub { font-size: 16px; color: #808080; max-width: 540px; line-height: 1.65; }
+  .pain__answer-sub { font-size: 16px; color: #aaaaaa; max-width: 540px; line-height: 1.65; }
 
   /* ─────────────────────────────── PHILOSOPHY LAYOUT */
   .philosophy__layout {
@@ -714,10 +1118,11 @@ import Layout from '../layouts/Layout.astro';
     margin-bottom: 12px;
   }
   .card__title { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 8px; line-height: 1.2; }
-  .card__body { font-size: 13px; color: #808080; line-height: 1.65; }
+  .card__body { font-size: 13px; color: #aaaaaa; line-height: 1.65; }
 
   /* ─────────────────────────────── iPHONE MOCKUP */
   .philosophy__mockup { display: flex; flex-direction: column; align-items: center; gap: 24px; }
+  .philosophy__mockup-img { width: 280px; height: auto; filter: drop-shadow(0 32px 64px rgba(0,0,0,.5)); }
   .iphone {
     position: relative;
     width: clamp(220px, 28vw, 320px);
@@ -750,7 +1155,117 @@ import Layout from '../layouts/Layout.astro';
   .iphone__screen { position: absolute; inset: 0; border-radius: inherit; overflow: hidden; }
   .iphone__screen img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
   .mockup__label { text-align: center; }
-  .mockup__caption { font-size: 14px; color: #808080; margin-top: 6px; }
+  .mockup__caption { font-size: 14px; color: #aaaaaa; margin-top: 6px; }
+
+  /* ─────────────────────────────── REALITY BRIDGE */
+  .reality-section { background: #000; border-top: 1px solid rgba(255,255,255,.06); border-bottom: 1px solid rgba(255,255,255,.06); }
+  .reality__inner { max-width: 760px; }
+  .reality__claim {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(38px, 6vw, 64px);
+    letter-spacing: .03em;
+    color: #fff;
+    line-height: 1.05;
+    margin: 14px 0 20px;
+  }
+  .reality__body {
+    font-size: 16px;
+    color: #aaaaaa;
+    line-height: 1.7;
+    max-width: 600px;
+    margin-bottom: 40px;
+  }
+  .reality__formula {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 28px 32px;
+    background: #0d0d0d;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 16px;
+    margin-bottom: 32px;
+  }
+  .reality__factor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 14px 20px;
+    background: rgba(255,255,255,.04);
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,.06);
+    min-width: 110px;
+  }
+  .reality__factor--result {
+    background: rgba(212,255,0,.06);
+    border-color: rgba(212,255,0,.2);
+  }
+  .reality__factor--result .reality__factor-label { color: #d4ff00; }
+  .reality__factor-icon { font-size: 20px; line-height: 1; }
+  .reality__factor-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: #888;
+  }
+  .reality__op {
+    font-family: 'DM Mono', monospace;
+    font-size: 22px;
+    color: #444;
+    padding: 0 4px;
+  }
+  .reality__op--approx { color: #d4ff00; font-size: 28px; }
+  .reality__close {
+    font-size: 16px;
+    color: #aaaaaa;
+    line-height: 1.7;
+    max-width: 600px;
+  }
+  @media (max-width: 600px) {
+    .reality__formula { padding: 20px 16px; gap: 8px; }
+    .reality__factor { min-width: 80px; padding: 10px 12px; }
+    .reality__factor-icon { display: none; }
+  }
+
+  /* ─────────────────────────────── PHONES SHOWCASE */
+  .phones-showcase {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 24px;
+    margin: 0 auto 80px;
+    max-width: 640px;
+  }
+  .phones-showcase__phone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    flex: 1;
+  }
+  .phones-showcase__phone--raised {
+    transform: translateY(-32px);
+  }
+  .phones-showcase__phone img {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    border-radius: 4px;
+    filter: drop-shadow(0 32px 64px rgba(0,0,0,.6));
+  }
+  .phones-showcase__label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: #777;
+  }
+  @media (max-width: 500px) {
+    .phones-showcase { gap: 12px; }
+    .phones-showcase__phone--raised { transform: translateY(-16px); }
+  }
 
   /* ─────────────────────────────── ABOUT / GESCHICHTE */
   .about-section { background: #0a0a0a; }
@@ -772,7 +1287,7 @@ import Layout from '../layouts/Layout.astro';
     font-style: normal;
     margin: 0 0 16px;
   }
-  .about__byline { font-size: 13px; color: #444; font-style: italic; }
+  .about__byline { font-size: 13px; color: #777; font-style: italic; }
 
   .about__right { display: flex; flex-direction: column; gap: 18px; }
   .about__right p {
@@ -818,7 +1333,7 @@ import Layout from '../layouts/Layout.astro';
   .exercise:last-child { border-bottom: none; }
   .exercise:hover { background: rgba(212,255,0,.03); }
   .exercise__name { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 3px; }
-  .exercise__why { font-size: 12px; color: #555; letter-spacing: .02em; }
+  .exercise__why { font-size: 12px; color: #888; letter-spacing: .02em; }
 
   /* Warum nicht veränderbar callout */
   .training__why {
@@ -839,7 +1354,7 @@ import Layout from '../layouts/Layout.astro';
     margin-bottom: 6px;
     letter-spacing: .02em;
   }
-  .training__why-body { font-size: 14px; color: #808080; line-height: 1.65; }
+  .training__why-body { font-size: 14px; color: #aaaaaa; line-height: 1.65; }
 
   /* Progression */
   .progression {
@@ -856,7 +1371,7 @@ import Layout from '../layouts/Layout.astro';
     font-weight: 700;
     letter-spacing: .1em;
     text-transform: uppercase;
-    color: #444;
+    color: #777;
     margin-bottom: 8px;
   }
   .progression__bar {
@@ -875,7 +1390,7 @@ import Layout from '../layouts/Layout.astro';
   }
   .progression__fill.active { width: 100%; }
   .progression__weights { display: flex; justify-content: space-between; margin-bottom: 12px; }
-  .prog-w { font-family: 'DM Mono', monospace; font-size: 13px; color: #555; }
+  .prog-w { font-family: 'DM Mono', monospace; font-size: 13px; color: #888; }
   .prog-w--accent { color: #d4ff00; font-weight: 500; }
   .progression__note { font-size: 12px; color: rgba(255,255,255,.18); }
 
@@ -894,12 +1409,17 @@ import Layout from '../layouts/Layout.astro';
     padding: clamp(24px, 3vw, 36px);
     background: #000;
     display: flex;
-    gap: 18px;
-    align-items: flex-start;
+    flex-direction: column;
     transition: background .18s;
   }
   .feature:hover { background: #111; }
   .feature--accent:hover { background: rgba(212,255,0,.05); }
+  .feature__top {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
   .feature__icon {
     width: 42px; height: 42px;
     border-radius: 10px;
@@ -910,7 +1430,7 @@ import Layout from '../layouts/Layout.astro';
   }
   .feature__icon--accent { background: rgba(212,255,0,.14); }
   .feature__title { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 5px; }
-  .feature__body { font-size: 13px; color: #808080; line-height: 1.6; }
+  .feature__body { font-size: 13px; color: #aaaaaa; line-height: 1.6; }
   .streak__demo { display: flex; gap: 6px; margin-top: 16px; }
   .streak__day {
     font-family: 'DM Mono', monospace;
@@ -920,9 +1440,227 @@ import Layout from '../layouts/Layout.astro';
     border-radius: 8px;
     display: flex; align-items: center; justify-content: center;
   }
+  /* About lists */
+  .about__list, .about__values {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 4px 0 16px;
+  }
+  .about__list span, .about__values span {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,.1);
+    color: rgba(255,255,255,.5);
+  }
+  .about__values span {
+    border-color: rgba(212,255,0,.2);
+    color: #d4ff00;
+    background: rgba(212,255,0,.05);
+  }
+
+  /* Progression mock */
+  .prog-mock {
+    background: rgba(255,255,255,.03);
+    border: 1px solid rgba(255,255,255,.06);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .prog-mock__header {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 12px;
+    padding: 8px 14px;
+    background: rgba(255,255,255,.04);
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    color: #777;
+    text-transform: uppercase;
+  }
+  .prog-mock__row {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 12px;
+    padding: 9px 14px;
+    border-top: 1px solid rgba(255,255,255,.04);
+    font-size: 13px;
+    color: rgba(255,255,255,.5);
+    font-family: 'DM Mono', monospace;
+    transition: background .15s;
+  }
+  .prog-mock__row:hover { background: rgba(255,255,255,.03); }
+  .prog-mock__up { color: #d4ff00; font-weight: 500; }
+
+  /* Body check-in mock */
+  .feature--body { grid-column: span 2; }
+  .body-mock { margin-top: 4px; display: flex; gap: 16px; align-items: flex-end; }
+  .body-mock__photos { display: flex; gap: 10px; flex: 1; }
+  .body-mock__photo {
+    flex: 1;
+    background: rgba(255,255,255,.03);
+    border: 1px solid rgba(255,255,255,.06);
+    border-radius: 10px;
+    padding: 12px 8px 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .body-mock__photo svg { width: 100%; max-width: 48px; height: auto; }
+  .body-mock__photo span {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    color: #777;
+  }
+  .body-mock__stats {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 120px;
+  }
+  .body-mock__stat {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 7px 12px;
+    background: rgba(255,255,255,.03);
+    border: 1px solid rgba(255,255,255,.05);
+    border-radius: 8px;
+  }
+  .body-mock__stat-label { font-size: 12px; color: #888; }
+  .body-mock__stat-val { font-family: 'DM Mono', monospace; font-size: 12px; color: #fff; font-weight: 500; }
+
+  /* Widget tile — span 2, horizontal layout */
+  .feature--widget {
+    grid-column: span 2;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+  }
+  .feature--widget .feature__widget-text { flex: 1; min-width: 0; }
+  .feature--widget .feature__top { margin-bottom: 0; }
+  .widget-mockup-img {
+    flex-shrink: 0;
+    width: 240px;
+    max-width: 40%;
+    height: auto;
+    margin-top: 0;
+    filter: drop-shadow(0 16px 40px rgba(0,0,0,.6));
+    border-radius: 24px;
+  }
+
+  /* Standardized training tile */
+  .feature--structured { grid-column: span 1; }
+  .duration-mock { margin-top: 20px; display: flex; flex-direction: column; gap: 10px; }
+  .duration-mock__row {
+    display: grid;
+    grid-template-columns: 90px 1fr 56px;
+    align-items: center;
+    gap: 12px;
+  }
+  .duration-mock__label { font-size: 11px; font-weight: 700; letter-spacing: .1em; color: #777; }
+  .duration-mock__bar { height: 5px; background: rgba(255,255,255,.08); border-radius: 3px; overflow: hidden; }
+  .duration-mock__fill { height: 100%; background: var(--color-accent); border-radius: 3px; }
+  .duration-mock__time { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--color-accent); text-align: right; }
+  .duration-mock__note { margin-top: 6px; font-size: 12px; color: #777; line-height: 1.5; }
+
+  /* Papa text tile */
+  .feature--papa {
+    grid-column: span 3;
+    background: #0a0a0a !important;
+    border-top: 1px solid rgba(255,255,255,.04) !important;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+  }
+  .papa__eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .2em;
+    color: #777;
+    text-transform: uppercase;
+  }
+  .papa__text {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(28px, 4vw, 44px);
+    letter-spacing: .04em;
+    color: #fff;
+    line-height: 1.1;
+  }
+  .papa__values {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .papa__values span {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 1px solid rgba(212,255,0,.2);
+    color: #d4ff00;
+    background: rgba(212,255,0,.05);
+  }
+  .papa__close { font-size: 15px; color: #888; line-height: 1.6; max-width: 520px; }
+
   .streak__day--done { background: rgba(212,255,0,.15); color: #d4ff00; border: 1px solid rgba(212,255,0,.3); }
   .streak__day--skip { background: rgba(255,255,255,.04); color: rgba(255,255,255,.2); border: 1px solid rgba(255,255,255,.06); }
   .streak__day--rest { background: transparent; color: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.04); font-style: italic; }
+
+  /* Streak types */
+  .streak__types { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }
+  .streak__type {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    background: rgba(255,255,255,.04);
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,.06);
+  }
+  .streak__type-icon { font-size: 18px; flex-shrink: 0; }
+  .streak__type-name {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 2px;
+  }
+  .streak__type-rule {
+    display: block;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: #888;
+    letter-spacing: .04em;
+  }
+  .streak__super {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 12px;
+    padding: 12px 14px;
+    background: rgba(212,255,0,.07);
+    border: 1px solid rgba(212,255,0,.2);
+    border-radius: 10px;
+  }
+  .streak__super-label { font-size: 13px; color: rgba(255,255,255,.6); }
+  .streak__super-badge {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 15px;
+    letter-spacing: .12em;
+    color: #d4ff00;
+  }
 
   /* ─────────────────────────────── FAQ */
   .faq__list { display: flex; flex-direction: column; gap: 1px; background: rgba(255,255,255,.06); border-radius: 16px; overflow: hidden; }
@@ -951,7 +1689,7 @@ import Layout from '../layouts/Layout.astro';
     content: '+';
     font-family: 'DM Mono', monospace;
     font-size: 20px;
-    color: #444;
+    color: #777;
     flex-shrink: 0;
     transition: transform .25s, color .18s;
   }
@@ -959,7 +1697,7 @@ import Layout from '../layouts/Layout.astro';
   .faq__a {
     padding: 0 28px 22px;
     font-size: 15px;
-    color: #808080;
+    color: #aaaaaa;
     line-height: 1.7;
     max-width: 680px;
   }
@@ -1017,10 +1755,470 @@ import Layout from '../layouts/Layout.astro';
   }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
+  /* ─────────────────────────────── MID-PAGE CTA */
+  .midcta { padding: 56px 0; }
+
+  .midcta__inner {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .midcta__line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,.08), transparent);
+  }
+
+  .midcta__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    flex-shrink: 0;
+  }
+
+  .midcta__heading {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(28px, 4vw, 42px);
+    letter-spacing: .06em;
+    color: #555;
+    margin: 0;
+  }
+
+  .midcta__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: #d4ff00;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 12px 22px;
+    border: 1px solid rgba(212,255,0,.3);
+    border-radius: 10px;
+    transition: border-color .18s, color .18s;
+  }
+
+  .midcta__btn:hover { border-color: #d4ff00; color: #d4ff00; }
+
+  /* ─────────────────────────────── ZONE 2 */
+  .label--zone2 { color: var(--color-zone2); }
+
+  .zone2__layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(48px, 7vw, 100px);
+    align-items: center;
+  }
+
+  .zone2__title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(48px, 7vw, 88px);
+    line-height: 0.95;
+    letter-spacing: .02em;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+
+  .zone2__lead {
+    font-size: 17px;
+    color: #aaaaaa;
+    line-height: 1.65;
+    max-width: 460px;
+    margin-bottom: 36px;
+  }
+
+  .zone2__quote {
+    border-left: 2px solid var(--color-zone2);
+    margin: 0 0 24px;
+    padding: 12px 0 12px 20px;
+  }
+
+  .zone2__quote p, .zone2__quote {
+    font-size: 16px;
+    color: #ccc;
+    line-height: 1.65;
+    font-style: normal;
+  }
+
+  .zone2__quote cite {
+    display: block;
+    margin-top: 10px;
+    font-size: 13px;
+    color: #777;
+    font-style: normal;
+    line-height: 1.6;
+  }
+
+  .zone2__benefits {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .zone2__benefits li {
+    font-size: 14px;
+    color: #aaaaaa;
+    line-height: 1.5;
+    padding-left: 18px;
+    position: relative;
+  }
+
+  .zone2__benefits li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--color-zone2);
+    opacity: .7;
+  }
+
+  .zone2__optional {
+    background: rgba(255,140,26,.05);
+    border: 1px solid rgba(255,140,26,.1);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+  }
+
+  .zone2__optional-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--color-zone2);
+    margin-bottom: 8px;
+  }
+
+  .zone2__optional p {
+    font-size: 14px;
+    color: #888;
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .zone2__healthkit {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--color-zone2);
+    font-size: 13px;
+    font-weight: 600;
+    opacity: .75;
+  }
+
+  /* Visual side */
+  .zone2__visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .zone2__mockup-img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    filter: drop-shadow(0 24px 60px rgba(255,140,26,.15)) drop-shadow(0 8px 24px rgba(0,0,0,.6));
+    border-radius: 44px;
+  }
+
+  /* Background pulse decoration */
+  .zone2-section { position: relative; overflow: hidden; }
+
+  .zone2__bg-pulse {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 160px;
+    pointer-events: none;
+    z-index: 0;
+    -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,.4) 0%, transparent 100%);
+    mask-image: linear-gradient(to top, rgba(0,0,0,.4) 0%, transparent 100%);
+  }
+
+  .zone2__bg-pulse svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .zone2-section .container { position: relative; z-index: 1; }
+
+  /* ─────────────────────────────── SPRINT */
+  .label--sprint { color: var(--color-sprint); }
+
+  .sprint-section {
+    position: relative;
+  }
+
+  .sprint-section .container { position: relative; z-index: 1; }
+
+  .sprint__layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(48px, 7vw, 100px);
+    align-items: center;
+  }
+
+  /* Visual side */
+  .sprint__visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .sprint__mockup-img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    filter: drop-shadow(0 24px 60px rgba(242,38,38,.15)) drop-shadow(0 8px 24px rgba(0,0,0,.6));
+    border-radius: 44px;
+  }
+
+  /* Bars: section-level, span both columns */
+  .sprint__bars {
+    position: absolute;
+    bottom: 0;
+    left: clamp(24px, 5vw, 72px);
+    right: 0;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 10px;
+    pointer-events: none;
+    z-index: 0;
+    /* override reveal animation — bars use own scaleX trigger */
+    opacity: 1;
+    transform: none;
+    transition: none;
+    -webkit-mask-image: linear-gradient(to top, black 70%, transparent 100%);
+    mask-image: linear-gradient(to top, black 70%, transparent 100%);
+  }
+
+  .sbar {
+    width: var(--w, 40%);
+    height: 28px;
+    flex-shrink: 0;
+    border-radius: 0 5px 5px 0;
+    position: relative;
+    background: linear-gradient(to right, rgba(242,38,38,.015) 0%, rgba(242,38,38,.08) 100%);
+    transform: scaleX(0);
+    transform-origin: left center;
+  }
+
+  .sbar--gap { height: 18px; background: transparent; transform: none; }
+
+  .sbar--peak {
+    background: linear-gradient(to right, rgba(242,38,38,.03) 0%, rgba(242,38,38,.16) 100%);
+    box-shadow: 0 0 20px rgba(242,38,38,.06);
+  }
+
+  .sprint__bars.visible .sbar:not(.sbar--gap) {
+    animation: sprintBarSlide .9s var(--delay, 0s) cubic-bezier(.23,1,.32,1) both;
+  }
+
+  @keyframes sprintBarSlide {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
+  }
+
+  .sprint__text { position: relative; z-index: 2; }
+
+  .sprint__title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(48px, 7vw, 88px);
+    line-height: 0.95;
+    letter-spacing: .02em;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+
+  .sprint__lead {
+    font-size: 17px;
+    color: #aaaaaa;
+    line-height: 1.65;
+    max-width: 460px;
+    margin-bottom: 24px;
+  }
+
+  .sprint__quote {
+    border-left: 2px solid var(--color-sprint);
+    margin: 0 0 24px;
+    padding: 12px 0 12px 20px;
+    font-size: 16px;
+    color: #ccc;
+    line-height: 1.65;
+    font-style: normal;
+  }
+
+  .sprint__sub {
+    font-size: 14px;
+    color: #888;
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  .sprint__progression {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-bottom: 24px;
+    background: #0d0d0d;
+    border: 1px solid rgba(242,38,38,.1);
+    border-radius: 14px;
+    padding: 16px 18px;
+  }
+
+  .sprint__prog-sprint {
+    display: grid;
+    grid-template-columns: 24px 1fr 32px 52px;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .sprint__prog-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: #555;
+    font-weight: 500;
+  }
+
+  .sprint__prog-bar {
+    height: 4px;
+    background: rgba(255,255,255,.07);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .sprint__prog-fill {
+    height: 100%;
+    background: var(--color-sprint);
+    border-radius: 2px;
+    opacity: .6;
+  }
+
+  .sprint__prog-fill--peak { opacity: 1; }
+
+  .sprint__prog-sprint--last .sprint__prog-fill {
+    box-shadow: 0 0 8px rgba(242,38,38,.4);
+  }
+
+  .sprint__prog-pct {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--color-sprint);
+    text-align: right;
+  }
+
+  .sprint__prog-rest {
+    font-size: 10px;
+    color: #555;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .sprint__prog-rest--cooldown { color: #666; }
+
+  .sprint__formats {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 16px;
+  }
+
+  .sprint__formats li {
+    font-size: 13px;
+    color: #aaaaaa;
+    padding-left: 14px;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .sprint__formats li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 7px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--color-sprint);
+    opacity: .7;
+  }
+
+  .sprint__benefits {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+
+  .sprint__benefit {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(242,38,38,.06);
+    border: 1px solid rgba(242,38,38,.12);
+    border-radius: 20px;
+    padding: 6px 12px;
+    font-size: 13px;
+    color: #aaaaaa;
+  }
+
+  .sprint__benefit-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--color-sprint);
+    flex-shrink: 0;
+  }
+
+  .sprint__optional {
+    background: rgba(242,38,38,.04);
+    border: 1px solid rgba(242,38,38,.1);
+    border-radius: 12px;
+    padding: 16px 20px;
+  }
+
+  .sprint__optional-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--color-sprint);
+    margin-bottom: 8px;
+  }
+
+  .sprint__optional p {
+    font-size: 14px;
+    color: #888;
+    line-height: 1.65;
+    margin: 0;
+  }
+
   /* ─────────────────────────────── RESPONSIVE */
   @media (max-width: 1024px) {
     .features { grid-template-columns: 1fr 1fr; }
     .feature--accent { grid-column: span 2; }
+    .feature--papa { grid-column: span 2; }
     .about__layout { grid-template-columns: 1fr; }
     .about__left { position: static; }
   }
@@ -1028,12 +2226,19 @@ import Layout from '../layouts/Layout.astro';
     .philosophy__layout { grid-template-columns: 1fr; }
     .philosophy__mockup { order: -1; }
     .pain__grid { grid-template-columns: 1fr 1fr; }
+    .zone2__layout { grid-template-columns: 1fr; }
+    .zone2__visual { order: -1; }
+    .sprint__layout { grid-template-columns: 1fr; }
+    .sprint__visual { order: -1; }
   }
   @media (max-width: 680px) {
     .training__grid { grid-template-columns: 1fr; }
     .philosophy__cards { grid-template-columns: 1fr; }
     .features { grid-template-columns: 1fr; }
     .feature--accent { grid-column: span 1; }
+    .feature--widget { grid-column: span 1; flex-direction: column; }
+    .feature--widget .widget-mockup-img { width: 100%; max-width: 280px; max-height: 260px; object-fit: contain; }
+    .feature--papa { grid-column: span 1; }
     .pain__grid { grid-template-columns: 1fr; }
     .hero__bars { display: none; }
     .streak__demo { flex-wrap: wrap; }
