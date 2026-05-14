@@ -8,6 +8,8 @@ import appMockupWidget from '../assets/images/app-mockup-widget.png';
 import appMockupPause from '../assets/images/app-mockup-pause.png';
 import appMockupZone2 from '../assets/images/iPhone-16-Pro-Max-zone-2.png';
 import appMockupSprint from '../assets/images/iphone-16-sprint.png';
+import appMockupChallenge from '../assets/images/iphone-16-challenge.png';
+import CalorieCalculator from '../components/CalorieCalculator.astro';
 ---
 
 <Layout>
@@ -833,6 +835,49 @@ import appMockupSprint from '../assets/images/iphone-16-sprint.png';
           <p class="faq__a">Der Sinn des Plans ist Progression, Standardisierung, Kontrolle — und die Vermeidung von Übertraining. Deshalb meine Empfehlung: Ändere die Grundtrainings nicht. Wenn du für dich entscheidest, dass du zusätzlich Armtraining machen möchtest, fühl dich frei dazu. Aber teste erst mal 12 Wochen das vorgegebene Programm. Du wirst überrascht sein, wie weit dich zwei solide Einheiten bringen.</p>
         </details>
 
+        <details class="faq reveal" style="--delay:.66s">
+          <summary class="faq__q">Wie machst du das mit dem Kaloriendefizit?</summary>
+          <p class="faq__a">Ich tracke mit Yazio — weil es einfach ist und nicht viel Kopf kostet. Für die 12-Wochen-Challenge gehe ich mit einem aggressiven Defizit rein. Meine Priorität liegt auf dem Defizit, nicht auf dem Sport — außer den zwei Pflichttrainings pro Woche, die stehen nicht zur Debatte.</p>
+          <p class="faq__a">Ich wiege mich jeden Morgen. Nicht um mich zu stressen, sondern um den Trend zu sehen. Das Gewicht schwankt täglich — was zählt ist die Richtung über die Woche.</p>
+          <p class="faq__a">Das Ganze läuft nebenbei: vier Kinder, Vollzeitjob. Es ist kein optimaler Zeitpunkt. Den gibt es nicht. Du fängst an, du machst es durch — oder nicht.</p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════ CHALLENGE -->
+  <section class="section challenge-section" id="challenge">
+    <div class="container">
+      <div class="challenge__layout">
+
+        <div class="challenge__text reveal">
+          <p class="label">DIE CHALLENGE</p>
+          <h2 class="challenge__title">12 Wochen.<br>Einfach durchziehen.</h2>
+          <p class="challenge__body">Starte deine Challenge und zieh einfach durch. Wenn du 2 Trainings und mindestens ein Sprint oder Cardio gemacht hast, gilt die Woche als erfüllt.</p>
+          <p class="challenge__body">Willst du in den 12 Wochen abnehmen, ist jetzt der perfekte Moment für ein Kaloriendefizit. Du baust Muskel auf und verlierst gleichzeitig Fett — das funktioniert in dieser Phase besonders gut.</p>
+          <div class="challenge__rule">
+            <span class="challenge__rule-item">✓ 2× Krafttraining</span>
+            <span class="challenge__rule-sep">+</span>
+            <span class="challenge__rule-item">✓ 1× Sprint oder Cardio</span>
+            <span class="challenge__rule-sep">=</span>
+            <span class="challenge__rule-result">Woche erfüllt</span>
+          </div>
+        </div>
+
+        <div class="challenge__visual reveal" style="--delay:.1s">
+          <Image
+            src={appMockupChallenge}
+            alt="Dad Strong Challenge — 12-Wochen-Übersicht in der App"
+            format="avif"
+            class="challenge__mockup-img"
+          />
+        </div>
+
+      </div>
+
+      <div class="challenge__calc reveal" style="--delay:.15s">
+        <CalorieCalculator />
       </div>
     </div>
   </section>
@@ -1724,6 +1769,73 @@ import appMockupSprint from '../assets/images/iphone-16-sprint.png';
     max-width: 680px;
   }
 
+  /* ─────────────────────────────── CHALLENGE */
+  .challenge-section { background: #000; }
+  .challenge__layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    margin-bottom: 64px;
+  }
+  .challenge__title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(40px, 5vw, 64px);
+    letter-spacing: .04em;
+    color: #fff;
+    line-height: 1;
+    margin: 0 0 24px;
+  }
+  .challenge__body {
+    font-size: 16px;
+    color: #aaaaaa;
+    line-height: 1.75;
+    margin: 0 0 16px;
+  }
+  .challenge__rule {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-top: 28px;
+    padding: 18px 22px;
+    background: #111;
+    border: 1px solid rgba(212,255,0,.1);
+    border-radius: 14px;
+  }
+  .challenge__rule-item {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    color: #ccc;
+  }
+  .challenge__rule-sep {
+    font-size: 16px;
+    font-weight: 700;
+    color: #333;
+  }
+  .challenge__rule-result {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    color: #d4ff00;
+  }
+  .challenge__mockup-img {
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+    border-radius: 44px;
+    filter: drop-shadow(0 24px 60px rgba(0,0,0,.7));
+    display: block;
+    margin: 0 auto;
+  }
+  .challenge__calc { margin-top: 0; }
+
+  @media (max-width: 860px) {
+    .challenge__layout { grid-template-columns: 1fr; gap: 48px; }
+    .challenge__visual { order: -1; }
+  }
+
   /* ─────────────────────────────── CTA */
   .cta-section { background: #111; text-align: center; }
   .cta__inner { max-width: 680px; margin: 0 auto; }
@@ -2264,10 +2376,9 @@ import appMockupSprint from '../assets/images/iphone-16-sprint.png';
     .training__grid { grid-template-columns: 1fr; }
     .philosophy__cards { grid-template-columns: 1fr; }
     .features { grid-template-columns: 1fr; }
-    .feature--accent { grid-column: span 1; }
-    .feature--widget { grid-column: span 1; flex-direction: column; }
+    .features > .feature { grid-column: span 1; }
+    .feature--widget { flex-direction: column; }
     .feature--widget .widget-mockup-img { width: 100%; max-width: 280px; max-height: 260px; object-fit: contain; }
-    .feature--papa { grid-column: span 1; }
     .pain__grid { grid-template-columns: 1fr; }
     .hero__bars { display: none; }
     .streak__demo { flex-wrap: wrap; }

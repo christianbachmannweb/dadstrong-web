@@ -1,0 +1,341 @@
+<div class="calc" id="calorie-calc">
+  <p class="calc__label">KALORIENRECHNER</p>
+  <p class="calc__heading">Dein Defizit für 12 Wochen</p>
+
+  <div class="calc__form">
+    <div class="calc__row">
+      <div class="calc__field">
+        <label class="calc__field-label" for="calc-age">Alter</label>
+        <div class="calc__input-wrap">
+          <input class="calc__input" type="number" id="calc-age" min="18" max="80" value="38" inputmode="numeric" />
+          <span class="calc__unit">Jahre</span>
+        </div>
+      </div>
+      <div class="calc__field">
+        <label class="calc__field-label" for="calc-weight">Gewicht</label>
+        <div class="calc__input-wrap">
+          <input class="calc__input" type="number" id="calc-weight" min="50" max="250" value="85" inputmode="numeric" />
+          <span class="calc__unit">kg</span>
+        </div>
+      </div>
+      <div class="calc__field">
+        <label class="calc__field-label" for="calc-height">Größe</label>
+        <div class="calc__input-wrap">
+          <input class="calc__input" type="number" id="calc-height" min="150" max="220" value="178" inputmode="numeric" />
+          <span class="calc__unit">cm</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="calc__modes">
+      <button class="calc__mode-btn calc__mode-btn--active" id="btn-sanft" type="button">
+        <span class="calc__mode-name">Sanft</span>
+        <span class="calc__mode-deficit">−200 kcal / Tag</span>
+        <span class="calc__mode-desc">Muskeln aufbauen, Fett verlieren — gleichzeitig. Kaum Hunger.</span>
+      </button>
+      <button class="calc__mode-btn" id="btn-moderat" type="button">
+        <span class="calc__mode-name">Moderat</span>
+        <span class="calc__mode-deficit">−400 kcal / Tag</span>
+        <span class="calc__mode-desc">Klares Defizit, sichtbare Ergebnisse. Machbar ohne Dauerhunger.</span>
+      </button>
+      <button class="calc__mode-btn" id="btn-aggressiv" type="button">
+        <span class="calc__mode-name">Aggressiv</span>
+        <span class="calc__mode-deficit">−600 kcal / Tag</span>
+        <span class="calc__mode-desc">Schnelle Ergebnisse. Erfordert Disziplin beim Essen.</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="calc__result" id="calc-result" aria-live="polite">
+    <div class="calc__result-row">
+      <div class="calc__result-block">
+        <span class="calc__result-label">Grundumsatz (BMR)</span>
+        <span class="calc__result-val" id="res-bmr">—</span>
+      </div>
+      <div class="calc__result-block">
+        <span class="calc__result-label">Tagesbedarf inkl. Training</span>
+        <span class="calc__result-val" id="res-tdee">—</span>
+      </div>
+      <div class="calc__result-block calc__result-block--accent">
+        <span class="calc__result-label">Ziel (mit Defizit)</span>
+        <span class="calc__result-val" id="res-target">—</span>
+      </div>
+    </div>
+    <p class="calc__note" id="res-note"></p>
+    <p class="calc__warning" id="res-warning" style="display:none"></p>
+  </div>
+</div>
+
+<style>
+  .calc {
+    background: #111;
+    border: 1px solid rgba(255,255,255,.07);
+    border-radius: 20px;
+    padding: 40px;
+  }
+  .calc__label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #d4ff00;
+    margin: 0 0 10px;
+  }
+  .calc__heading {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(24px, 3vw, 36px);
+    letter-spacing: .05em;
+    color: #fff;
+    margin: 0 0 32px;
+  }
+  .calc__row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .calc__field { display: flex; flex-direction: column; gap: 8px; }
+  .calc__field-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: #888;
+  }
+  .calc__input-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #1a1a1a;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 10px;
+    padding: 12px 14px;
+  }
+  .calc__input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-family: 'DM Mono', monospace;
+    font-size: 20px;
+    font-weight: 500;
+    width: 100%;
+    min-width: 0;
+    -moz-appearance: textfield;
+  }
+  .calc__input::-webkit-outer-spin-button,
+  .calc__input::-webkit-inner-spin-button { -webkit-appearance: none; }
+  .calc__unit {
+    font-size: 12px;
+    font-weight: 600;
+    color: #777;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* Three-tier mode selector */
+  .calc__modes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+  .calc__mode-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    background: #1a1a1a;
+    border: 1px solid rgba(255,255,255,.07);
+    border-radius: 12px;
+    padding: 16px 16px;
+    cursor: pointer;
+    text-align: left;
+    transition: border-color .18s, background .18s;
+  }
+  .calc__mode-btn--active {
+    border-color: rgba(212,255,0,.4);
+    background: rgba(212,255,0,.04);
+  }
+  .calc__mode-name {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    color: #aaa;
+    letter-spacing: .02em;
+  }
+  .calc__mode-btn--active .calc__mode-name { color: #d4ff00; }
+  .calc__mode-deficit {
+    display: block;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    color: #777;
+    margin-bottom: 4px;
+  }
+  .calc__mode-btn--active .calc__mode-deficit { color: #bbb; }
+  .calc__mode-desc {
+    display: block;
+    font-size: 11px;
+    color: #777;
+    line-height: 1.5;
+    font-weight: 500;
+  }
+  .calc__mode-btn--active .calc__mode-desc { color: #999; }
+
+  /* Results */
+  .calc__result {
+    border-top: 1px solid rgba(255,255,255,.06);
+    padding-top: 28px;
+  }
+  .calc__result-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .calc__result-block {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background: #1a1a1a;
+    border: 1px solid rgba(255,255,255,.06);
+    border-radius: 12px;
+    padding: 16px 18px;
+  }
+  .calc__result-block--accent {
+    border-color: rgba(212,255,0,.18);
+    background: rgba(212,255,0,.03);
+  }
+  .calc__result-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: #888;
+  }
+  .calc__result-val {
+    font-family: 'DM Mono', monospace;
+    font-size: 22px;
+    font-weight: 500;
+    color: #fff;
+  }
+  .calc__result-block--accent .calc__result-val { color: #d4ff00; }
+  .calc__note {
+    font-size: 13px;
+    color: #888;
+    margin: 0 0 8px;
+    line-height: 1.6;
+  }
+  .calc__warning {
+    font-size: 13px;
+    color: #f22626;
+    margin: 0;
+    line-height: 1.6;
+    padding: 12px 16px;
+    background: rgba(242,38,38,.06);
+    border: 1px solid rgba(242,38,38,.2);
+    border-radius: 8px;
+  }
+
+  @media (max-width: 700px) {
+    .calc { padding: 24px 18px; }
+    .calc__row { gap: 10px; }
+    .calc__input { font-size: 18px; }
+    .calc__modes { grid-template-columns: 1fr; gap: 8px; }
+    .calc__mode-btn { flex-direction: row; align-items: center; gap: 12px; padding: 14px 16px; }
+    .calc__mode-name { min-width: 72px; }
+    .calc__mode-deficit { margin-bottom: 0; }
+    .calc__mode-desc { display: none; }
+    .calc__result-row { grid-template-columns: 1fr; gap: 10px; }
+  }
+  @media (max-width: 420px) {
+    .calc__row { grid-template-columns: 1fr; }
+  }
+</style>
+
+<script>
+  const inputs = {
+    age:    document.getElementById('calc-age')    as HTMLInputElement,
+    weight: document.getElementById('calc-weight') as HTMLInputElement,
+    height: document.getElementById('calc-height') as HTMLInputElement,
+  };
+  const buttons = {
+    sanft:     document.getElementById('btn-sanft')!,
+    moderat:   document.getElementById('btn-moderat')!,
+    aggressiv: document.getElementById('btn-aggressiv')!,
+  };
+  const resEl = {
+    bmr:     document.getElementById('res-bmr')!,
+    tdee:    document.getElementById('res-tdee')!,
+    target:  document.getElementById('res-target')!,
+    note:    document.getElementById('res-note')!,
+    warning: document.getElementById('res-warning') as HTMLElement,
+  };
+
+  // PAL 1.55: desk job + 2× strength + 1× zone2/sprint per week
+  const PAL = 1.55;
+
+  const MODES = {
+    sanft:     { deficit: 200,  weeklyLoss: '~0,15–0,2 kg',  totalLoss: '~1,5–2,5 kg' },
+    moderat:   { deficit: 400,  weeklyLoss: '~0,3–0,4 kg',   totalLoss: '~3–5 kg' },
+    aggressiv: { deficit: 600,  weeklyLoss: '~0,4–0,6 kg',   totalLoss: '~5–7 kg' },
+  } as const;
+
+  type Mode = keyof typeof MODES;
+  let activeMode: Mode = 'sanft';
+
+  function calculate() {
+    const age    = parseInt(inputs.age.value)    || 38;
+    const weight = parseFloat(inputs.weight.value) || 85;
+    const height = parseFloat(inputs.height.value) || 178;
+
+    // Mifflin-St Jeor (2005) — best validated RMR formula
+    const bmr  = Math.round(10 * weight + 6.25 * height - 5 * age + 5);
+    const tdee = Math.round(bmr * PAL);
+
+    const mode   = MODES[activeMode];
+    const target = tdee - mode.deficit;
+
+    resEl.bmr.textContent    = `${bmr.toLocaleString('de-DE')} kcal`;
+    resEl.tdee.textContent   = `${tdee.toLocaleString('de-DE')} kcal`;
+    resEl.target.textContent = `${target.toLocaleString('de-DE')} kcal`;
+
+    resEl.note.textContent =
+      `Über 12 Wochen: ${mode.totalLoss} Körperfett — bei gleichzeitigem Kraftaufbau durch dein Training. ` +
+      `${mode.weeklyLoss} pro Woche.`;
+
+    // Warn if target drops below safe threshold (~1200 kcal is absolute minimum)
+    const deficit = tdee - target;
+    if (target < 1500) {
+      resEl.warning.style.display = 'block';
+      resEl.warning.textContent =
+        `Hinweis: ${target.toLocaleString('de-DE')} kcal ist für deine Größe sehr wenig. ` +
+        `Unter 1.500 kcal leidet die Trainingsleistung deutlich und du verlierst Muskelmasse. ` +
+        `Wähle besser Sanft oder Moderat.`;
+    } else if (deficit > 800) {
+      resEl.warning.style.display = 'block';
+      resEl.warning.textContent =
+        `Hinweis: Ein Defizit von ${deficit.toLocaleString('de-DE')} kcal pro Tag ist sehr hoch. ` +
+        `Oberhalb von 600–700 kcal steigt das Risiko, Muskelmasse zu verlieren — ` +
+        `was beim Krafttraining kontraproduktiv ist.`;
+    } else {
+      resEl.warning.style.display = 'none';
+    }
+  }
+
+  function setMode(mode: Mode) {
+    activeMode = mode;
+    Object.entries(buttons).forEach(([key, btn]) => {
+      btn.classList.toggle('calc__mode-btn--active', key === mode);
+    });
+    calculate();
+  }
+
+  buttons.sanft.addEventListener('click',     () => setMode('sanft'));
+  buttons.moderat.addEventListener('click',   () => setMode('moderat'));
+  buttons.aggressiv.addEventListener('click', () => setMode('aggressiv'));
+  Object.values(inputs).forEach(el => el.addEventListener('input', calculate));
+
+  calculate();
+</script>
