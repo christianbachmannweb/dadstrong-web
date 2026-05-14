@@ -91,6 +91,24 @@ Sondern: **Reduktion auf das, was langfristig wirklich zählt.**
 - "Warum nicht veränderbar" Callout
 - Interaktive Progressionsbar-Demo
 
+### 5b. Mid-Page CTA
+- „Du weißt genug." – Bebas Neue, gedämpft (#555)
+- Outline-Button (transparent, #d4ff00 Border), flankiert von horizontalen Fade-Linien
+- Direkte Conversion-Option für User die nach „Der Plan" überzeugt sind
+
+### 5c. Zone 2
+- Persönlicher Text: Netflix, Yesoul Bike, kein Druck
+- Hintergrund: dezente Puls-Linie (orange, fade-out)
+- Rechts: iPhone Mockup (400px, AVIF)
+- „Das Beste daran: Es ist optional." Callout-Box
+
+### 5d. Sprint
+- Persönlicher Text: „Nicht stundenlanges Cardio – sondern echte Intensität"
+- 6 Sprints mit exakten Intensitäten (50→100%) und Pausen (1:00/1:00/1:00/1:15/1:30)
+- Hero-Stil Balken horizontal, rot, scroll-triggered via IntersectionObserver
+- Balken auf Section-Ebene (außerhalb Container) → laufen in Textspalte rein (Peak 91%)
+- Links: iPhone Mockup (400px, AVIF)
+
 ### 6. Die App (Features-Grid)
 - Workout-Tracking mit Progressions-Mock
 - Streaks (3 unabhängig: Kraft/Ausdauer/Sprint + Superstreak)
@@ -148,26 +166,31 @@ Sondern: **Reduktion auf das, was langfristig wirklich zählt.**
 ## Webseite Stand (Mai 2026)
 
 ### Fertig:
-- Layout.astro (Base Layout mit Google Fonts)
+- Layout.astro (Base Layout mit Google Fonts, vollständiges SEO)
 - global.css mit Design Tokens
-- index.astro – vollständige One-Page-Website mit 9 Pain-Cards, 8 FAQ-Einträgen, vollständigem Features-Grid
+- index.astro – vollständige One-Page-Website, produktionsbereit
 - privacy.astro – Datenschutz + Impressum unter /privacy
 - PrivacyInfo.xcprivacy – Privacy Manifest für iOS App Store (in iOS-App-Repo)
-- Hero mit animierten Progressionsbalken
+- Hero mit animierten Progressionsbalken (grün, vertikal, scroll-triggered)
 - Pain Points Sektion (9 Karten, 3×3 Grid)
-- Philosophie mit CSS iPhone Mockup
-- Die Geschichte
-- Der Plan (Training A + B)
-- Die App (4-reihiges Features-Grid mit Mocks)
+- Philosophie mit CSS iPhone Mockup + App-Screenshot
+- Die Geschichte (persönliche Story Christian Bachmann)
+- Der Plan (Training A + B mit Übungserklärungen, interaktive Progressionsbar)
+- Mid-Page CTA – „Du weißt genug." Outline-Button, flankiert von Fade-Linien
+- Zone 2 Sektion (orange Akzent, Netflix/Yesoul Story, echtes Mockup, Puls-Hintergrund)
+- Sprint Sektion (rot, 6 Sprints, Hero-Balken horizontal, Sprint-Tabelle, echtes Mockup)
+- Die App (4-reihiges Features-Grid mit echten Mockups)
 - FAQ (9 Einträge inkl. Sixpack, Bulk, Ergebnisse der letzten Trainings)
 - CTA + Footer (mit /privacy Link und info@dadstrong.app)
+- SEO komplett: title, description, canonical, OG, Twitter Card, JSON-LD Structured Data
+- Open Graph / Social Meta Tags ✅
+- E-Mail-Weiterleitung info@dadstrong.app ✅ eingerichtet
+- Alle Bilder als AVIF (automatisch via Astro `<Image format="avif">`)
 
 ### Noch offen:
-- App Store Link eintragen (steht überall noch auf `#`)
-- E-Mail-Weiterleitung info@dadstrong.app einrichten
-- Echte App Store Screenshots einbauen (aktuell CSS-Mocks)
-- Deploy: Cloudflare Pages (bevorzugt) – noch nicht aufgesetzt
-- Open Graph / Social Meta Tags
+- **App Store Link eintragen** – steht überall noch auf `#` (wartet auf Apple Developer Freigabe)
+- Deploy: Cloudflare Pages aufsetzen + dadstrong.app Domain verknüpfen
+- OG Image: eigenes 1200×630px Bild erstellen (aktuell App-Screenshot als Fallback)
 
 ---
 
