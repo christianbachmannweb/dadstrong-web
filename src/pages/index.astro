@@ -17,7 +17,10 @@ import CalorieCalculator from '../components/CalorieCalculator.astro';
   <!-- NAV -->
   <nav class="nav">
     <div class="nav__inner">
-      <span class="nav__logo">DAD STRONG</span>
+      <span class="nav__logo">
+        <img src="/app-icon.png" alt="Dad Strong" class="nav__icon" width="32" height="32" />
+        DAD STRONG
+      </span>
       <span class="nav__cta nav__cta--soon">Bald verfügbar</span>
     </div>
   </nav>
@@ -987,7 +990,8 @@ import CalorieCalculator from '../components/CalorieCalculator.astro';
     align-items: center;
     justify-content: space-between;
   }
-  .nav__logo { font-family: 'Bebas Neue', cursive; font-size: 21px; letter-spacing: .12em; color: #fff; }
+  .nav__logo { font-family: 'Bebas Neue', cursive; font-size: 21px; letter-spacing: .12em; color: #fff; display: flex; align-items: center; gap: 10px; }
+  .nav__icon { width: 32px; height: 32px; border-radius: 8px; display: block; flex-shrink: 0; }
   .nav__cta {
     font-size: 11px;
     font-weight: 700;
