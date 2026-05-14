@@ -8,8 +8,8 @@ interface Props {
 }
 
 const {
-  title = 'Dad Strong – Krafttraining App für Väter',
-  description = 'Krafttraining App für Väter 30–45. Fixer Plan, 2 Einheiten pro Woche, lineare Progression. Kein Chaos, keine Ausreden — echter Fortschritt. Kostenlos für iPhone.',
+  title = 'Dad Strong – Krafttraining App für Väter mit wenig Zeit',
+  description = 'Die Krafttraining-App für vielbeschäftigte Väter. 2 Einheiten pro Woche, linearer Fortschritt, kein tägliches Training. Für Väter mit Job, Kindern und dem Ziel, stark zu sein und gut auszusehen. Kostenlos für iPhone.',
   canonical = 'https://dadstrong.app/',
 } = Astro.props;
 
@@ -53,9 +53,12 @@ const ogImage = 'https://dadstrong.app/screenshots/dadstrong-app-home-screen.png
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "name": "Dad Strong",
-        "operatingSystem": "iOS",
+        "url": "https://dadstrong.app/",
+        "operatingSystem": "iOS 17+",
         "applicationCategory": "HealthApplication",
-        "description": "Krafttraining App für Väter. Fixer Plan, 2 Einheiten pro Woche, lineare Progression.",
+        "description": "Krafttraining App für Väter mit wenig Zeit. Fixer Plan, 2 Einheiten pro Woche, lineare Progression. Für vielbeschäftigte Väter die stark sein und gut aussehen wollen.",
+        "keywords": "Krafttraining Väter, Fitness App Väter, Training App Papas, Krafttraining wenig Zeit, Väter Fitness",
+        "inLanguage": "de",
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -63,8 +66,129 @@ const ogImage = 'https://dadstrong.app/screenshots/dadstrong-app-home-screen.png
         },
         "author": {
           "@type": "Person",
+          "name": "Christian Bachmann",
+          "url": "https://dadstrong.app/"
+        },
+        "publisher": {
+          "@type": "Person",
           "name": "Christian Bachmann"
         }
+      })}
+    </script>
+
+    <!-- Structured Data: FAQPage -->
+    <script type="application/ld+json" is:inline>
+      {JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Kostet die Dad Strong App Geld?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ja — einmaliger Kauf. Kein Abo, keine monatlichen Kosten, keine Premium-Version. Du bezahlst einmal und hast die App für immer."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Gibt es ein Abo oder versteckte Kosten bei Dad Strong?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nein. Keine Abonnements, keine In-App-Käufe, keine Werbung. Das war von Anfang an so geplant — weil du als Vater ohnehin genug Fixkosten hast."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Kann ich meinen Trainingsplan in Dad Strong anpassen?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nein — und das ist Absicht. Variation hindert Fortschritt. Wer die Übungen ständig wechselt, baut keine echte Stärke auf. Der Plan ist das Produkt. Das ist der Punkt."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Ist Dad Strong wissenschaftlich fundiert?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Dad Strong basiert auf progressiver Überladung und Grundübungen — die Basis jedes seriösen Krafttrainingsprogramms. Keine Geheimformel, kein Trend. Nur das, was nachweislich funktioniert."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Brauche ich ein Gym oder bestimmte Geräte für Dad Strong?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ein Rack, eine Langhantel, Gewichtsscheiben. Das war's. Kein Kabelzug, kein Gerät, kein Smith Machine. Was du brauchst, gibt es in jedem normalen Gym."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Was passiert wenn ich mal ein Training bei Dad Strong verpasse?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Dann machst du das nächste Training. Fertig. Dad Strong hat keinen künstlichen Streak-Druck. Leben passiert — das System ist dafür gebaut."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Bekomme ich mit Dad Strong einen Sixpack?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ein Sixpack entsteht durch ein Kaloriendefizit — nicht durch Bauchübungen. Was das Training leistet: du baust die großen Muskelgruppen auf — Beine, Rücken, Brust. Mehr Muskelmasse bedeutet einen höheren Grundumsatz. Das unterstützt ein Defizit langfristig. Sichtbare Bauchmuskeln kommen über die Küche, nicht über das Gym."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Funktioniert Dad Strong auch in einer Aufbauphase (Bulk)?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ja. Das Training ist unabhängig davon was du isst. Lineare Progression funktioniert sowohl im Kalorienüberschuss als auch im Defizit. Der Plan passt zu beiden Zielen."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Kann ich bei Dad Strong Übungen ergänzen?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Der Sinn des Plans ist Progression, Standardisierung und Kontrolle. Teste erst mal 12 Wochen das vorgegebene Programm. Du wirst überrascht sein, wie weit dich zwei solide Einheiten bringen."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Wie funktioniert das Kaloriendefizit mit Dad Strong?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Empfehlung: Kalorien tracken mit einer einfachen App wie Yazio. Für die 12-Wochen-Challenge ein aggressives Defizit wählen und die Priorität auf das Defizit setzen — außer den zwei Pflichttrainings pro Woche. Jeden Morgen wiegen, um den Trend zu sehen. Das funktioniert auch neben Vollzeitjob und Kindern."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Ich trainiere und esse im Defizit — warum bewegt sich die Waage nicht?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Die wichtigere Frage: Verlierst du Bauchumfang? Wenn ja, passiert genau das was passieren soll. Der Grund: Muskeln sind dichter als Fett. Wer gleichzeitig Fett abbaut und Muskeln aufbaut, kann dieselbe Körpermasse auf der Waage haben — sieht aber komplett anders aus. Das nennt sich Body Recomposition, tritt besonders stark beim Trainingseinstieg auf. Dazu kommt: Muskelgewebe speichert Glykogen, das Wasser bindet — das kann 1–2 kg auf der Waage erklären. Maßband schlägt Waage."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Wie messe ich meinen Bauchumfang richtig?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Drei Regeln: 1. Immer dieselbe Stelle — knapp unter dem Bauchnabel, wo Bauch und Hüfte am meisten rausstehen. 2. Band flach auflegen, nicht einschneiden — weder locker noch eingeklemmt. 3. Morgens, nüchtern, vor dem ersten Kaffee — dann ist der Bauch am leersten und die Werte vergleichbar."
+            }
+          }
+        ]
+      })}
+    </script>
+
+    <!-- Structured Data: WebSite (Sitelinks Search) -->
+    <script type="application/ld+json" is:inline>
+      {JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Dad Strong",
+        "url": "https://dadstrong.app/"
       })}
     </script>
 

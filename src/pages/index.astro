@@ -18,12 +18,14 @@ import CalorieCalculator from '../components/CalorieCalculator.astro';
   <nav class="nav">
     <div class="nav__inner">
       <span class="nav__logo">
-        <img src="/app-icon.png" alt="Dad Strong" class="nav__icon" width="32" height="32" />
+        <img src="/app-icon-64.png" alt="Dad Strong App Icon" class="nav__icon" width="32" height="32" />
         DAD STRONG
       </span>
       <span class="nav__cta nav__cta--soon">Bald verfügbar</span>
     </div>
   </nav>
+
+  <main>
 
   <!-- ═══════════════════════════════════════════════════════ HERO -->
   <section class="hero">
@@ -59,7 +61,7 @@ import CalorieCalculator from '../components/CalorieCalculator.astro';
       <h1 class="hero__title">DAD<br>STRONG</h1>
       <div class="hero__sub">
         <p class="hero__tagline">Zwei Einheiten.<br>Echter Fortschritt.</p>
-        <p class="hero__body">Für Papas die wenig Zeit haben, stark sein<br>und nackt gut aussehen wollen.</p>
+        <p class="hero__body">Für Väter mit Vollzeitjob und Kindern —<br>stark sein und nackt gut aussehen.<br>Ohne tägliches Training.</p>
         <p class="hero__soon">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
@@ -845,6 +847,26 @@ import CalorieCalculator from '../components/CalorieCalculator.astro';
           <p class="faq__a">Das Ganze läuft nebenbei: vier Kinder, Vollzeitjob. Es ist kein optimaler Zeitpunkt. Den gibt es nicht. Du fängst an, du machst es durch — oder nicht.</p>
         </details>
 
+        <details class="faq reveal" style="--delay:.72s">
+          <summary class="faq__q">Ich trainiere und esse im Defizit — warum bewegt sich die Waage nicht?</summary>
+          <p class="faq__a">Erstmal die wichtigere Frage: Verlierst du Hüftumfang? Wird der Bauch kleiner? Sitzt die Hose anders? Wenn ja, passiert genau das was passieren soll — die Waage zeigt es nur nicht.</p>
+          <p class="faq__a">Der Grund: Muskeln sind dichter als Fett. Wer gleichzeitig Fett abbaut und Muskeln aufbaut, kann dieselbe Körpermasse auf der Waage haben — sieht aber komplett anders aus. Das nennt sich Body Recomposition. Früher sagte man „dein Fett verwandelt sich in Muskeln" — das ist biologisch falsch (zwei völlig verschiedene Gewebetypen), aber es trifft den Effekt bildlich ganz gut.</p>
+          <p class="faq__a">Recomposition passiert besonders stark genau dann, wenn du neu ins Training einsteigst oder nach einer Pause wieder anfängst. Dein Körper baut in dieser Phase Muskeln auf und gleichzeitig Fett ab — die Waage zeigt dabei kaum Bewegung. Das ist kein Problem. Das ist Fortschritt.</p>
+          <p class="faq__a">Dazu kommt: Muskelgewebe speichert Glykogen, und Glykogen bindet Wasser. Wer neu trainiert, hält in den ersten Wochen mehr Wasser im Muskel — das kann 1–2 kg auf der Waage erklären. Auch das verschwindet mit der Zeit.</p>
+          <p class="faq__a">Maßband > Waage. Immer.</p>
+        </details>
+
+        <details class="faq reveal" style="--delay:.78s">
+          <summary class="faq__q">Wie messe ich meinen Bauchumfang richtig?</summary>
+          <p class="faq__a">Drei Regeln — immer gleich anwenden, damit die Zahlen vergleichbar sind:</p>
+          <ol class="faq__steps">
+            <li><strong>Immer dieselbe Stelle.</strong> Die dickste Stelle — knapp unter dem Bauchnabel, wo Bauch und Hüfte am meisten rausstehen. Nicht höher, nicht tiefer.</li>
+            <li><strong>Band flach auflegen, nicht einschneiden.</strong> Das Maßband liegt an der Haut an — weder locker noch eingeklemmt. Gleichmäßig rundum.</li>
+            <li><strong>Morgens, nüchtern, vor dem ersten Kaffee.</strong> Dann ist der Bauch am leersten und die Werte sind vergleichbar.</li>
+          </ol>
+          <p class="faq__a">Ein normales Schneidermaßband reicht. Einfacher ist ein elektronisches Maßband — das zieht sich selbst auf die richtige Spannung und zeigt den Wert direkt an: <a href="https://amzn.to/3RFxrva" class="faq__link" target="_blank" rel="noopener noreferrer nofollow">Elektronisches Maßband bei Amazon</a> <span class="faq__ad">Affiliate</span></p>
+        </details>
+
       </div>
     </div>
   </section>
@@ -903,6 +925,8 @@ import CalorieCalculator from '../components/CalorieCalculator.astro';
       </div>
     </div>
   </section>
+
+  </main>
 
   <!-- ══════════════════════════════════════════════════ FOOTER -->
   <footer class="footer">
@@ -1771,6 +1795,36 @@ import CalorieCalculator from '../components/CalorieCalculator.astro';
     color: #aaaaaa;
     line-height: 1.7;
     max-width: 680px;
+  }
+  .faq__steps {
+    padding: 0 28px 16px 52px;
+    font-size: 15px;
+    color: #aaaaaa;
+    line-height: 1.8;
+    max-width: 680px;
+    list-style-type: decimal;
+  }
+  .faq__steps li { margin-bottom: 8px; padding-left: 4px; }
+  .faq__steps strong { color: #ddd; font-weight: 600; }
+  .faq__link {
+    color: #d4ff00;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(212,255,0,.25);
+    transition: border-color .15s;
+  }
+  .faq__link:hover { border-color: #d4ff00; }
+  .faq__ad {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: #555;
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 4px;
+    padding: 1px 5px;
+    margin-left: 6px;
+    vertical-align: middle;
   }
 
   /* ─────────────────────────────── CHALLENGE */
