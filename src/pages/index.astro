@@ -14,6 +14,119 @@ import CalorieCalculator from '../components/CalorieCalculator.astro';
 
 <Layout>
 
+  <Fragment slot="head">
+    <script type="application/ld+json" is:inline>{`{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Was kostet die App?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dad Strong ist zum Start kostenlos verfügbar. Keine Werbung, kein Abo zum Start."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Gibt es ein Abo oder versteckte Kosten?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Zum Start kein Abo, keine Werbung. Weil du als Vater ohnehin genug Fixkosten hast."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kann ich meinen Trainingsplan anpassen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nein — und das ist Absicht. Variation hindert Fortschritt. Wer die Übungen ständig wechselt, baut keine echte Stärke auf. Der Plan ist das Produkt. Das ist der Punkt."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ist das wissenschaftlich fundiert?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dad Strong basiert auf progressiver Überladung und Grundübungen — die Basis jedes seriösen Krafttrainingsprogramms. Keine Geheimformel, kein Trend. Nur das, was nachweislich funktioniert."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Brauche ich ein Gym oder bestimmte Geräte?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ein Rack, eine Langhantel, Gewichtsscheiben. Das war's. Kein Kabelzug, kein Gerät, kein Smith Machine. Was du brauchst, gibt es in jedem normalen Gym."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was wenn ich mal ein Training verpasse?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dann machst du das nächste Training. Fertig. Dad Strong hat keinen künstlichen Streak-Druck. Leben passiert — das System ist dafür gebaut."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Warum sehe ich nicht meine Ergebnisse der letzten Trainings?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absicht. Die einzige Frage die zählt: Bin ich heute stärker als beim letzten Mal? Die App zeigt dir genau das — den Progressionsvorschlag für heute. Alles andere ist Rauschen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Bekomme ich mit Dad Strong einen Sixpack?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ein Sixpack entsteht durch ein Kaloriendefizit — nicht durch Bauchübungen. Dad Strong macht keine Versprechen in diese Richtung. Was das Training leistet: du baust die großen Muskelgruppen auf — Beine, Rücken, Brust. Mehr Muskelmasse bedeutet einen höheren Grundumsatz, du verbrennst also im Alltag mehr Kalorien. Das unterstützt ein Defizit langfristig. Aber sichtbare Bauchmuskeln kommen über die Küche, nicht über das Gym."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Funktioniert der Plan auch in einer Aufbauphase (Bulk)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Das Training ist unabhängig davon was du isst. Lineare Progression funktioniert sowohl im Kalorienüberschuss (du wirst stärker und größer) als auch im Defizit (du erhältst Kraft und Muskelmasse). Die App trackt keine Ernährung — das bleibt deine Entscheidung. Der Plan passt zu beiden Zielen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kann ich Übungen ergänzen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Der Sinn des Plans ist Progression, Standardisierung, Kontrolle — und die Vermeidung von Übertraining. Deshalb meine Empfehlung: Ändere die Grundtrainings nicht. Wenn du für dich entscheidest, dass du zusätzlich Armtraining machen möchtest, fühl dich frei dazu. Aber teste erst mal 12 Wochen das vorgegebene Programm. Du wirst überrascht sein, wie weit dich zwei solide Einheiten bringen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie machst du das mit dem Kaloriendefizit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ich tracke mit Yazio — weil es einfach ist und nicht viel Kopf kostet. Für die 12-Wochen-Challenge gehe ich mit einem aggressiven Defizit rein. Meine Priorität liegt auf dem Defizit, nicht auf dem Sport — außer den zwei Pflichttrainings pro Woche, die stehen nicht zur Debatte. Ich wiege mich jeden Morgen. Nicht um mich zu stressen, sondern um den Trend zu sehen. Das Gewicht schwankt täglich — was zählt ist die Richtung über die Woche."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ich trainiere und esse im Defizit — warum bewegt sich die Waage nicht?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Erstmal die wichtigere Frage: Verlierst du Hüftumfang? Wird der Bauch kleiner? Sitzt die Hose anders? Wenn ja, passiert genau das was passieren soll — die Waage zeigt es nur nicht. Der Grund: Muskeln sind dichter als Fett. Wer gleichzeitig Fett abbaut und Muskeln aufbaut, kann dieselbe Körpermasse auf der Waage haben — sieht aber komplett anders aus. Das nennt sich Body Recomposition. Recomposition passiert besonders stark genau dann, wenn du neu ins Training einsteigst oder nach einer Pause wieder anfängst. Dazu kommt: Muskelgewebe speichert Glykogen, und Glykogen bindet Wasser — das kann 1–2 kg auf der Waage erklären. Maßband schlägt Waage."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie messe ich meinen Bauchumfang richtig?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Drei Regeln — immer gleich anwenden: 1. Immer dieselbe Stelle — knapp unter dem Bauchnabel, wo Bauch und Hüfte am meisten rausstehen. 2. Band flach auflegen, nicht einschneiden — weder locker noch eingeklemmt. 3. Morgens, nüchtern, vor dem ersten Kaffee — dann ist der Bauch am leersten und die Werte sind vergleichbar."
+      }
+    }
+  ]
+}`}</script>
+  </Fragment>
+
   <!-- NAV -->
   <nav class="nav">
     <div class="nav__inner">
@@ -791,13 +904,13 @@ import CalorieCalculator from '../components/CalorieCalculator.astro';
       <div class="faq__list">
 
         <details class="faq reveal">
-          <summary class="faq__q">Kostet die App Geld?</summary>
-          <p class="faq__a">Ja — einmaliger Kauf. Kein Abo, keine monatlichen Kosten, keine Premium-Version. Du bezahlst einmal und hast die App für immer.</p>
+          <summary class="faq__q">Was kostet die App?</summary>
+          <p class="faq__a">Dad Strong ist zum Start kostenlos verfügbar. Keine Werbung, kein Abo zum Start.</p>
         </details>
 
         <details class="faq reveal" style="--delay:.06s">
           <summary class="faq__q">Gibt es ein Abo oder versteckte Kosten?</summary>
-          <p class="faq__a">Nein. Keine Abonnements, keine In-App-Käufe, keine Werbung. Das war von Anfang an so geplant — weil du als Vater ohnehin genug Fixkosten hast.</p>
+          <p class="faq__a">Zum Start kein Abo, keine Werbung. Weil du als Vater ohnehin genug Fixkosten hast.</p>
         </details>
 
         <details class="faq reveal" style="--delay:.12s">
@@ -921,7 +1034,7 @@ import CalorieCalculator from '../components/CalorieCalculator.astro';
           </svg>
           Bald im App Store verfügbar
         </p>
-        <p class="cta__meta">iOS 17+ &nbsp;·&nbsp; Keine Werbung &nbsp;·&nbsp; Einmaliger Kauf</p>
+        <p class="cta__meta">iOS 17+ &nbsp;·&nbsp; Keine Werbung &nbsp;·&nbsp; Zum Start kostenlos</p>
       </div>
     </div>
   </section>
