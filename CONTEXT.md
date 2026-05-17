@@ -166,31 +166,36 @@ Sondern: **Reduktion auf das, was langfristig wirklich zählt.**
 ## Webseite Stand (Mai 2026)
 
 ### Fertig:
-- Layout.astro (Base Layout mit Google Fonts, vollständiges SEO)
+- Layout.astro (vollständiges SEO, alle Structured Data, self-hosted Fonts)
 - global.css mit Design Tokens
-- index.astro – vollständige One-Page-Website, produktionsbereit
+- index.astro – vollständige One-Page-Website, SEO-optimiert, bereit für Deploy
+- src/components/CalorieCalculator.astro – 3-stufiger Kalorienrechner (Mifflin-St Jeor)
 - privacy.astro – Datenschutz + Impressum unter /privacy
 - PrivacyInfo.xcprivacy – Privacy Manifest für iOS App Store (in iOS-App-Repo)
-- Hero mit animierten Progressionsbalken (grün, vertikal, scroll-triggered)
+- Hero mit animierten Progressionsbalken, zielgruppenspezifischem Subtext
 - Pain Points Sektion (9 Karten, 3×3 Grid)
 - Philosophie mit CSS iPhone Mockup + App-Screenshot
 - Die Geschichte (persönliche Story Christian Bachmann)
 - Der Plan (Training A + B mit Übungserklärungen, interaktive Progressionsbar)
-- Mid-Page CTA – „Du weißt genug." Outline-Button, flankiert von Fade-Linien
-- Zone 2 Sektion (orange Akzent, Netflix/Yesoul Story, echtes Mockup, Puls-Hintergrund)
+- Mid-Page CTA – „Du weißt genug." muted, Fade-Linien
+- Zone 2 Sektion (orange, Netflix/Yesoul Story, echtes Mockup)
 - Sprint Sektion (rot, 6 Sprints, Hero-Balken horizontal, Sprint-Tabelle, echtes Mockup)
-- Die App (4-reihiges Features-Grid mit echten Mockups)
-- FAQ (9 Einträge inkl. Sixpack, Bulk, Ergebnisse der letzten Trainings)
-- CTA + Footer (mit /privacy Link und info@dadstrong.app)
-- SEO komplett: title, description, canonical, OG, Twitter Card, JSON-LD Structured Data
-- Open Graph / Social Meta Tags ✅
-- E-Mail-Weiterleitung info@dadstrong.app ✅ eingerichtet
+- Die App (4-reihiges Features-Grid, mobile 1-col)
+- Challenge Sektion (12-Wochen-Challenge, Regelbox, Mockup, Kalorienrechner)
+- FAQ (13 Einträge inkl. Body Recomposition, Bauchumfang, Affiliate-Link)
+- CTA + Footer (App Store Buttons → „Bald verfügbar")
+- SEO/AEO: title, description, canonical, OG, Twitter Card, SoftwareApplication, FAQPage, WebSite JSON-LD
+- robots.txt + sitemap.xml (@astrojs/sitemap)
+- `<main>` semantischer Wrapper
+- App-Icon als Favicon (32px, 180px, 192px) + Nav-Logo
+- Alle Fonts self-hosted (DSGVO-konform, kein Google CDN)
 - Alle Bilder als AVIF (automatisch via Astro `<Image format="avif">`)
 
 ### Noch offen:
-- **App Store Link eintragen** – steht überall noch auf `#` (wartet auf Apple Developer Freigabe)
+- **App Store Link eintragen** – alle CTAs zeigen „Bald verfügbar" (wartet auf Apple)
 - Deploy: Cloudflare Pages aufsetzen + dadstrong.app Domain verknüpfen
-- OG Image: eigenes 1200×630px Bild erstellen (aktuell App-Screenshot als Fallback)
+- OG Image: eigenes 1200×630px Bild erstellen
+- Privacy-Seite: Affiliate-Link-Hinweis ergänzen (Amazon-Partner)
 
 ---
 
