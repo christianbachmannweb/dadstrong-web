@@ -117,6 +117,14 @@ import CalorieCalculator from '../components/CalorieCalculator.astro';
     },
     {
       "@type": "Question",
+      "name": "Wie unterscheidet sich Dad Strong von anderen Trainings-Apps?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Es gibt gute Apps da draußen — Hevy, Strong, Fitbod, GainsApp. Mein Problem war ein anderes: zu viel Auswahl, zu viele Einstellungen, zu viele Entscheidungen vor dem Training. Das hat mich abgelenkt — weg vom eigentlichen Training. GainsApp zum Beispiel hat mir lange gut gefallen, aber mir fehlte die Möglichkeit, meinen Körper direkt in der App zu tracken: Fotos, Maße, Gewicht — zusammen mit dem Training. Dad Strong löst genau das: ein fixer Plan, keine ablenkende Wahlfreiheit — und ein echtes Körper-Tagebuch an einem Ort."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Wie messe ich meinen Bauchumfang richtig?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -174,7 +182,7 @@ import CalorieCalculator from '../components/CalorieCalculator.astro';
       <h1 class="hero__title">DAD<br>STRONG</h1>
       <div class="hero__sub">
         <p class="hero__tagline">Zwei Einheiten.<br>Echter Fortschritt.</p>
-        <p class="hero__body">Für Väter mit Vollzeitjob, Kindern und Gym oder Homegym —<br>stark werden, besser aussehen und dranbleiben.<br>Der Kern: zwei feste Krafttrainings pro Woche.<br>Ohne tägliches Training.</p>
+        <p class="hero__body">Für Väter mit Vollzeitjob, Kindern und Zugang zum Gym oder Homegym —<br>stark werden, besser aussehen und dranbleiben.<br>Der Kern: zwei feste Krafttrainings pro Woche.<br>Ohne tägliches Training.</p>
         <p class="hero__soon">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
@@ -196,11 +204,11 @@ import CalorieCalculator from '../components/CalorieCalculator.astro';
       <div class="pain__grid">
         <div class="pain reveal">
           <span class="pain__num">—</span>
-          <p class="pain__text">Zu viele Übungen zur Auswahl. Du weißt nicht, womit du anfangen sollst.</p>
+          <p class="pain__text">Zu viele Übungen zur Auswahl. Du weißt nicht, womit du anfangen sollst. Das führt zur Prokrastination oder Überwältigung.</p>
         </div>
         <div class="pain reveal" style="--delay:.08s">
           <span class="pain__num">—</span>
-          <p class="pain__text">Du startest motiviert — und hörst nach zwei Wochen wieder auf.</p>
+          <p class="pain__text">Du startest motiviert — und hörst nach zwei Wochen wieder auf. Weil Fortschritte nicht wirklich spürbar sind.</p>
         </div>
         <div class="pain reveal" style="--delay:.16s">
           <span class="pain__num">—</span>
@@ -208,7 +216,7 @@ import CalorieCalculator from '../components/CalorieCalculator.astro';
         </div>
         <div class="pain reveal" style="--delay:.24s">
           <span class="pain__num">—</span>
-          <p class="pain__text">Dein Alltag lässt gerade keinen komplexen Trainingsplan zu. Arbeit, Kinder, alles auf einmal.</p>
+          <p class="pain__text">Du weißt einfach garnicht, was du machen sollst und wie du es machen sollst. </p>
         </div>
         <div class="pain reveal" style="--delay:.32s">
           <span class="pain__num">—</span>
@@ -216,11 +224,11 @@ import CalorieCalculator from '../components/CalorieCalculator.astro';
         </div>
         <div class="pain reveal" style="--delay:.4s">
           <span class="pain__num">—</span>
-          <p class="pain__text">Du willst trainieren — aber irgendwie sabotierst du dich selbst. Kein Drama, keine Ausrede. Es passiert einfach. Immer wieder.</p>
+          <p class="pain__text">Du Trainierst dein Bizeps, die Brust und die Dinge die man angeblich sehen soll - bringt aber nichts.</p>
         </div>
         <div class="pain reveal" style="--delay:.48s">
           <span class="pain__num">—</span>
-          <p class="pain__text">Du denkst, du müsstest täglich trainieren. Schaffst es nicht. Also gar nichts.</p>
+          <p class="pain__text">Du denkst, du müsstest täglich trainieren. Fängst damit an und hast schnell wieder Ausreden am Start warum es heute nicht klappt.</p>
         </div>
         <div class="pain reveal" style="--delay:.56s">
           <span class="pain__num">—</span>
@@ -344,7 +352,7 @@ import CalorieCalculator from '../components/CalorieCalculator.astro';
           <div class="about__list">
             <span>Arbeit</span><span>Kinder</span><span>Schlafmangel</span><span>Stress</span><span>Verantwortung</span>
           </div>
-          <p>Und genau darin liegt die eigentliche Herausforderung. Nicht die einzelne Trainingseinheit. Sondern die Fähigkeit, trotz eines normalen, oft repetitiven Lebens langfristig dranzubleiben.</p>
+          <p>Und genau darin liegt die eigentliche Herausforderung. Nicht die einzelne Trainingseinheit. Sondern die Fähigkeit, trotz eines normalen, oft repetitiven Alltags langfristig dranzubleiben.</p>
 
           <div class="about__rule"></div>
 
@@ -356,7 +364,7 @@ import CalorieCalculator from '../components/CalorieCalculator.astro';
           <div class="about__values">
             <span>Energie</span><span>Stabilität</span><span>Gesundheit</span><span>Selbstrespekt</span><span>Belastbarkeit</span>
           </div>
-          <p class="about__conclusion">Dad Strong soll dabei helfen — nicht perfekt zu werden. Sondern langfristig stark zu bleiben.</p>
+          <p class="about__conclusion">Dad Strong soll dabei helfen — langfristig stark zu bleiben.</p>
         </div>
       </div>
     </div>
@@ -502,11 +510,11 @@ import CalorieCalculator from '../components/CalorieCalculator.astro';
         <div class="zone2__text reveal">
           <p class="label label--zone2">ZONE 2 & SPRINT</p>
           <h2 class="zone2__title">Kein weiteres<br>„Du musst mehr."</h2>
-          <p class="zone2__lead">Zone 2 ist eher das Gegenteil. Eine lockere Cardio-Einheit, die den Kopf runterfährt, die Regeneration unterstützt — und dich wieder wie ein Mensch fühlen lässt.</p>
+          <p class="zone2__lead">Zone 2 ist eher das Gegenteil. Eine lockere Cardio-Einheit, die den Kopf runterfährt, die Regeneration unterstützt.</p>
 
           <blockquote class="zone2__quote">
             30–45 Minuten aufs Bike. Netflix an. Kein Druck. Kein Vollgas.
-            <cite>Ich nutze dafür selbst ein Yesoul Bike und schaue dabei einfach Netflix oder YouTube. Kein kompliziertes Setup. Einfach bewegen.</cite>
+            <cite>Ich nutze dafür selbst ein Yesoul Bike und schaue dabei einfach Netflix.</cite>
           </blockquote>
 
           <ul class="zone2__benefits">
@@ -595,7 +603,7 @@ import CalorieCalculator from '../components/CalorieCalculator.astro';
           <p class="sprint__lead">Sprinten ist kein Pflichtprogramm. Aber es erinnert deinen Körper daran, wofür er gemacht wurde. Kurz. Schnell. Explosiv.</p>
 
           <blockquote class="sprint__quote">
-            Nicht stundenlanges Cardio — sondern echte Intensität. Du sprintest, drückst „Fertig" wenn du durch bist, wartest die Pause ab. Fertig.
+            Ich will sprinten, um im Ernstfall schnell an einem anderen Punkt zu sein. Schnelligkeit gibt Sicherheit!
           </blockquote>
 
           <!-- Sprint progression -->
@@ -638,11 +646,11 @@ import CalorieCalculator from '../components/CalorieCalculator.astro';
             </div>
           </div>
 
-          <p class="sprint__sub">AirBike, Bergsprints, Laufintervalle — egal was. Viele Männer vergessen irgendwann, wie es sich anfühlt, sich wirklich kraftvoll zu bewegen. Das hier bringt es zurück.</p>
+          <p class="sprint__sub">Bergsprints oder auf einer Geraden — Du kannst das auch als Training in einem Spaziergang einbinden - kein Witz. </p>
 
           <div class="sprint__optional">
             <span class="sprint__optional-label">Und wie immer bei Dad Strong</span>
-            <p>Optional. Das Ziel ist kein perfekter Trainingsplan — sondern ein System, das dir langfristig gut tut und dich stärker durchs Leben gehen lässt.</p>
+            <p>Immer Optional. Du hast keine Pflicht zum Sprinten. Aber es macht etwas mit dir! Wenn du Zeit dafür findest dann mach es einmal in der Woche.</p>
           </div>
         </div>
 
@@ -656,7 +664,7 @@ import CalorieCalculator from '../components/CalorieCalculator.astro';
       <div class="section__header">
         <p class="label label--accent">DIE APP</p>
         <h2 class="section__title">Dein Training.<br>Deine Zahlen.</h2>
-        <p class="section__lead">Entwickelt für Väter, die keine Zeit haben — aber trotzdem Ergebnisse wollen.</p>
+        <p class="section__lead">Für Papas die wenig Zeit haben - und Fortschritt greifbar machen wollen.</p>
       </div>
 
       <div class="phones-showcase reveal">
@@ -730,7 +738,7 @@ import CalorieCalculator from '../components/CalorieCalculator.astro';
               <span class="streak__type-icon">🫀</span>
               <div>
                 <span class="streak__type-name">Ausdauer</span>
-                <span class="streak__type-rule">100 Min Zone 2</span>
+                <span class="streak__type-rule">60 Min Zone 2</span>
               </div>
             </div>
             <div class="streak__type">
@@ -841,7 +849,7 @@ import CalorieCalculator from '../components/CalorieCalculator.astro';
               </div>
               <div>
                 <h3 class="feature__title">Home Screen Widget</h3>
-                <p class="feature__body">Jeden Mal wenn du dein Handy entsperrst, siehst du deinen Streak. Kein Push, kein Alarm — nur ein stiller, täglicher Reminder. Unterbewusst. Das reicht.</p>
+                <p class="feature__body">Auf deinem iPhone kannst du ein Foto mit KI erstellen, wo du hinmöchtest. Realistisch! Und das siehst du jedesmal neben deinem Kalender. Mir hat das unterbewusst geholfen, meinen Kopf auf meine neue Figur zu programmieren.</p>
               </div>
             </div>
           </div>
@@ -872,7 +880,7 @@ import CalorieCalculator from '../components/CalorieCalculator.astro';
               <div class="duration-mock__bar"><div class="duration-mock__fill" style="width:75%"></div></div>
               <span class="duration-mock__time">~45 Min</span>
             </div>
-            <p class="duration-mock__note">Kein Schätzen. Kein Improvisieren. Du weißt vorher, wann du fertig bist.</p>
+            <p class="duration-mock__note">So kann ich meiner Frau direkt sagen, wie lange ich weg bin. Kein Schlechtes Gewissen mehr, keine zu langen Pausen mehr. Standartisiert hilft dir progression wirklich real zu messen.</p>
           </div>
         </div>
 
@@ -887,7 +895,7 @@ import CalorieCalculator from '../components/CalorieCalculator.astro';
             <span>Selbstrespekt</span>
             <span>Belastbarkeit</span>
           </div>
-          <p class="papa__close">Dinge, die sich auf alles auswirken — auf die Arbeit, auf die Familie, auf dich selbst.</p>
+          <p class="papa__close">Dinge, die sich auf alles auswirken — auf die Arbeit, auf die Familie, auf den Wohlbefinden, deine Libido - einfach alles.</p>
         </div>
 
       </div>
@@ -970,6 +978,14 @@ import CalorieCalculator from '../components/CalorieCalculator.astro';
         </details>
 
         <details class="faq reveal" style="--delay:.78s">
+          <summary class="faq__q">Wie unterscheidet sich Dad Strong von anderen Trainings-Apps?</summary>
+          <p class="faq__a">Es gibt gute Apps da draußen. Hevy, Strong, Fitbod, GainsApp — die sind nicht schlecht. Für viele funktionieren sie prima.</p>
+          <p class="faq__a">Mein Problem war ein anderes: Ich hatte zu viel Auswahl. Zu viele Möglichkeiten, meinen Plan selbst zusammenzustellen. Zu viele Übungen, zu viele Einstellungen, zu viele Entscheidungen vor dem Training. Das hat mich abgelenkt — weg vom eigentlichen Training, hin zur App-Konfiguration.</p>
+          <p class="faq__a">GainsApp zum Beispiel hat mir lange gut gefallen. Solide App. Aber mir haben ein paar Dinge gefehlt, die mir wichtig sind: Ich wollte meinen Körper direkt in der App sichtbar machen und tracken — Fotos, Maße, Gewicht — alles zusammen mit dem Training. Das hatte keine der Apps so, wie ich es haben wollte.</p>
+          <p class="faq__a">Dad Strong löst genau das: ein fixer Plan, keine Wahlfreiheit die ablenkt — und ein echtes Körper-Tagebuch mit Fotos, Gewicht und Maßen. Alles an einem Ort, alles für einen Zweck: sehen, dass du besser wirst.</p>
+        </details>
+
+        <details class="faq reveal" style="--delay:.84s">
           <summary class="faq__q">Wie messe ich meinen Bauchumfang richtig?</summary>
           <p class="faq__a">Drei Regeln — immer gleich anwenden, damit die Zahlen vergleichbar sind:</p>
           <ol class="faq__steps">
