@@ -1160,6 +1160,12 @@ import CalorieCalculator from '../components/CalorieCalculator.astro';
   .btn-primary--large { font-size: 15px; padding: 20px 44px; border-radius: 14px; }
 
   /* ─────────────────────────────── ANNOUNCEMENT STRIPE */
+  @media (max-width: 767px) {
+    .announcement { display: none; }
+    .nav { inset: 0 0 auto 0; }
+    .hero { padding-top: 64px; }
+  }
+
   .announcement {
     position: fixed;
     top: 0; left: 0; right: 0;
