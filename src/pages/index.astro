@@ -160,6 +160,11 @@ import CalorieCalculator from '../components/CalorieCalculator.astro';
 }`}</script>
   </Fragment>
 
+  <!-- ANNOUNCEMENT STRIPE -->
+  <div class="announcement" role="status">
+    <span class="announcement__text">App in aktiver Entwicklung &nbsp;·&nbsp; Bald im App Store</span>
+  </div>
+
   <!-- NAV -->
   <nav class="nav">
     <div class="nav__inner">
@@ -1154,10 +1159,35 @@ import CalorieCalculator from '../components/CalorieCalculator.astro';
   .btn-primary:hover { opacity: .85; transform: translateY(-1px); }
   .btn-primary--large { font-size: 15px; padding: 20px 44px; border-radius: 14px; }
 
+  /* ─────────────────────────────── ANNOUNCEMENT STRIPE */
+  .announcement {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 101;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    border-bottom: 1px solid #ff8c1a;
+    box-shadow:
+      0 0 10px rgba(255,140,26,.55),
+      0 0 28px rgba(255,140,26,.22),
+      0 0 56px rgba(255,140,26,.08);
+  }
+  .announcement__text {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: #ff8c1a;
+    text-shadow: 0 0 8px rgba(255,140,26,.7);
+  }
+
   /* ─────────────────────────────── NAV */
   .nav {
     position: fixed;
-    inset: 0 0 auto 0;
+    inset: 36px 0 auto 0;
     z-index: 100;
     padding: 18px 0;
     background: rgba(0,0,0,.82);
@@ -1200,7 +1230,7 @@ import CalorieCalculator from '../components/CalorieCalculator.astro';
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding-top: 64px;
+    padding-top: 100px;
     position: relative;
     overflow: hidden;
   }
