@@ -1168,12 +1168,14 @@ import CalorieCalculator from '../components/CalorieCalculator.astro';
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(255,140,26,.07);
-    border-bottom: 1px solid #ff8c1a;
+    background: rgba(255,140,26,.08);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255,140,26,.7);
     box-shadow:
-      0 0 10px rgba(255,140,26,.55),
-      0 0 28px rgba(255,140,26,.22),
-      0 0 56px rgba(255,140,26,.08);
+      0 0 10px rgba(255,140,26,.45),
+      0 0 28px rgba(255,140,26,.18),
+      0 0 56px rgba(255,140,26,.07);
   }
   .announcement__text {
     font-size: 11px;
