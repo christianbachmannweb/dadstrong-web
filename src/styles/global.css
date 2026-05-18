@@ -38,6 +38,14 @@ html {
   scroll-behavior: smooth;
 }
 
+p, li, blockquote {
+  text-wrap: pretty;
+}
+
+h1, h2, h3, h4 {
+  text-wrap: balance;
+}
+
 body {
   background: #000000;
   overflow-x: hidden;
