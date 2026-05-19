@@ -6,10 +6,6 @@ import appMockupJourney from '../assets/images/app-mockup-journey.png';
 import appMockupWarmup from '../assets/images/app-mockup-warmup.png';
 import appMockupWidget from '../assets/images/app-mockup-widget.png';
 import appMockupPause from '../assets/images/app-mockup-pause.png';
-import appMockupZone2 from '../assets/images/iPhone-16-Pro-Max-zone-2.png';
-import appMockupSprint from '../assets/images/iphone-16-sprint.png';
-import appMockupChallenge from '../assets/images/iphone-16-challenge.png';
-import CalorieCalculator from '../components/CalorieCalculator.astro';
 ---
 
 <Layout>
@@ -54,10 +50,10 @@ import CalorieCalculator from '../components/CalorieCalculator.astro';
     },
     {
       "@type": "Question",
-      "name": "Gibt es ein Abo oder versteckte Kosten?",
+      "name": "Brauche ich ein Gym oder Homegym?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Zum Start kein Abo, keine Werbung. Weil du als Vater ohnehin genug Fixkosten hast."
+        "text": "Für den Hauptplan: ja. Dad Strong basiert auf progressivem Krafttraining mit Langhantel, Rack, Gewichten und idealerweise einer Bank. Das findest du in fast jedem Gym oder in einem einfachen Homegym."
       }
     },
     {
@@ -65,23 +61,7 @@ import CalorieCalculator from '../components/CalorieCalculator.astro';
       "name": "Kann ich meinen Trainingsplan anpassen?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Nein — und das ist Absicht. Variation hindert Fortschritt. Wer die Übungen ständig wechselt, baut keine echte Stärke auf. Der Plan ist das Produkt. Das ist der Punkt."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Ist das wissenschaftlich fundiert?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Dad Strong basiert auf progressiver Überladung und Grundübungen — die Basis jedes seriösen Krafttrainingsprogramms. Keine Geheimformel, kein Trend. Nur das, was nachweislich funktioniert."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Brauche ich ein Gym oder Homegym?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Für den Hauptplan: ja. Dad Strong basiert auf progressivem Krafttraining mit Langhantel, Rack, Gewichten und idealerweise einer Bank. Das findest du in fast jedem Gym oder in einem einfachen Homegym. Kurze Zusatz-Einheiten können ergänzen, aber der Kern der App bleibt der feste Kraftplan."
+        "text": "Nein — und das ist Absicht. Variation hindert Fortschritt. Der Plan ist das Produkt."
       }
     },
     {
@@ -94,66 +74,10 @@ import CalorieCalculator from '../components/CalorieCalculator.astro';
     },
     {
       "@type": "Question",
-      "name": "Warum sehe ich nicht meine Ergebnisse der letzten Trainings?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Absicht. Die einzige Frage die zählt: Bin ich heute stärker als beim letzten Mal? Die App zeigt dir genau das — den Progressionsvorschlag für heute. Alles andere ist Rauschen."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Bekomme ich mit Dad Strong einen Sixpack?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ein Sixpack entsteht durch ein Kaloriendefizit — nicht durch Bauchübungen. Dad Strong macht keine Versprechen in diese Richtung. Was das Training leistet: du baust die großen Muskelgruppen auf — Beine, Rücken, Brust. Mehr Muskelmasse bedeutet einen höheren Grundumsatz, du verbrennst also im Alltag mehr Kalorien. Das unterstützt ein Defizit langfristig. Aber sichtbare Bauchmuskeln kommen über die Küche, nicht über das Gym."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Funktioniert der Plan auch in einer Aufbauphase (Bulk)?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja. Das Training ist unabhängig davon was du isst. Lineare Progression funktioniert sowohl im Kalorienüberschuss (du wirst stärker und größer) als auch im Defizit (du erhältst Kraft und Muskelmasse). Die App trackt keine Ernährung — das bleibt deine Entscheidung. Der Plan passt zu beiden Zielen."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Kann ich Übungen ergänzen?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Der Sinn des Plans ist Progression, Standardisierung, Kontrolle — und die Vermeidung von Übertraining. Deshalb meine Empfehlung: Ändere die Grundtrainings nicht. Wenn du für dich entscheidest, dass du zusätzlich Armtraining machen möchtest, fühl dich frei dazu. Aber teste erst mal 12 Wochen das vorgegebene Programm. Du wirst überrascht sein, wie weit dich zwei solide Einheiten bringen."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Wie machst du das mit dem Kaloriendefizit?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ich tracke mit Yazio — weil es einfach ist und nicht viel Kopf kostet. Für die 12-Wochen-Challenge gehe ich mit einem aggressiven Defizit rein. Meine Priorität liegt auf dem Defizit, nicht auf dem Sport — außer den zwei Pflichttrainings pro Woche, die stehen nicht zur Debatte. Ich wiege mich jeden Morgen. Nicht um mich zu stressen, sondern um den Trend zu sehen. Das Gewicht schwankt täglich — was zählt ist die Richtung über die Woche."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Ich trainiere und esse im Defizit — warum bewegt sich die Waage nicht?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Erstmal die wichtigere Frage: Verlierst du Hüftumfang? Wird der Bauch kleiner? Sitzt die Hose anders? Wenn ja, passiert genau das was passieren soll — die Waage zeigt es nur nicht. Der Grund: Muskeln sind dichter als Fett. Wer gleichzeitig Fett abbaut und Muskeln aufbaut, kann dieselbe Körpermasse auf der Waage haben — sieht aber komplett anders aus. Das nennt sich Body Recomposition. Recomposition passiert besonders stark genau dann, wenn du neu ins Training einsteigst oder nach einer Pause wieder anfängst. Dazu kommt: Muskelgewebe speichert Glykogen, und Glykogen bindet Wasser — das kann 1–2 kg auf der Waage erklären. Maßband schlägt Waage."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "Wie unterscheidet sich Dad Strong von anderen Trainings-Apps?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Es gibt gute Apps da draußen — GymBook, Alpha Progression Gym Tracker, Gainsfire. Mein Problem war ein anderes: zu viel Auswahl, zu viele Einstellungen, zu viele Entscheidungen vor dem Training. Das hat mich abgelenkt — weg vom eigentlichen Training. Gainsfire zum Beispiel hat mir lange gut gefallen, aber mir fehlte die Möglichkeit, meinen Körper direkt in der App zu tracken: Fotos, Maße, Gewicht — zusammen mit dem Training. Und ich hatte keine Ahnung vom Trainings-Design. Also welche Übung wann zu machen ist. Ich habe das bei Wolfgang Unsöld auf seinem YPSI Seminar - Trainigsanatomie und Desing gelernt. Und Dad Strong löst genau das: ein fixer Plan mit klaren Trainings-Design, keine ablenkende Wahlfreiheit — und ein echtes Körper-Tagebuch an einem Ort."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Wie messe ich meinen Bauchumfang richtig?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Drei Regeln — immer gleich anwenden: 1. Immer dieselbe Stelle — knapp unter dem Bauchnabel, wo Bauch und Hüfte am meisten rausstehen. 2. Band flach auflegen, nicht einschneiden — weder locker noch eingeklemmt. 3. Morgens, nüchtern, vor dem ersten Kaffee — dann ist der Bauch am leersten und die Werte sind vergleichbar."
+        "text": "Es gibt gute Apps da draußen — Hevy, Strong, Fitbod, Gainsfire. Mein Problem war ein anderes: zu viel Auswahl, zu viele Einstellungen, zu viele Entscheidungen vor dem Training. Gainsfire hat mir lange gut gefallen, aber mir fehlte die Möglichkeit, meinen Körper direkt in der App zu tracken. Dad Strong löst genau das: ein fixer Plan, keine ablenkende Wahlfreiheit — und ein echtes Körper-Tagebuch an einem Ort."
       }
     }
   ]
@@ -238,72 +162,16 @@ import CalorieCalculator from '../components/CalorieCalculator.astro';
         </div>
         <div class="pain reveal" style="--delay:.08s">
           <span class="pain__num">—</span>
-          <p class="pain__text">Du startest motiviert — und hörst nach zwei Wochen wieder auf. Weil Fortschritte nicht wirklich spürbar sind.</p>
+          <p class="pain__text">Du denkst, du müsstest täglich trainieren. Fängst damit an und hast schnell wieder Ausreden am Start warum es heute nicht klappt.</p>
         </div>
         <div class="pain reveal" style="--delay:.16s">
           <span class="pain__num">—</span>
           <p class="pain__text">Du trainierst, aber siehst keine echten Ergebnisse. Irgendwas stimmt nicht.</p>
         </div>
-        <div class="pain reveal" style="--delay:.24s">
-          <span class="pain__num">—</span>
-          <p class="pain__text">Du weißt einfach garnicht, was du machen sollst und wie du es machen sollst. </p>
-        </div>
-        <div class="pain reveal" style="--delay:.32s">
-          <span class="pain__num">—</span>
-          <p class="pain__text">Du vergleichst dich mit Influencern, die keinen Vollzeitjob haben, keine Kinder, Anfang 20 sind — und täglich zwei Stunden Zeit für Training haben. Das ist nicht dein Leben.</p>
-        </div>
-        <div class="pain reveal" style="--delay:.4s">
-          <span class="pain__num">—</span>
-          <p class="pain__text">Du Trainierst dein Bizeps, die Brust und die Dinge die man angeblich sehen soll - bringt aber nichts.</p>
-        </div>
-        <div class="pain reveal" style="--delay:.48s">
-          <span class="pain__num">—</span>
-          <p class="pain__text">Du denkst, du müsstest täglich trainieren. Fängst damit an und hast schnell wieder Ausreden am Start warum es heute nicht klappt.</p>
-        </div>
-        <div class="pain reveal" style="--delay:.56s">
-          <span class="pain__num">—</span>
-          <p class="pain__text">Du machst 15-Minuten-Workouts täglich — und fragst dich, warum sich nach Monaten nichts verändert hat.</p>
-        </div>
-        <div class="pain reveal" style="--delay:.64s">
-          <span class="pain__num">—</span>
-          <p class="pain__text">Du weißt eigentlich was du tun müsstest. Du suchst trotzdem noch den perfekten Plan. Und fängst deshalb nie wirklich an.</p>
-        </div>
       </div>
       <div class="pain__answer reveal" style="--delay:.65s">
         <p class="pain__answer-text">Dann ist Dad Strong für dich.</p>
         <p class="pain__answer-sub">Für Papas die wenig Zeit haben und Gym oder Homegym nutzen. Dad Strong ist kein zufälliger Workout-Katalog — sondern ein progressiver Kraftplan. Zwei feste Einheiten pro Woche. Kurze Zusatz-Einheiten können ergänzen, wenn der Alltag eng wird. Aber der Kern bleibt der Plan.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════ DIE REALITÄT -->
-  <section class="section reality-section">
-    <div class="container">
-      <div class="reality__inner reveal">
-        <p class="label label--muted">DIE REALITÄT</p>
-        <h2 class="reality__claim">Du brauchst keine fünf Tage.<br>Du brauchst zwei gute.</h2>
-        <p class="reality__body">Viele Väter scheitern nicht an fehlendem Wissen — sondern an unrealistischen Erwartungen. Zu viel Volumen, zu wenig Schlaf, ständig wechselnde Pläne. Fortschritt entsteht nicht durch möglichst viele Trainingstage.</p>
-        <div class="reality__formula">
-          <div class="reality__factor">
-            <span class="reality__factor-icon">⚡</span>
-            <span class="reality__factor-label">Trainingsreiz</span>
-          </div>
-          <span class="reality__op">+</span>
-          <div class="reality__factor">
-            <span class="reality__factor-icon">🔋</span>
-            <span class="reality__factor-label">Regeneration</span>
-          </div>
-          <span class="reality__op">+</span>
-          <div class="reality__factor">
-            <span class="reality__factor-icon">📅</span>
-            <span class="reality__factor-label">Konsistenz</span>
-          </div>
-          <span class="reality__op reality__op--approx">≈</span>
-          <div class="reality__factor reality__factor--result">
-            <span class="reality__factor-label">Fortschritt</span>
-          </div>
-        </div>
-        <p class="reality__close">Zwei harte, ehrliche Ganzkörpereinheiten pro Woche. Kein Influencer-Lifestyle. Kein stundenlanges Pumpen. Nur das, was wirklich funktioniert — für Männer mit Verantwortung.</p>
       </div>
     </div>
   </section>
@@ -368,38 +236,13 @@ import CalorieCalculator from '../components/CalorieCalculator.astro';
         <div class="about__left">
           <p class="label label--muted">WARUM DAD STRONG?</p>
           <blockquote class="about__pull">
-            "Viele Fitness-Inhalte vermitteln das Gefühl, dass ein fitter Körper das Zentrum des Lebens sein sollte."
+            "Ich habe diese App für mich gebaut. Weil ich keinen Plan gefunden habe, der für ein Leben mit Verantwortung gemacht ist."
           </blockquote>
-          <p class="about__byline">— Christian Bachmann, Entwickler</p>
+          <p class="about__byline">— Christian Bachmann, Entwickler & Vater von vier Kindern</p>
         </div>
         <div class="about__right reveal">
-          <p>Mehr Disziplin. Mehr Härte. Mehr Optimierung. Mehr Motivation.</p>
-          <p>Lange habe ich genau so gedacht. Ich habe Ergebnisse riesig gemacht — so, als würde ein bestimmter Körper irgendwann alles verändern.</p>
-
-          <div class="about__rule"></div>
-
-          <p>Aber irgendwann wurde mir etwas klar: Die meisten Menschen leben kein Leben, das sich um Training dreht.</p>
-          <div class="about__list">
-            <span>Arbeit</span><span>Kinder</span><span>Schlafmangel</span><span>Stress</span><span>Verantwortung</span>
-          </div>
-          <p>Und genau darin liegt die eigentliche Herausforderung. Nicht die einzelne Trainingseinheit. Sondern die Fähigkeit, trotz eines normalen, oft repetitiven Alltags langfristig dranzubleiben.</p>
-
-          <div class="about__rule"></div>
-
-          <p>Die Wahrheit ist: Fortschritt entsteht meistens nicht spektakulär. Er entsteht durch normale Tage, kleine Entscheidungen, Wiederholung und Konsequenz trotz Alltag.</p>
-
-          <div class="about__rule"></div>
-
-          <p>Denn am Ende interessiert sich kaum jemand so sehr für deinen Körper wie du selbst. Aber:</p>
-          <div class="about__values">
-            <span>Energie</span><span>Stabilität</span><span>Gesundheit</span><span>Selbstrespekt</span><span>Belastbarkeit</span>
-          </div>
-          <p class="about__conclusion">Dad Strong soll dabei helfen — langfristig stark zu bleiben.</p>
-
-          <div class="about__rule"></div>
-
-          <p>Dad Strong ist kein Bodybuilding-Plan. Der Fokus liegt nicht auf maximalem Muskelvolumen, sondern auf Kraft, Stabilität, Belastbarkeit und langfristigem Fortschritt.</p>
-          <p>Dass du dabei besser aussiehst, ist kein Zufall — aber auch nicht der ganze Punkt.</p>
+          <p>Vier Kinder, Vollzeitjob. Ich wollte stark sein und gut aussehen — aber nicht, dass Training das Zentrum meines Lebens wird.</p>
+          <p>Dad Strong ist kein Bodybuilding-Plan. Der Fokus liegt auf Kraft, Stabilität und Belastbarkeit. Dass du dabei besser aussiehst, ist kein Zufall — aber nicht der ganze Punkt.</p>
         </div>
       </div>
     </div>
@@ -526,172 +369,6 @@ import CalorieCalculator from '../components/CalorieCalculator.astro';
       </div>
     </div>
   </div>
-
-  <!-- ════════════════════════════════════════════════ ZONE 2 -->
-  <section class="section section--surface zone2-section" id="zone2">
-
-    <!-- Background pulse decoration -->
-    <div class="zone2__bg-pulse" aria-hidden="true">
-      <svg viewBox="0 0 1200 160" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-        <path d="M0 100 L120 100 L150 100 L170 30 L195 140 L215 55 L240 100 L360 100 L390 100 L410 20 L435 148 L455 42 L480 100 L600 100 L630 100 L650 14 L675 152 L695 38 L720 100 L840 100 L870 100 L890 22 L915 146 L935 46 L960 100 L1080 100 L1110 100 L1130 18 L1155 150 L1175 40 L1200 100"
-          stroke="#ff8c1a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.12"/>
-      </svg>
-    </div>
-
-    <div class="container">
-      <div class="zone2__layout">
-
-        <!-- Left: Text -->
-        <div class="zone2__text reveal">
-          <p class="label label--zone2">ZONE 2 & SPRINT</p>
-          <h2 class="zone2__title">Kein weiteres<br>„Du musst mehr."</h2>
-          <p class="zone2__lead">Zone 2 ist eher das Gegenteil. Eine lockere Cardio-Einheit, die den Kopf runterfährt, die Regeneration unterstützt.</p>
-
-          <blockquote class="zone2__quote">
-            30–45 Minuten aufs Bike. Netflix an. Kein Druck. Kein Vollgas.
-            <cite>Ich nutze dafür selbst ein Yesoul Bike und schaue dabei einfach Netflix.</cite>
-          </blockquote>
-
-          <ul class="zone2__benefits">
-            <li>Ausdauer aufbauen</li>
-            <li>Regeneration verbessern</li>
-            <li>Stress runterfahren</li>
-            <li>Kalorien verbrennen</li>
-            <li>Langfristig fitter werden — ohne den Körper zu zerstören</li>
-          </ul>
-
-          <div class="zone2__optional">
-            <span class="zone2__optional-label">Das Beste daran</span>
-            <p>Es ist optional. Dad Strong basiert nicht auf maximalem Aufwand, sondern auf einem System, das du trotz Arbeit, Kindern und Alltag langfristig durchziehen kannst.</p>
-          </div>
-
-          <div class="zone2__healthkit">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-            </svg>
-            <span>Herzfrequenz via Apple Health — kein separates Gerät nötig.</span>
-          </div>
-        </div>
-
-        <!-- Right: Mockup -->
-        <div class="zone2__visual reveal" style="--delay:.12s">
-          <Image
-            src={appMockupZone2}
-            alt="Dad Strong App – Zone 2 Cardio Tracking mit Herzfrequenz via Apple Health"
-            format="avif"
-            loading="lazy"
-            class="zone2__mockup-img"
-          />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════ SPRINT -->
-  <section class="section sprint-section" id="sprint">
-
-    <!-- Bars: section-level, span both columns -->
-    <div class="sprint__bars reveal" aria-hidden="true">
-      <!-- Block 1 -->
-      <div class="sbar" style="--w:12%;--delay:.05s"></div>
-      <div class="sbar" style="--w:14%;--delay:.1s"></div>
-      <div class="sbar" style="--w:16%;--delay:.15s"></div>
-      <div class="sbar sbar--mark" style="--w:19%;--delay:.2s"></div>
-      <div class="sbar sbar--gap"></div>
-      <!-- Block 2 -->
-      <div class="sbar" style="--w:24%;--delay:.25s"></div>
-      <div class="sbar" style="--w:27%;--delay:.3s"></div>
-      <div class="sbar" style="--w:31%;--delay:.35s"></div>
-      <div class="sbar sbar--mark" style="--w:35%;--delay:.4s"></div>
-      <div class="sbar sbar--gap"></div>
-      <!-- Block 3 -->
-      <div class="sbar" style="--w:40%;--delay:.45s"></div>
-      <div class="sbar" style="--w:46%;--delay:.5s"></div>
-      <div class="sbar" style="--w:53%;--delay:.55s"></div>
-      <div class="sbar sbar--mark" style="--w:60%;--delay:.6s"></div>
-      <div class="sbar sbar--gap"></div>
-      <!-- Block 4 – peak, in die Textspalte -->
-      <div class="sbar" style="--w:66%;--delay:.65s"></div>
-      <div class="sbar" style="--w:74%;--delay:.7s"></div>
-      <div class="sbar" style="--w:82%;--delay:.75s"></div>
-      <div class="sbar sbar--peak" style="--w:91%;--delay:.8s"></div>
-    </div>
-
-    <div class="container">
-      <div class="sprint__layout">
-
-        <!-- Left: Mockup -->
-        <div class="sprint__visual reveal">
-          <Image
-            src={appMockupSprint}
-            alt="Dad Strong App – Sprint Training mit 6 Sprints steigender Intensität"
-            format="avif"
-            loading="lazy"
-            class="sprint__mockup-img"
-          />
-        </div>
-
-        <!-- Right: Text -->
-        <div class="sprint__text reveal" style="--delay:.12s">
-          <p class="label label--sprint">SPRINT</p>
-          <h2 class="sprint__title">Dein Körper<br>weiß noch,<br>wie das geht.</h2>
-          <p class="sprint__lead">Sprinten ist kein Pflichtprogramm. Aber es erinnert deinen Körper daran, wofür er gemacht wurde. Kurz. Schnell. Explosiv.</p>
-
-          <blockquote class="sprint__quote">
-            Ich will sprinten, um im Ernstfall schnell an einem anderen Punkt zu sein. Schnelligkeit gibt Sicherheit!
-          </blockquote>
-
-          <!-- Sprint progression -->
-          <div class="sprint__progression" aria-label="6 Sprints mit steigender Intensität">
-            <div class="sprint__prog-sprint">
-              <span class="sprint__prog-num">S1</span>
-              <div class="sprint__prog-bar"><div class="sprint__prog-fill" style="width:50%"></div></div>
-              <span class="sprint__prog-pct">50%</span>
-              <span class="sprint__prog-rest">1:00</span>
-            </div>
-            <div class="sprint__prog-sprint">
-              <span class="sprint__prog-num">S2</span>
-              <div class="sprint__prog-bar"><div class="sprint__prog-fill" style="width:60%"></div></div>
-              <span class="sprint__prog-pct">60%</span>
-              <span class="sprint__prog-rest">1:00</span>
-            </div>
-            <div class="sprint__prog-sprint">
-              <span class="sprint__prog-num">S3</span>
-              <div class="sprint__prog-bar"><div class="sprint__prog-fill" style="width:70%"></div></div>
-              <span class="sprint__prog-pct">70%</span>
-              <span class="sprint__prog-rest">1:00</span>
-            </div>
-            <div class="sprint__prog-sprint">
-              <span class="sprint__prog-num">S4</span>
-              <div class="sprint__prog-bar"><div class="sprint__prog-fill" style="width:80%"></div></div>
-              <span class="sprint__prog-pct">80%</span>
-              <span class="sprint__prog-rest">1:15</span>
-            </div>
-            <div class="sprint__prog-sprint">
-              <span class="sprint__prog-num">S5</span>
-              <div class="sprint__prog-bar"><div class="sprint__prog-fill" style="width:90%"></div></div>
-              <span class="sprint__prog-pct">90%</span>
-              <span class="sprint__prog-rest">1:30</span>
-            </div>
-            <div class="sprint__prog-sprint sprint__prog-sprint--last">
-              <span class="sprint__prog-num">S6</span>
-              <div class="sprint__prog-bar"><div class="sprint__prog-fill sprint__prog-fill--peak" style="width:100%"></div></div>
-              <span class="sprint__prog-pct">100%</span>
-              <span class="sprint__prog-rest sprint__prog-rest--cooldown">3 Min Cool Down</span>
-            </div>
-          </div>
-
-          <p class="sprint__sub">Bergsprints oder auf einer Geraden — Du kannst das auch als Training in einem Spaziergang einbinden - kein Witz. </p>
-
-          <div class="sprint__optional">
-            <span class="sprint__optional-label">Und wie immer bei Dad Strong</span>
-            <p>Immer Optional. Du hast keine Pflicht zum Sprinten. Aber es macht etwas mit dir! Wenn du Zeit dafür findest dann mach es einmal in der Woche.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
 
   <!-- ══════════════════════════════════════════════════ DIE APP -->
   <section class="section" id="app">
@@ -937,6 +614,29 @@ import CalorieCalculator from '../components/CalorieCalculator.astro';
     </div>
   </section>
 
+  <!-- ══════════════════════════════════════════ OPTIONAL DAZU -->
+  <section class="section optional-section">
+    <div class="container">
+      <div class="section__header">
+        <p class="label label--muted">OPTIONAL DAZU</p>
+        <h2 class="section__title">Wenn du mehr willst.</h2>
+        <p class="section__lead">Der Kraftplan ist der Kern. Diese Ergänzungen sind optional — aber sie machen etwas mit dir.</p>
+      </div>
+      <div class="optional__grid">
+        <div class="optional__card reveal">
+          <p class="optional__label" style="color: var(--color-zone2)">ZONE 2</p>
+          <h3 class="optional__title">30–45 Min. Bike. Netflix an.</h3>
+          <p class="optional__body">Lockeres Cardio das die Regeneration unterstützt, Ausdauer aufbaut und den Kopf runterfährt. Kein Vollgas. 1× pro Woche wenn es passt. Herzfrequenz direkt via Apple Health.</p>
+        </div>
+        <div class="optional__card reveal" style="--delay:.1s">
+          <p class="optional__label" style="color: var(--color-sprint)">SPRINT</p>
+          <h3 class="optional__title">6 Sprints. Einmal pro Woche.</h3>
+          <p class="optional__body">Kurz, explosiv, fertig. Erinnert deinen Körper wofür er gemacht wurde. Bergsprints oder auf einer Geraden — 20 Minuten und du bist durch.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ══════════════════════════════════════════════════════ FAQ -->
   <section class="section section--surface" id="faq">
     <div class="container">
@@ -952,8 +652,8 @@ import CalorieCalculator from '../components/CalorieCalculator.astro';
         </details>
 
         <details class="faq reveal" style="--delay:.06s">
-          <summary class="faq__q">Gibt es ein Abo oder versteckte Kosten?</summary>
-          <p class="faq__a">Zum Start kein Abo, keine Werbung. Weil du als Vater ohnehin genug Fixkosten hast.</p>
+          <summary class="faq__q">Brauche ich ein Gym oder Homegym?</summary>
+          <p class="faq__a">Für den Hauptplan: ja. Dad Strong basiert auf progressivem Krafttraining mit Langhantel, Rack, Gewichten und idealerweise einer Bank. Das findest du in fast jedem Gym oder in einem einfachen Homegym. Kurze Zusatz-Einheiten können ergänzen, aber der Kern der App bleibt der feste Kraftplan.</p>
         </details>
 
         <details class="faq reveal" style="--delay:.12s">
@@ -962,111 +662,17 @@ import CalorieCalculator from '../components/CalorieCalculator.astro';
         </details>
 
         <details class="faq reveal" style="--delay:.18s">
-          <summary class="faq__q">Ist das wissenschaftlich fundiert?</summary>
-          <p class="faq__a">Dad Strong basiert auf progressiver Überladung und Grundübungen — die Basis jedes seriösen Krafttrainingsprogramms. Keine Geheimformel, kein Trend. Nur das, was nachweislich funktioniert.</p>
-        </details>
-
-        <details class="faq reveal" style="--delay:.24s">
-          <summary class="faq__q">Brauche ich ein Gym oder Homegym?</summary>
-          <p class="faq__a">Für den Hauptplan: ja. Dad Strong basiert auf progressivem Krafttraining mit Langhantel, Rack, Gewichten und idealerweise einer Bank. Das findest du in fast jedem Gym oder in einem einfachen Homegym. Kurze Zusatz-Einheiten können ergänzen, aber der Kern der App bleibt der feste Kraftplan.</p>
-        </details>
-
-        <details class="faq reveal" style="--delay:.3s">
           <summary class="faq__q">Was wenn ich mal ein Training verpasse?</summary>
           <p class="faq__a">Dann machst du das nächste Training. Fertig. Dad Strong hat keinen künstlichen Streak-Druck. Leben passiert — das System ist dafür gebaut.</p>
         </details>
 
-        <details class="faq reveal" style="--delay:.36s">
-          <summary class="faq__q">Warum sehe ich nicht meine Ergebnisse der letzten Trainings?</summary>
-          <p class="faq__a">Absicht. Die einzige Frage die zählt: Bin ich heute stärker als beim letzten Mal? Die App zeigt dir genau das — den Progressionsvorschlag für heute. Alles andere ist Rauschen.</p>
-        </details>
-
-        <details class="faq reveal" style="--delay:.48s">
-          <summary class="faq__q">Bekomme ich mit Dad Strong einen Sixpack?</summary>
-          <p class="faq__a">Ein Sixpack entsteht durch ein Kaloriendefizit — nicht durch Bauchübungen. Dad Strong macht keine Versprechen in diese Richtung. Was das Training leistet: du baust die großen Muskelgruppen auf — Beine, Rücken, Brust. Mehr Muskelmasse bedeutet einen höheren Grundumsatz, du verbrennst also im Alltag mehr Kalorien. Das unterstützt ein Defizit langfristig. Aber sichtbare Bauchmuskeln kommen über die Küche, nicht über das Gym.</p>
-        </details>
-
-        <details class="faq reveal" style="--delay:.54s">
-          <summary class="faq__q">Funktioniert der Plan auch in einer Aufbauphase (Bulk)?</summary>
-          <p class="faq__a">Ja. Das Training ist unabhängig davon was du isst. Lineare Progression funktioniert sowohl im Kalorienüberschuss (du wirst stärker und größer) als auch im Defizit (du erhältst Kraft und Muskelmasse). Die App trackt keine Ernährung — das bleibt deine Entscheidung. Der Plan passt zu beiden Zielen.</p>
-        </details>
-
-        <details class="faq reveal" style="--delay:.6s">
-          <summary class="faq__q">Kann ich Übungen ergänzen?</summary>
-          <p class="faq__a">Der Sinn des Plans ist Progression, Standardisierung, Kontrolle — und die Vermeidung von Übertraining. Deshalb meine Empfehlung: Ändere die Grundtrainings nicht. Wenn du für dich entscheidest, dass du zusätzlich Armtraining machen möchtest, fühl dich frei dazu. Aber teste erst mal 12 Wochen das vorgegebene Programm. Du wirst überrascht sein, wie weit dich zwei solide Einheiten bringen.</p>
-        </details>
-
-        <details class="faq reveal" style="--delay:.66s">
-          <summary class="faq__q">Wie machst du das mit dem Kaloriendefizit?</summary>
-          <p class="faq__a">Ich tracke mit Yazio — weil es einfach ist und nicht viel Kopf kostet. Für die 12-Wochen-Challenge gehe ich mit einem aggressiven Defizit rein. Meine Priorität liegt auf dem Defizit, nicht auf dem Sport — außer den zwei Pflichttrainings pro Woche, die stehen nicht zur Debatte.</p>
-          <p class="faq__a">Ich wiege mich jeden Morgen. Nicht um mich zu stressen, sondern um den Trend zu sehen. Das Gewicht schwankt täglich — was zählt ist die Richtung über die Woche.</p>
-          <p class="faq__a">Das Ganze läuft nebenbei: vier Kinder, Vollzeitjob. Es ist kein optimaler Zeitpunkt. Den gibt es nicht. Du fängst an, du machst es durch — oder nicht.</p>
-        </details>
-
-        <details class="faq reveal" style="--delay:.72s">
-          <summary class="faq__q">Ich trainiere und esse im Defizit — warum bewegt sich die Waage nicht?</summary>
-          <p class="faq__a">Erstmal die wichtigere Frage: Verlierst du Hüftumfang? Wird der Bauch kleiner? Sitzt die Hose anders? Wenn ja, passiert genau das was passieren soll — die Waage zeigt es nur nicht.</p>
-          <p class="faq__a">Der Grund: Muskeln sind dichter als Fett. Wer gleichzeitig Fett abbaut und Muskeln aufbaut, kann dieselbe Körpermasse auf der Waage haben — sieht aber komplett anders aus. Das nennt sich Body Recomposition. Früher sagte man „dein Fett verwandelt sich in Muskeln" — das ist biologisch falsch (zwei völlig verschiedene Gewebetypen), aber es trifft den Effekt bildlich ganz gut.</p>
-          <p class="faq__a">Recomposition passiert besonders stark genau dann, wenn du neu ins Training einsteigst oder nach einer Pause wieder anfängst. Dein Körper baut in dieser Phase Muskeln auf und gleichzeitig Fett ab — die Waage zeigt dabei kaum Bewegung. Das ist kein Problem. Das ist Fortschritt.</p>
-          <p class="faq__a">Dazu kommt: Muskelgewebe speichert Glykogen, und Glykogen bindet Wasser. Wer neu trainiert, hält in den ersten Wochen mehr Wasser im Muskel — das kann 1–2 kg auf der Waage erklären. Auch das verschwindet mit der Zeit.</p>
-          <p class="faq__a">Maßband > Waage. Immer.</p>
-        </details>
-
-        <details class="faq reveal" style="--delay:.78s">
+        <details class="faq reveal" style="--delay:.24s">
           <summary class="faq__q">Wie unterscheidet sich Dad Strong von anderen Trainings-Apps?</summary>
           <p class="faq__a">Es gibt gute Apps da draußen. Hevy, Strong, Fitbod, Gainsfire — die sind nicht schlecht. Für viele funktionieren sie prima.</p>
           <p class="faq__a">Mein Problem war ein anderes: Ich hatte zu viel Auswahl. Zu viele Möglichkeiten, meinen Plan selbst zusammenzustellen. Zu viele Übungen, zu viele Einstellungen, zu viele Entscheidungen vor dem Training. Das hat mich abgelenkt — weg vom eigentlichen Training, hin zur App-Konfiguration.</p>
-          <p class="faq__a">Gainsfire zum Beispiel hat mir lange gut gefallen. Solide App. Aber mir haben ein paar Dinge gefehlt, die mir wichtig sind: Ich wollte meinen Körper direkt in der App sichtbar machen und tracken — Fotos, Maße, Gewicht — alles zusammen mit dem Training. Das hatte keine der Apps so, wie ich es haben wollte.</p>
-          <p class="faq__a">Dad Strong löst genau das: ein fixer Plan, keine Wahlfreiheit die ablenkt — und ein echtes Körper-Tagebuch mit Fotos, Gewicht und Maßen. Alles an einem Ort, alles für einen Zweck: sehen, dass du besser wirst.</p>
+          <p class="faq__a">Gainsfire zum Beispiel hat mir lange gut gefallen. Solide App. Aber mir fehlte die Möglichkeit, meinen Körper direkt in der App zu tracken — Fotos, Maße, Gewicht — alles zusammen mit dem Training. Dad Strong löst genau das: ein fixer Plan, keine ablenkende Wahlfreiheit — und ein echtes Körper-Tagebuch an einem Ort.</p>
         </details>
 
-        <details class="faq reveal" style="--delay:.84s">
-          <summary class="faq__q">Wie messe ich meinen Bauchumfang richtig?</summary>
-          <p class="faq__a">Drei Regeln — immer gleich anwenden, damit die Zahlen vergleichbar sind:</p>
-          <ol class="faq__steps">
-            <li><strong>Immer dieselbe Stelle.</strong> Die dickste Stelle — knapp unter dem Bauchnabel, wo Bauch und Hüfte am meisten rausstehen. Nicht höher, nicht tiefer.</li>
-            <li><strong>Band flach auflegen, nicht einschneiden.</strong> Das Maßband liegt an der Haut an — weder locker noch eingeklemmt. Gleichmäßig rundum.</li>
-            <li><strong>Morgens, nüchtern, vor dem ersten Kaffee.</strong> Dann ist der Bauch am leersten und die Werte sind vergleichbar.</li>
-          </ol>
-          <p class="faq__a">Ein normales Schneidermaßband reicht. Einfacher ist ein elektronisches Maßband — das zieht sich selbst auf die richtige Spannung und zeigt den Wert direkt an: <a href="https://amzn.to/3RFxrva" class="faq__link" target="_blank" rel="noopener noreferrer nofollow">Elektronisches Maßband bei Amazon</a> <span class="faq__ad">Affiliate</span></p>
-        </details>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════ CHALLENGE -->
-  <section class="section challenge-section" id="challenge">
-    <div class="container">
-      <div class="challenge__layout">
-
-        <div class="challenge__text reveal">
-          <p class="label">DIE CHALLENGE</p>
-          <h2 class="challenge__title">12 Wochen.<br>Einfach durchziehen.</h2>
-          <p class="challenge__body">Starte deine Challenge und zieh einfach durch. Wenn du 2 Trainings und mindestens ein Sprint oder Cardio gemacht hast, gilt die Woche als erfüllt.</p>
-          <p class="challenge__body">Willst du in den 12 Wochen abnehmen, ist jetzt der perfekte Moment für ein Kaloriendefizit. Du baust Muskel auf und verlierst gleichzeitig Fett — das funktioniert in dieser Phase besonders gut.</p>
-          <div class="challenge__rule">
-            <span class="challenge__rule-item">✓ 2× Krafttraining</span>
-            <span class="challenge__rule-sep">+</span>
-            <span class="challenge__rule-item">✓ 1× Sprint oder Cardio</span>
-            <span class="challenge__rule-sep">=</span>
-            <span class="challenge__rule-result">Woche erfüllt</span>
-          </div>
-        </div>
-
-        <div class="challenge__visual reveal" style="--delay:.1s">
-          <Image
-            src={appMockupChallenge}
-            alt="Dad Strong Challenge — 12-Wochen-Übersicht in der App"
-            format="avif"
-            class="challenge__mockup-img"
-          />
-        </div>
-
-      </div>
-
-      <div class="challenge__calc reveal" style="--delay:.15s">
-        <CalorieCalculator />
       </div>
     </div>
   </section>
@@ -1952,6 +1558,42 @@ import CalorieCalculator from '../components/CalorieCalculator.astro';
     font-size: 15px;
     letter-spacing: .12em;
     color: #d4ff00;
+  }
+
+  /* ─────────────────────────────── OPTIONAL DAZU */
+  .optional__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .optional__card {
+    background: #111;
+    border: 1px solid rgba(255,255,255,.07);
+    border-radius: 16px;
+    padding: 36px 32px;
+  }
+  .optional__label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .optional__title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(28px, 3.5vw, 40px);
+    letter-spacing: .03em;
+    color: #fff;
+    line-height: 1.05;
+    margin-bottom: 14px;
+  }
+  .optional__body {
+    font-size: 15px;
+    color: #aaaaaa;
+    line-height: 1.65;
+  }
+  @media (max-width: 767px) {
+    .optional__grid { grid-template-columns: 1fr; }
   }
 
   /* ─────────────────────────────── FAQ */
