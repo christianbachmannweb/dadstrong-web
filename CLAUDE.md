@@ -127,11 +127,12 @@ CSS-Klassen: `.feature--accent` (span 2), `.feature--body` (span 2), `.feature--
 - BSS: 1 Warmup-Step (Körpergewicht), bilateral, 60 sec Pause zwischen links/rechts
 - Farmer Walk: kein Warmup, timed (60 sec/Satz), bilateral
 
-**Training B** (4 Übungen, je 2 Arbeitssätze):
+**Training B** (5 Übungen, je 2 Arbeitssätze):
 - Kreuzheben: 4 Warmup-Steps (Stange, 30%, 50%, 80%)
 - OHP: 2 Warmup-Steps (Stange, 50%)
 - Klimmzüge: 1 Warmup-Step (Hammer Curls 10 Wdh)
 - Frontkniebeuge: 2 Warmup-Steps (50%, 70%)
+- SZ-Curls: kein Warmup
 
 ### Pausenzeiten (aus WorkoutSessionState.swift)
 - Zwischen Satz 1 → 2: **3 min** (180 sec)
