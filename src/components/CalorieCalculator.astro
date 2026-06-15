@@ -1,63 +1,81 @@
+---
+import { calcUI } from '../i18n/calculator';
+import type { Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const ui = calcUI[lang];
+
+// Only the data the client script needs (keeps the inlined payload small).
+const calcData = {
+  numberLocale: ui.numberLocale,
+  kcal: ui.kcal,
+  noteTemplate: ui.noteTemplate,
+  warnLow: ui.warnLow,
+  warnHigh: ui.warnHigh,
+  modes: ui.modes.map((m) => ({
+    deficit: m.deficit,
+    weeklyLoss: m.weeklyLoss,
+    totalLoss: m.totalLoss,
+  })),
+};
+---
+
 <div class="calc" id="calorie-calc">
-  <p class="calc__label">KALORIENRECHNER</p>
-  <p class="calc__heading">Dein Defizit für 12 Wochen</p>
+  <p class="calc__label">{ui.label}</p>
+  <p class="calc__heading">{ui.heading}</p>
 
   <div class="calc__form">
     <div class="calc__row">
       <div class="calc__field">
-        <label class="calc__field-label" for="calc-age">Alter</label>
+        <label class="calc__field-label" for="calc-age">{ui.age}</label>
         <div class="calc__input-wrap">
           <input class="calc__input" type="number" id="calc-age" min="18" max="80" value="38" inputmode="numeric" />
-          <span class="calc__unit">Jahre</span>
+          <span class="calc__unit">{ui.ageUnit}</span>
         </div>
       </div>
       <div class="calc__field">
-        <label class="calc__field-label" for="calc-weight">Gewicht</label>
+        <label class="calc__field-label" for="calc-weight">{ui.weight}</label>
         <div class="calc__input-wrap">
           <input class="calc__input" type="number" id="calc-weight" min="50" max="250" value="85" inputmode="numeric" />
-          <span class="calc__unit">kg</span>
+          <span class="calc__unit">{ui.weightUnit}</span>
         </div>
       </div>
       <div class="calc__field">
-        <label class="calc__field-label" for="calc-height">Größe</label>
+        <label class="calc__field-label" for="calc-height">{ui.height}</label>
         <div class="calc__input-wrap">
           <input class="calc__input" type="number" id="calc-height" min="150" max="220" value="178" inputmode="numeric" />
-          <span class="calc__unit">cm</span>
+          <span class="calc__unit">{ui.heightUnit}</span>
         </div>
       </div>
     </div>
 
     <div class="calc__modes">
-      <button class="calc__mode-btn calc__mode-btn--active" id="btn-sanft" type="button">
-        <span class="calc__mode-name">Sanft</span>
-        <span class="calc__mode-deficit">−200 kcal / Tag</span>
-        <span class="calc__mode-desc">Muskeln aufbauen, Fett verlieren — gleichzeitig. Kaum Hunger.</span>
-      </button>
-      <button class="calc__mode-btn" id="btn-moderat" type="button">
-        <span class="calc__mode-name">Moderat</span>
-        <span class="calc__mode-deficit">−400 kcal / Tag</span>
-        <span class="calc__mode-desc">Klares Defizit, sichtbare Ergebnisse. Machbar ohne Dauerhunger.</span>
-      </button>
-      <button class="calc__mode-btn" id="btn-aggressiv" type="button">
-        <span class="calc__mode-name">Aggressiv</span>
-        <span class="calc__mode-deficit">−600 kcal / Tag</span>
-        <span class="calc__mode-desc">Schnelle Ergebnisse. Erfordert Disziplin beim Essen.</span>
-      </button>
+      {ui.modes.map((mode, i) => (
+        <button class:list={['calc__mode-btn', { 'calc__mode-btn--active': i === 0 }]} type="button">
+          <span class="calc__mode-name">{mode.name}</span>
+          <span class="calc__mode-deficit">{mode.deficitLabel}</span>
+          <span class="calc__mode-desc">{mode.desc}</span>
+        </button>
+      ))}
     </div>
   </div>
 
   <div class="calc__result" id="calc-result" aria-live="polite">
     <div class="calc__result-row">
       <div class="calc__result-block">
-        <span class="calc__result-label">Grundumsatz (BMR)</span>
+        <span class="calc__result-label">{ui.resBmr}</span>
         <span class="calc__result-val" id="res-bmr">—</span>
       </div>
       <div class="calc__result-block">
-        <span class="calc__result-label">Tagesbedarf inkl. Training</span>
+        <span class="calc__result-label">{ui.resTdee}</span>
         <span class="calc__result-val" id="res-tdee">—</span>
       </div>
       <div class="calc__result-block calc__result-block--accent">
-        <span class="calc__result-label">Ziel (mit Defizit)</span>
+        <span class="calc__result-label">{ui.resTarget}</span>
         <span class="calc__result-val" id="res-target">—</span>
       </div>
     </div>
@@ -254,88 +272,81 @@
   }
 </style>
 
-<script>
-  const inputs = {
-    age:    document.getElementById('calc-age')    as HTMLInputElement,
-    weight: document.getElementById('calc-weight') as HTMLInputElement,
-    height: document.getElementById('calc-height') as HTMLInputElement,
-  };
-  const buttons = {
-    sanft:     document.getElementById('btn-sanft')!,
-    moderat:   document.getElementById('btn-moderat')!,
-    aggressiv: document.getElementById('btn-aggressiv')!,
-  };
-  const resEl = {
-    bmr:     document.getElementById('res-bmr')!,
-    tdee:    document.getElementById('res-tdee')!,
-    target:  document.getElementById('res-target')!,
-    note:    document.getElementById('res-note')!,
-    warning: document.getElementById('res-warning') as HTMLElement,
-  };
+<script define:vars={{ calcData }}>
+  (function () {
+    var ageEl = document.getElementById('calc-age');
+    var weightEl = document.getElementById('calc-weight');
+    var heightEl = document.getElementById('calc-height');
+    var buttons = Array.prototype.slice.call(document.querySelectorAll('.calc__mode-btn'));
+    var resBmr = document.getElementById('res-bmr');
+    var resTdee = document.getElementById('res-tdee');
+    var resTarget = document.getElementById('res-target');
+    var resNote = document.getElementById('res-note');
+    var resWarning = document.getElementById('res-warning');
+    if (!ageEl || !weightEl || !heightEl || !buttons.length) return;
 
-  // PAL 1.55: desk job + 2× strength + 1× zone2/sprint per week
-  const PAL = 1.55;
+    // PAL 1.55: desk job + 2× strength + 1× zone2/sprint per week
+    var PAL = 1.55;
+    var modes = calcData.modes;
+    var activeMode = 0;
 
-  const MODES = {
-    sanft:     { deficit: 200,  weeklyLoss: '~0,15–0,2 kg',  totalLoss: '~1,5–2,5 kg' },
-    moderat:   { deficit: 400,  weeklyLoss: '~0,3–0,4 kg',   totalLoss: '~3–5 kg' },
-    aggressiv: { deficit: 600,  weeklyLoss: '~0,4–0,6 kg',   totalLoss: '~5–7 kg' },
-  } as const;
-
-  type Mode = keyof typeof MODES;
-  let activeMode: Mode = 'sanft';
-
-  function calculate() {
-    const age    = parseInt(inputs.age.value)    || 38;
-    const weight = parseFloat(inputs.weight.value) || 85;
-    const height = parseFloat(inputs.height.value) || 178;
-
-    // Mifflin-St Jeor (2005) — best validated RMR formula
-    const bmr  = Math.round(10 * weight + 6.25 * height - 5 * age + 5);
-    const tdee = Math.round(bmr * PAL);
-
-    const mode   = MODES[activeMode];
-    const target = tdee - mode.deficit;
-
-    resEl.bmr.textContent    = `${bmr.toLocaleString('de-DE')} kcal`;
-    resEl.tdee.textContent   = `${tdee.toLocaleString('de-DE')} kcal`;
-    resEl.target.textContent = `${target.toLocaleString('de-DE')} kcal`;
-
-    resEl.note.textContent =
-      `Über 12 Wochen: ${mode.totalLoss} Körperfett — bei gleichzeitigem Kraftaufbau durch dein Training. ` +
-      `${mode.weeklyLoss} pro Woche.`;
-
-    // Warn if target drops below safe threshold (~1200 kcal is absolute minimum)
-    const deficit = tdee - target;
-    if (target < 1500) {
-      resEl.warning.style.display = 'block';
-      resEl.warning.textContent =
-        `Hinweis: ${target.toLocaleString('de-DE')} kcal ist für deine Größe sehr wenig. ` +
-        `Unter 1.500 kcal leidet die Trainingsleistung deutlich und du verlierst Muskelmasse. ` +
-        `Wähle besser Sanft oder Moderat.`;
-    } else if (deficit > 800) {
-      resEl.warning.style.display = 'block';
-      resEl.warning.textContent =
-        `Hinweis: Ein Defizit von ${deficit.toLocaleString('de-DE')} kcal pro Tag ist sehr hoch. ` +
-        `Oberhalb von 600–700 kcal steigt das Risiko, Muskelmasse zu verlieren — ` +
-        `was beim Krafttraining kontraproduktiv ist.`;
-    } else {
-      resEl.warning.style.display = 'none';
+    function fmt(n) {
+      return n.toLocaleString(calcData.numberLocale) + ' ' + calcData.kcal;
     }
-  }
 
-  function setMode(mode: Mode) {
-    activeMode = mode;
-    Object.entries(buttons).forEach(([key, btn]) => {
-      btn.classList.toggle('calc__mode-btn--active', key === mode);
+    function calculate() {
+      var age = parseInt(ageEl.value, 10) || 38;
+      var weight = parseFloat(weightEl.value) || 85;
+      var height = parseFloat(heightEl.value) || 178;
+
+      // Mifflin-St Jeor (2005) — best validated RMR formula (male offset +5)
+      var bmr = Math.round(10 * weight + 6.25 * height - 5 * age + 5);
+      var tdee = Math.round(bmr * PAL);
+
+      var mode = modes[activeMode];
+      var target = tdee - mode.deficit;
+
+      resBmr.textContent = fmt(bmr);
+      resTdee.textContent = fmt(tdee);
+      resTarget.textContent = fmt(target);
+
+      resNote.textContent = calcData.noteTemplate
+        .replace('{total}', mode.totalLoss)
+        .replace('{weekly}', mode.weeklyLoss);
+
+      var deficit = tdee - target;
+      if (target < 1500) {
+        resWarning.style.display = 'block';
+        resWarning.textContent = calcData.warnLow.replace(
+          '{target}',
+          target.toLocaleString(calcData.numberLocale)
+        );
+      } else if (deficit > 800) {
+        resWarning.style.display = 'block';
+        resWarning.textContent = calcData.warnHigh.replace(
+          '{deficit}',
+          deficit.toLocaleString(calcData.numberLocale)
+        );
+      } else {
+        resWarning.style.display = 'none';
+      }
+    }
+
+    function setMode(i) {
+      activeMode = i;
+      buttons.forEach(function (btn, idx) {
+        btn.classList.toggle('calc__mode-btn--active', idx === i);
+      });
+      calculate();
+    }
+
+    buttons.forEach(function (btn, i) {
+      btn.addEventListener('click', function () { setMode(i); });
     });
+    [ageEl, weightEl, heightEl].forEach(function (el) {
+      el.addEventListener('input', calculate);
+    });
+
     calculate();
-  }
-
-  buttons.sanft.addEventListener('click',     () => setMode('sanft'));
-  buttons.moderat.addEventListener('click',   () => setMode('moderat'));
-  buttons.aggressiv.addEventListener('click', () => setMode('aggressiv'));
-  Object.values(inputs).forEach(el => el.addEventListener('input', calculate));
-
-  calculate();
+  })();
 </script>

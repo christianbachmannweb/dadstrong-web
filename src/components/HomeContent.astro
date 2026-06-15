@@ -1,0 +1,1534 @@
+---
+import { Image } from 'astro:assets';
+import appHome from '../assets/images/dadstrong-app-home-screen.png';
+import appMockupJourney from '../assets/images/app-mockup-journey.png';
+import appMockupWarmup from '../assets/images/app-mockup-warmup.png';
+import appMockupWidget from '../assets/images/app-mockup-widget.png';
+import appMockupPause from '../assets/images/app-mockup-pause.png';
+import LangSwitcher from './LangSwitcher.astro';
+import { home, TESTFLIGHT_URL } from '../i18n/home';
+import type { Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const c = home[lang];
+const tf = TESTFLIGHT_URL;
+const calcHref = lang === 'de' ? '/kalorienrechner/' : '/en/calorie-calculator/';
+---
+
+<!-- ANNOUNCEMENT STRIPE -->
+<div class="announcement" role="status">
+  <span class="announcement__text">{c.announcement.pre} &nbsp;·&nbsp; <a href={tf} target="_blank" rel="noopener" class="announcement__link">{c.announcement.link}</a></span>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav__inner">
+    <span class="nav__logo">
+      <img src="/app-icon-64.png" alt="Dad Strong App Icon" class="nav__icon" width="32" height="32" />
+      DAD STRONG
+    </span>
+    <div class="nav__right">
+      <LangSwitcher lang={lang} page="home" />
+      <a href={tf} class="nav__cta" target="_blank" rel="noopener">{c.nav.cta}</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ═══════════════════════════════════════════════════════ HERO -->
+  <section class="hero">
+
+    <div class="hero__bars" aria-hidden="true">
+      <!-- Block 1 -->
+      <div class="hbar" style="--h:28%;--delay:.05s"></div>
+      <div class="hbar" style="--h:31%;--delay:.1s"></div>
+      <div class="hbar" style="--h:34%;--delay:.15s"></div>
+      <div class="hbar hbar--mark" style="--h:37%;--delay:.2s" data-label="60 kg"></div>
+      <div class="hbar hbar--gap"></div>
+      <!-- Block 2 -->
+      <div class="hbar" style="--h:43%;--delay:.25s"></div>
+      <div class="hbar" style="--h:47%;--delay:.3s"></div>
+      <div class="hbar" style="--h:51%;--delay:.35s"></div>
+      <div class="hbar hbar--mark" style="--h:55%;--delay:.4s" data-label="80 kg"></div>
+      <div class="hbar hbar--gap"></div>
+      <!-- Block 3 -->
+      <div class="hbar" style="--h:61%;--delay:.45s"></div>
+      <div class="hbar" style="--h:66%;--delay:.5s"></div>
+      <div class="hbar" style="--h:72%;--delay:.55s"></div>
+      <div class="hbar hbar--mark" style="--h:77%;--delay:.6s" data-label="90 kg"></div>
+      <div class="hbar hbar--gap"></div>
+      <!-- Block 4 – peak -->
+      <div class="hbar" style="--h:82%;--delay:.65s"></div>
+      <div class="hbar" style="--h:87%;--delay:.7s"></div>
+      <div class="hbar" style="--h:92%;--delay:.75s"></div>
+      <div class="hbar hbar--peak hbar--mark" style="--h:100%;--delay:.8s" data-label="100 kg"></div>
+    </div>
+
+    <div class="container">
+      <p class="label label--accent hero__label">{c.hero.label}</p>
+      <h1 class="hero__title">DAD<br>STRONG</h1>
+      <div class="hero__sub">
+        <p class="hero__tagline">{c.hero.tagline.map((line, i) => (<Fragment>{i > 0 && <br />}{line}</Fragment>))}</p>
+        <p class="hero__body">{c.hero.body.map((line, i) => (<Fragment>{i > 0 && <br />}{line}</Fragment>))}</p>
+        <a href={tf} class="hero__tf" target="_blank" rel="noopener">
+          <svg width="22" height="22" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="40" height="40" rx="9" fill="#147EFB"/>
+            <rect x="18.5" y="5" width="3" height="26" rx="1.5" fill="white"/>
+            <path d="M20 14 L5 22 L5 26 L20 20 L35 26 L35 22 Z" fill="white"/>
+            <path d="M20 22 L9 27 L9 31 L20 27 L31 31 L31 27 Z" fill="white"/>
+          </svg>
+          {c.hero.tf}
+        </a>
+      </div>
+    </div>
+    <div class="hero__divider" aria-hidden="true"></div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ KENNST DU DAS? -->
+  <section class="section section--surface" id="problem">
+    <div class="container">
+      <div class="section__header">
+        <p class="label label--muted">{c.problem.label}</p>
+        <h2 class="section__title">{c.problem.title}</h2>
+      </div>
+      <div class="pain__grid">
+        {c.problem.pains.map((pain, i) => (
+          <div class="pain reveal" style={i > 0 ? `--delay:${i * 0.08}s` : undefined}>
+            <span class="pain__num">—</span>
+            <p class="pain__text">{pain}</p>
+          </div>
+        ))}
+      </div>
+      <div class="pain__answer reveal" style="--delay:.65s">
+        <p class="pain__answer-text">{c.problem.answerTitle}</p>
+        <p class="pain__answer-sub">{c.problem.answerSub}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════ DIE PHILOSOPHIE -->
+  <section class="section" id="philosophy">
+    <div class="container">
+      <div class="section__header">
+        <p class="label label--accent">{c.philosophy.label}</p>
+        <h2 class="section__title">{c.philosophy.title.map((line, i) => (<Fragment>{i > 0 && <br />}{line}</Fragment>))}</h2>
+        <p class="section__lead">{c.philosophy.lead}</p>
+      </div>
+
+      <div class="philosophy__layout">
+        <div class="philosophy__cards">
+          {c.philosophy.cards.map((card, i) => (
+            <article class="card reveal" style={i > 0 ? `--delay:${i * 0.08}s` : undefined}>
+              <span class="card__num">{String(i + 1).padStart(2, '0')}</span>
+              <h3 class="card__title">{card.title}</h3>
+              <p class="card__body">{card.body}</p>
+            </article>
+          ))}
+        </div>
+
+        <div class="philosophy__mockup reveal" style="--delay:.1s">
+          <div class="iphone">
+            <div class="iphone__dynamic-island" aria-hidden="true"></div>
+            <div class="iphone__btn iphone__btn--action" aria-hidden="true"></div>
+            <div class="iphone__btn iphone__btn--vol-up" aria-hidden="true"></div>
+            <div class="iphone__btn iphone__btn--vol-down" aria-hidden="true"></div>
+            <div class="iphone__btn iphone__btn--side" aria-hidden="true"></div>
+            <div class="iphone__screen">
+              <Image src={appHome} alt={c.philosophy.mockAlt} format="avif" loading="lazy" />
+            </div>
+          </div>
+          <div class="mockup__label">
+            <span class="label label--muted" style="margin:0">{c.philosophy.mockLabel}</span>
+            <p class="mockup__caption">{c.philosophy.mockCaption}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════ DIE GESCHICHTE -->
+  <section class="section about-section" id="story">
+    <div class="container">
+      <div class="about__layout">
+        <div class="about__left">
+          <p class="label label--muted">{c.story.label}</p>
+          <blockquote class="about__pull">
+            {c.story.pull}
+          </blockquote>
+          <p class="about__byline">{c.story.byline}</p>
+        </div>
+        <div class="about__right reveal">
+          {c.story.paragraphs.map((p) => (<p>{p}</p>))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════ DER PLAN -->
+  <section class="section section--surface" id="plan">
+    <div class="container">
+      <div class="section__header">
+        <p class="label label--accent">{c.plan.label}</p>
+        <h2 class="section__title">{c.plan.title}</h2>
+        <p class="section__lead">{c.plan.lead}</p>
+      </div>
+
+      <div class="training__grid">
+        <div class="training__block reveal">
+          <header class="training__header">
+            <span class="training__tag">{c.plan.aTag}</span>
+          </header>
+          <div class="training__exercises">
+            {c.plan.exercisesA.map((ex) => (
+              <div class="exercise">
+                <div class="exercise__name">{ex.name}</div>
+                <div class="exercise__why">{ex.why}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="training__block reveal" style="--delay:.15s">
+          <header class="training__header">
+            <span class="training__tag">{c.plan.bTag}</span>
+          </header>
+          <div class="training__exercises">
+            {c.plan.exercisesB.map((ex) => (
+              <div class="exercise">
+                <div class="exercise__name">{ex.name}</div>
+                <div class="exercise__why">{ex.why}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Warum nicht veränderbar -->
+      <div class="training__why reveal" style="--delay:.2s">
+        <div class="training__why-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+        </div>
+        <div>
+          <p class="training__why-title">{c.plan.whyTitle}</p>
+          <p class="training__why-body">{c.plan.whyBody}</p>
+        </div>
+      </div>
+
+      <!-- Progression Demo -->
+      <div class="progression reveal" style="--delay:.25s">
+        <div class="progression__header">
+          <p class="label label--muted">{c.plan.progLabel}</p>
+        </div>
+        <div class="progression__track">
+          <div class="progression__weeks">
+            {c.plan.weeks.map((w) => (<span>{w}</span>))}
+          </div>
+          <div class="progression__bar">
+            <div class="progression__fill" id="progFill"></div>
+          </div>
+          <div class="progression__weights">
+            <span class="prog-w">60 kg</span>
+            <span class="prog-w">72 kg</span>
+            <span class="prog-w">85 kg</span>
+            <span class="prog-w prog-w--accent">100 kg</span>
+          </div>
+        </div>
+        <p class="progression__note">{c.plan.progNote}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════ MID-PAGE CTA STRIP -->
+  <div class="midcta reveal">
+    <div class="container">
+      <div class="midcta__inner">
+        <div class="midcta__line" aria-hidden="true"></div>
+        <div class="midcta__content">
+          <p class="midcta__heading">{c.midcta.heading}</p>
+          <a href={tf} class="midcta__tf" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="40" height="40" rx="9" fill="#147EFB"/>
+              <rect x="18.5" y="5" width="3" height="26" rx="1.5" fill="white"/>
+              <path d="M20 14 L5 22 L5 26 L20 20 L35 26 L35 22 Z" fill="white"/>
+              <path d="M20 22 L9 27 L9 31 L20 27 L31 31 L31 27 Z" fill="white"/>
+            </svg>
+            {c.midcta.tf}
+          </a>
+        </div>
+        <div class="midcta__line" aria-hidden="true"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════ DIE APP -->
+  <section class="section" id="app">
+    <div class="container">
+      <div class="section__header">
+        <p class="label label--accent">{c.app.label}</p>
+        <h2 class="section__title">{c.app.title.map((line, i) => (<Fragment>{i > 0 && <br />}{line}</Fragment>))}</h2>
+        <p class="section__lead">{c.app.lead}</p>
+      </div>
+
+      <div class="phones-showcase reveal">
+        <div class="phones-showcase__phone">
+          <Image src={appMockupWarmup} alt={c.app.phoneWarmup.alt} format="avif" loading="lazy" />
+          <p class="phones-showcase__label">{c.app.phoneWarmup.label}</p>
+        </div>
+        <div class="phones-showcase__phone phones-showcase__phone--raised">
+          <Image src={appMockupPause} alt={c.app.phoneTraining.alt} format="avif" loading="lazy" />
+          <p class="phones-showcase__label">{c.app.phoneTraining.label}</p>
+        </div>
+        <div class="phones-showcase__phone">
+          <Image src={appMockupJourney} alt={c.app.phoneJourney.alt} format="avif" loading="lazy" />
+          <p class="phones-showcase__label">{c.app.phoneJourney.label}</p>
+        </div>
+      </div>
+
+      <div class="features">
+
+        <!-- Row 1: Workout-Tracking + Streak -->
+        <div class="feature reveal">
+          <div class="feature__top">
+            <div class="feature__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="feature__title">{c.app.fTracking.title}</h3>
+              <p class="feature__body">{c.app.fTracking.body}</p>
+            </div>
+          </div>
+          <!-- Progression Mock -->
+          <div class="prog-mock">
+            <div class="prog-mock__header">
+              {c.app.progMockHeader.map((h) => (<span>{h}</span>))}
+            </div>
+            {c.app.progMockRows.map((row) => (
+              <div class="prog-mock__row">
+                <span>{row.name}</span><span>{row.before}</span><span class="prog-mock__up">{row.now}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="feature feature--accent reveal" style="--delay:.08s">
+          <div class="feature__top">
+            <div class="feature__icon feature__icon--accent">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><circle cx="8" cy="15" r="1" fill="currentColor"/><circle cx="12" cy="15" r="1" fill="currentColor"/><circle cx="16" cy="15" r="1" fill="currentColor"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="feature__title">{c.app.fStreaks.title}</h3>
+              <p class="feature__body">{c.app.fStreaks.body}</p>
+            </div>
+          </div>
+          <div class="streak__types">
+            {c.app.streakTypes.map((s) => (
+              <div class="streak__type">
+                <span class="streak__type-icon">{s.icon}</span>
+                <div>
+                  <span class="streak__type-name">{s.name}</span>
+                  <span class="streak__type-rule">{s.rule}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div class="streak__super">
+            <span class="streak__super-label">{c.app.superLabel}</span>
+            <span class="streak__super-badge">{c.app.superBadge}</span>
+          </div>
+        </div>
+
+        <!-- Row 2: Körper-Doku (2 cols) + Zone 2 -->
+        <div class="feature feature--body reveal" style="--delay:.12s">
+          <div class="feature__top">
+            <div class="feature__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="feature__title">{c.app.fBody.title}</h3>
+              <p class="feature__body">{c.app.fBody.body}</p>
+            </div>
+          </div>
+          <!-- Body check-in mock -->
+          <div class="body-mock">
+            <div class="body-mock__photos">
+              <div class="body-mock__photo">
+                <svg viewBox="0 0 60 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <circle cx="30" cy="14" r="10" fill="rgba(255,255,255,0.08)"/>
+                  <rect x="18" y="26" width="24" height="36" rx="4" fill="rgba(255,255,255,0.06)"/>
+                  <rect x="6" y="28" width="10" height="28" rx="4" fill="rgba(255,255,255,0.05)"/>
+                  <rect x="44" y="28" width="10" height="28" rx="4" fill="rgba(255,255,255,0.05)"/>
+                  <rect x="20" y="64" width="10" height="42" rx="4" fill="rgba(255,255,255,0.06)"/>
+                  <rect x="30" y="64" width="10" height="42" rx="4" fill="rgba(255,255,255,0.06)"/>
+                </svg>
+                <span>{c.app.bodyPhotoLabels[0]}</span>
+              </div>
+              <div class="body-mock__photo">
+                <svg viewBox="0 0 60 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <circle cx="30" cy="14" r="10" fill="rgba(255,255,255,0.08)"/>
+                  <rect x="18" y="26" width="24" height="36" rx="4" fill="rgba(255,255,255,0.06)"/>
+                  <rect x="6" y="28" width="10" height="28" rx="4" fill="rgba(255,255,255,0.05)"/>
+                  <rect x="44" y="28" width="10" height="28" rx="4" fill="rgba(255,255,255,0.05)"/>
+                  <rect x="20" y="64" width="10" height="42" rx="4" fill="rgba(255,255,255,0.06)"/>
+                  <rect x="30" y="64" width="10" height="42" rx="4" fill="rgba(255,255,255,0.06)"/>
+                </svg>
+                <span>{c.app.bodyPhotoLabels[1]}</span>
+              </div>
+              <div class="body-mock__photo">
+                <svg viewBox="0 0 60 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <circle cx="30" cy="14" r="10" fill="rgba(255,255,255,0.08)"/>
+                  <rect x="20" y="26" width="20" height="36" rx="4" fill="rgba(255,255,255,0.06)"/>
+                  <rect x="8"  y="28" width="10" height="28" rx="4" fill="rgba(255,255,255,0.05)"/>
+                  <rect x="22" y="64" width="14" height="42" rx="4" fill="rgba(255,255,255,0.06)"/>
+                </svg>
+                <span>{c.app.bodyPhotoLabels[2]}</span>
+              </div>
+            </div>
+            <div class="body-mock__stats">
+              {c.app.bodyStats.map((stat) => (
+                <div class="body-mock__stat">
+                  <span class="body-mock__stat-label">{stat.label}</span>
+                  <span class="body-mock__stat-val">{stat.val}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div class="feature reveal" style="--delay:.2s">
+          <div class="feature__top">
+            <div class="feature__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="feature__title">{c.app.fZone.title}</h3>
+              <p class="feature__body">{c.app.fZone.body}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 3: Widget (span 2, horizontal) + Planbar (1 col) -->
+        <div class="feature feature--widget reveal" style="--delay:.16s">
+          <div class="feature__widget-text">
+            <div class="feature__top">
+              <div class="feature__icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="feature__title">{c.app.fWidget.title}</h3>
+                <p class="feature__body">{c.app.fWidget.body}</p>
+              </div>
+            </div>
+          </div>
+          <Image src={appMockupWidget} alt={c.app.widgetAlt} format="avif" loading="lazy" class="widget-mockup-img" />
+        </div>
+
+        <!-- Standardized training -->
+        <div class="feature feature--structured reveal" style="--delay:.24s">
+          <div class="feature__top">
+            <div class="feature__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="feature__title">{c.app.fStructured.title}</h3>
+              <p class="feature__body">{c.app.fStructured.body}</p>
+            </div>
+          </div>
+          <div class="duration-mock">
+            <div class="duration-mock__row">
+              <span class="duration-mock__label">{c.app.durationLabels[0]}</span>
+              <div class="duration-mock__bar"><div class="duration-mock__fill" style="width:100%"></div></div>
+              <span class="duration-mock__time">{c.app.durationTimes[0]}</span>
+            </div>
+            <div class="duration-mock__row">
+              <span class="duration-mock__label">{c.app.durationLabels[1]}</span>
+              <div class="duration-mock__bar"><div class="duration-mock__fill" style="width:75%"></div></div>
+              <span class="duration-mock__time">{c.app.durationTimes[1]}</span>
+            </div>
+            <p class="duration-mock__note">{c.app.durationNote}</p>
+          </div>
+        </div>
+
+        <!-- Papa-Text spanning 2 cols -->
+        <div class="feature feature--papa reveal" style="--delay:.3s">
+          <p class="papa__eyebrow">{c.app.papaEyebrow}</p>
+          <p class="papa__text">{c.app.papaText.map((line, i) => (<Fragment>{i > 0 && <br />}{line}</Fragment>))}</p>
+          <div class="papa__values">
+            {c.app.papaValues.map((v) => (<span>{v}</span>))}
+          </div>
+          <p class="papa__close">{c.app.papaClose}</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════ OPTIONAL DAZU -->
+  <section class="section optional-section">
+    <div class="container">
+      <div class="section__header">
+        <p class="label label--muted">{c.optional.label}</p>
+        <h2 class="section__title">{c.optional.title}</h2>
+        <p class="section__lead">{c.optional.lead}</p>
+      </div>
+      <div class="optional__grid">
+        <div class="optional__card reveal">
+          <p class="optional__label" style="color: var(--color-zone2)">{c.optional.zone2.label}</p>
+          <h3 class="optional__title">{c.optional.zone2.title}</h3>
+          <p class="optional__body">{c.optional.zone2.body}</p>
+        </div>
+        <div class="optional__card reveal" style="--delay:.1s">
+          <p class="optional__label" style="color: var(--color-sprint)">{c.optional.sprint.label}</p>
+          <h3 class="optional__title">{c.optional.sprint.title}</h3>
+          <p class="optional__body">{c.optional.sprint.body}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════ FAQ -->
+  <section class="section section--surface" id="faq">
+    <div class="container">
+      <div class="section__header">
+        <p class="label label--muted">{c.faq.label}</p>
+        <h2 class="section__title">{c.faq.title}</h2>
+      </div>
+      <div class="faq__list">
+        {c.faq.items.map((item, i) => (
+          <details class="faq reveal" style={i > 0 ? `--delay:${(i * 0.06).toFixed(2)}s` : undefined}>
+            <summary class="faq__q">{item.q}</summary>
+            {item.a.map((p) => (<p class="faq__a">{p}</p>))}
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════ CTA -->
+  <section class="section cta-section" id="download">
+    <div class="container">
+      <div class="cta__inner reveal">
+        <p class="label label--muted">{c.cta.label}</p>
+        <blockquote class="cta__quote">
+          {c.cta.quote}
+        </blockquote>
+        <a href={tf} class="cta__btn" target="_blank" rel="noopener">
+          <svg width="28" height="28" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="40" height="40" rx="9" fill="#147EFB"/>
+            <rect x="18.5" y="5" width="3" height="26" rx="1.5" fill="white"/>
+            <path d="M20 14 L5 22 L5 26 L20 20 L35 26 L35 22 Z" fill="white"/>
+            <path d="M20 22 L9 27 L9 31 L20 27 L31 31 L31 27 Z" fill="white"/>
+          </svg>
+          {c.cta.btn}
+        </a>
+        <p class="cta__meta">{c.cta.meta}</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ══════════════════════════════════════════════════ FOOTER -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <span class="footer__brand">DAD STRONG</span>
+    <nav class="footer__links" aria-label="Footer Navigation">
+      <a href={lang === 'de' ? '/privacy/' : '/en/privacy/'}>{c.footer.privacy}</a>
+      <a href={calcHref}>{lang === 'de' ? 'Kalorienrechner' : 'Calorie calculator'}</a>
+      <a href="mailto:info@dadstrong.app">{c.footer.contact}</a>
+    </nav>
+    <p class="footer__copy">{c.footer.copy}</p>
+  </div>
+</footer>
+
+<style>
+  /* ─────────────────────────────── LAYOUT */
+  .container {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 clamp(24px, 5vw, 72px);
+  }
+  .section { padding: clamp(80px, 12vw, 140px) 0; }
+  .section--surface { background: #111111; }
+
+  /* ─────────────────────────────── ATOMS */
+  .label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .label--accent { color: #d4ff00; }
+  .label--muted  { color: #888; }
+
+  .section__header { margin-bottom: clamp(48px, 7vw, 88px); }
+  .section__title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(52px, 9vw, 100px);
+    line-height: 0.95;
+    letter-spacing: 0.025em;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+  .section__lead { font-size: 17px; color: #aaaaaa; line-height: 1.65; max-width: 520px; }
+
+  /* ─────────────────────────────── BUTTON */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #d4ff00;
+    color: #000;
+    font-family: 'Barlow', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 28px;
+    border-radius: 12px;
+    transition: opacity .18s, transform .18s;
+  }
+  .btn-primary:hover { opacity: .85; transform: translateY(-1px); }
+  .btn-primary--large { font-size: 15px; padding: 20px 44px; border-radius: 14px; }
+
+  /* ─────────────────────────────── ANNOUNCEMENT STRIPE */
+  @media (max-width: 767px) {
+    .announcement { display: none; }
+    .nav { inset: 0 0 auto 0; }
+    .hero { padding-top: 64px; }
+  }
+
+  .announcement {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 101;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,140,26,.08);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255,140,26,.7);
+    box-shadow:
+      0 0 10px rgba(255,140,26,.45),
+      0 0 28px rgba(255,140,26,.18),
+      0 0 56px rgba(255,140,26,.07);
+  }
+  .announcement__text {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: #ff8c1a;
+    text-shadow: 0 0 8px rgba(255,140,26,.7);
+  }
+  .announcement__link {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-color: rgba(255,140,26,.5);
+    transition: opacity .18s;
+  }
+  .announcement__link:hover { opacity: .75; }
+
+  /* ─────────────────────────────── NAV */
+  .nav {
+    position: fixed;
+    inset: 36px 0 auto 0;
+    z-index: 100;
+    padding: 18px 0;
+    background: rgba(0,0,0,.82);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255,255,255,.05);
+  }
+  .nav__inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 clamp(24px, 5vw, 72px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav__logo { font-family: 'Bebas Neue', cursive; font-size: 21px; letter-spacing: .12em; color: #fff; display: flex; align-items: center; gap: 10px; }
+  .nav__icon { width: 32px; height: 32px; border-radius: 8px; display: block; flex-shrink: 0; }
+  .nav__right { display: flex; align-items: center; gap: 18px; }
+  .nav__cta {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #d4ff00;
+    text-decoration: none;
+    border: 1px solid rgba(212,255,0,.35);
+    padding: 8px 18px;
+    border-radius: 8px;
+    transition: background .18s, color .18s, border-color .18s;
+  }
+  .nav__cta:hover { background: #d4ff00; color: #000; border-color: #d4ff00; }
+  .nav__cta--soon {
+    color: #555;
+    border-color: rgba(255,255,255,.08);
+    cursor: default;
+    pointer-events: none;
+  }
+
+  /* ─────────────────────────────── HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 100px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero .container { position: relative; z-index: 1; }
+  .hero__label { animation: fadeUp .55s .05s both; }
+  .hero__title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(96px, 20vw, 260px);
+    line-height: .88;
+    letter-spacing: .01em;
+    color: #fff;
+    margin-bottom: clamp(28px, 4vw, 52px);
+    animation: fadeUp .65s .15s both;
+  }
+  .hero__sub { max-width: 480px; animation: fadeUp .65s .3s both; }
+  .hero__tagline {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(28px, 4.5vw, 52px);
+    color: #d4ff00;
+    letter-spacing: .06em;
+    line-height: 1.05;
+    margin-bottom: 18px;
+  }
+  .hero__body { font-size: 16px; color: #aaaaaa; line-height: 1.7; margin-bottom: 36px; }
+  .hero__tf {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+    margin: 0;
+    transition: opacity .18s;
+  }
+  .hero__tf:hover { opacity: .75; }
+  .hero__divider {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(212,255,0,.25), transparent);
+  }
+
+  /* ─────────────────────────────── HERO BARS */
+  .hero__bars {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 75%;
+    display: flex;
+    align-items: flex-end;
+    gap: 6px;
+    padding: 0 clamp(24px, 5vw, 72px);
+    pointer-events: none;
+    z-index: 0;
+    -webkit-mask-image: linear-gradient(to top, black 70%, transparent 100%);
+    mask-image: linear-gradient(to top, black 70%, transparent 100%);
+  }
+  .hbar {
+    flex: 1;
+    height: var(--h, 40%);
+    position: relative;
+    border-radius: 3px 3px 0 0;
+    background: linear-gradient(to top, rgba(212,255,0,.04) 0%, rgba(212,255,0,.10) 100%);
+    transform: scaleY(0);
+    transform-origin: bottom center;
+    animation: barRise .9s var(--delay, 0s) cubic-bezier(.23,1,.32,1) both;
+  }
+  .hbar--gap { flex: 0.4; background: transparent; animation: none; transform: none; }
+  .hbar--mark::after {
+    content: attr(data-label);
+    position: absolute;
+    top: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    color: rgba(212,255,0,.35);
+    white-space: nowrap;
+    letter-spacing: .05em;
+    opacity: 0;
+    animation: labelFade .5s calc(var(--delay, 0s) + .5s) ease both;
+  }
+  .hbar--peak {
+    background: linear-gradient(to top, rgba(212,255,0,.08) 0%, rgba(212,255,0,.30) 100%);
+    box-shadow: 0 0 24px rgba(212,255,0,.12);
+  }
+  .hbar--peak::after { color: #d4ff00; font-size: 11px; }
+
+  /* ─────────────────────────────── KENNST DU DAS */
+  .pain__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 56px;
+  }
+  .pain {
+    display: flex;
+    gap: 14px;
+    padding: 20px 22px;
+    background: #000;
+    border: 1px solid rgba(255,255,255,.06);
+    border-radius: 14px;
+    transition: border-color .2s;
+  }
+  .pain:hover { border-color: rgba(255,255,255,.12); }
+  .pain__num {
+    font-family: 'DM Mono', monospace;
+    font-size: 18px;
+    color: rgba(255,255,255,.15);
+    flex-shrink: 0;
+    line-height: 1.4;
+  }
+  .pain__text { font-size: 15px; color: #bbb; line-height: 1.6; }
+
+  .pain__answer {
+    border-top: 1px solid rgba(255,255,255,.06);
+    padding-top: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .pain__answer-text {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(32px, 5vw, 56px);
+    letter-spacing: .04em;
+    color: #d4ff00;
+  }
+  .pain__answer-sub { font-size: 16px; color: #aaaaaa; max-width: 540px; line-height: 1.65; }
+
+  /* ─────────────────────────────── PHILOSOPHY LAYOUT */
+  .philosophy__layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(40px, 7vw, 96px);
+    align-items: center;
+  }
+  .philosophy__cards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+  /* ─────────────────────────────── CARDS */
+  .card {
+    background: #111;
+    border: 1px solid rgba(255,255,255,.06);
+    border-radius: 16px;
+    padding: clamp(20px, 2.5vw, 28px);
+    position: relative;
+    overflow: hidden;
+    transition: border-color .25s, transform .25s;
+  }
+  .card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: #d4ff00;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .35s cubic-bezier(.23,1,.32,1);
+  }
+  .card:hover::after { transform: scaleX(1); }
+  .card:hover { border-color: rgba(212,255,0,.12); transform: translateY(-2px); }
+  .card__num {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: .18em;
+    color: #d4ff00;
+    display: block;
+    margin-bottom: 12px;
+  }
+  .card__title { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 8px; line-height: 1.2; }
+  .card__body { font-size: 13px; color: #aaaaaa; line-height: 1.65; }
+
+  /* ─────────────────────────────── iPHONE MOCKUP */
+  .philosophy__mockup { display: flex; flex-direction: column; align-items: center; gap: 24px; }
+  .philosophy__mockup-img { width: 280px; height: auto; filter: drop-shadow(0 32px 64px rgba(0,0,0,.5)); }
+  .iphone {
+    position: relative;
+    width: clamp(220px, 28vw, 320px);
+    aspect-ratio: 390 / 844;
+    background: #0a0a0a;
+    border-radius: clamp(40px, 6vw, 54px);
+    border: 2px solid rgba(255,255,255,.1);
+    box-shadow:
+      0 0 0 1px rgba(255,255,255,.06),
+      inset 0 0 0 1px rgba(255,255,255,.04),
+      0 32px 80px rgba(0,0,0,.8),
+      0 0 60px rgba(212,255,0,.06);
+    overflow: visible;
+  }
+  .iphone__dynamic-island {
+    position: absolute;
+    top: 3.5%; left: 50%;
+    transform: translateX(-50%);
+    width: 30%; height: 4%;
+    background: #000;
+    border-radius: 20px;
+    z-index: 10;
+    box-shadow: 0 0 0 1px rgba(255,255,255,.06);
+  }
+  .iphone__btn { position: absolute; background: #1e1e1e; border-radius: 2px; }
+  .iphone__btn--action   { left: -3px; top: 8%;  width: 3px; height: 5%; }
+  .iphone__btn--vol-up   { left: -3px; top: 16%; width: 3px; height: 7%; }
+  .iphone__btn--vol-down { left: -3px; top: 25%; width: 3px; height: 7%; }
+  .iphone__btn--side     { right: -3px; top: 16%; width: 3px; height: 10%; }
+  .iphone__screen { position: absolute; inset: 0; border-radius: inherit; overflow: hidden; }
+  .iphone__screen img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+  .mockup__label { text-align: center; }
+  .mockup__caption { font-size: 14px; color: #aaaaaa; margin-top: 6px; }
+
+  /* ─────────────────────────────── PHONES SHOWCASE */
+  .phones-showcase {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 24px;
+    margin: 0 auto 80px;
+    max-width: 640px;
+  }
+  .phones-showcase__phone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    flex: 1;
+  }
+  .phones-showcase__phone--raised {
+    transform: translateY(-32px);
+  }
+  .phones-showcase__phone img {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    border-radius: 4px;
+    filter: drop-shadow(0 32px 64px rgba(0,0,0,.6));
+  }
+  .phones-showcase__label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: #777;
+  }
+  @media (max-width: 500px) {
+    .phones-showcase { gap: 12px; }
+    .phones-showcase__phone--raised { transform: translateY(-16px); }
+  }
+
+  /* ─────────────────────────────── ABOUT / GESCHICHTE */
+  .about-section { background: #0a0a0a; }
+  .about__layout {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: clamp(40px, 8vw, 120px);
+    align-items: start;
+  }
+  .about__left { position: sticky; top: 100px; }
+  .about__pull {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(32px, 4.5vw, 52px);
+    line-height: 1.1;
+    letter-spacing: .03em;
+    color: #fff;
+    border: none;
+    padding: 0;
+    font-style: normal;
+    margin: 0 0 16px;
+  }
+  .about__byline { font-size: 13px; color: #777; font-style: italic; }
+
+  .about__right { display: flex; flex-direction: column; gap: 18px; }
+  .about__right p {
+    font-size: 16px;
+    color: #888;
+    line-height: 1.75;
+  }
+
+  /* ─────────────────────────────── TRAINING PLAN */
+  .training__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+  .training__block {
+    background: #000;
+    border: 1px solid rgba(255,255,255,.07);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .training__header {
+    padding: 18px 28px;
+    border-bottom: 1px solid rgba(255,255,255,.07);
+    background: rgba(212,255,0,.04);
+  }
+  .training__tag { font-family: 'Bebas Neue', cursive; font-size: 20px; letter-spacing: .1em; color: #d4ff00; }
+  .training__exercises { padding: 4px 0; }
+  .exercise {
+    padding: 14px 28px;
+    border-bottom: 1px solid rgba(255,255,255,.04);
+    transition: background .18s;
+  }
+  .exercise:last-child { border-bottom: none; }
+  .exercise:hover { background: rgba(212,255,0,.03); }
+  .exercise__name { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 3px; }
+  .exercise__why { font-size: 12px; color: #888; letter-spacing: .02em; }
+
+  /* Warum nicht veränderbar callout */
+  .training__why {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 20px 24px;
+    background: rgba(212,255,0,.04);
+    border: 1px solid rgba(212,255,0,.1);
+    border-radius: 12px;
+    margin-bottom: 20px;
+  }
+  .training__why-icon { color: #d4ff00; flex-shrink: 0; margin-top: 2px; }
+  .training__why-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #d4ff00;
+    margin-bottom: 6px;
+    letter-spacing: .02em;
+  }
+  .training__why-body { font-size: 14px; color: #aaaaaa; line-height: 1.65; }
+
+  /* Progression */
+  .progression {
+    background: #000;
+    border: 1px solid rgba(255,255,255,.07);
+    border-radius: 16px;
+    padding: clamp(24px, 3vw, 40px);
+  }
+  .progression__header { margin-bottom: 20px; }
+  .progression__weeks {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: #777;
+    margin-bottom: 8px;
+  }
+  .progression__bar {
+    height: 5px;
+    background: rgba(255,255,255,.07);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 8px;
+  }
+  .progression__fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(to right, rgba(212,255,0,.35), #d4ff00);
+    border-radius: 3px;
+    transition: width 1.6s cubic-bezier(.23,1,.32,1);
+  }
+  .progression__fill.active { width: 100%; }
+  .progression__weights { display: flex; justify-content: space-between; margin-bottom: 12px; }
+  .prog-w { font-family: 'DM Mono', monospace; font-size: 13px; color: #888; }
+  .prog-w--accent { color: #d4ff00; font-weight: 500; }
+  .progression__note { font-size: 12px; color: rgba(255,255,255,.18); }
+
+  /* ─────────────────────────────── FEATURES */
+  .features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.06);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .feature--accent { grid-column: span 2; background: rgba(212,255,0,.03); border-top: 1px solid rgba(212,255,0,.08); }
+  .feature {
+    padding: clamp(24px, 3vw, 36px);
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    transition: background .18s;
+  }
+  .feature:hover { background: #111; }
+  .feature--accent:hover { background: rgba(212,255,0,.05); }
+  .feature__top {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+  .feature__icon {
+    width: 42px; height: 42px;
+    border-radius: 10px;
+    background: rgba(212,255,0,.07);
+    display: flex; align-items: center; justify-content: center;
+    color: #d4ff00;
+    flex-shrink: 0;
+  }
+  .feature__icon--accent { background: rgba(212,255,0,.14); }
+  .feature__title { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 5px; }
+  .feature__body { font-size: 13px; color: #aaaaaa; line-height: 1.6; }
+
+  /* Progression mock */
+  .prog-mock {
+    background: rgba(255,255,255,.03);
+    border: 1px solid rgba(255,255,255,.06);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .prog-mock__header {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 12px;
+    padding: 8px 14px;
+    background: rgba(255,255,255,.04);
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    color: #777;
+    text-transform: uppercase;
+  }
+  .prog-mock__row {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 12px;
+    padding: 9px 14px;
+    border-top: 1px solid rgba(255,255,255,.04);
+    font-size: 13px;
+    color: rgba(255,255,255,.5);
+    font-family: 'DM Mono', monospace;
+    transition: background .15s;
+  }
+  .prog-mock__row:hover { background: rgba(255,255,255,.03); }
+  .prog-mock__up { color: #d4ff00; font-weight: 500; }
+
+  /* Body check-in mock */
+  .feature--body { grid-column: span 2; }
+  .body-mock { margin-top: 4px; display: flex; gap: 16px; align-items: flex-end; }
+  .body-mock__photos { display: flex; gap: 10px; flex: 1; }
+  .body-mock__photo {
+    flex: 1;
+    background: rgba(255,255,255,.03);
+    border: 1px solid rgba(255,255,255,.06);
+    border-radius: 10px;
+    padding: 12px 8px 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .body-mock__photo svg { width: 100%; max-width: 48px; height: auto; }
+  .body-mock__photo span {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    color: #777;
+  }
+  .body-mock__stats {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 120px;
+  }
+  .body-mock__stat {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 7px 12px;
+    background: rgba(255,255,255,.03);
+    border: 1px solid rgba(255,255,255,.05);
+    border-radius: 8px;
+  }
+  .body-mock__stat-label { font-size: 12px; color: #888; }
+  .body-mock__stat-val { font-family: 'DM Mono', monospace; font-size: 12px; color: #fff; font-weight: 500; }
+
+  /* Widget tile — span 2, horizontal layout */
+  .feature--widget {
+    grid-column: span 2;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+  }
+  .feature--widget .feature__widget-text { flex: 1; min-width: 0; }
+  .feature--widget .feature__top { margin-bottom: 0; }
+  .widget-mockup-img {
+    flex-shrink: 0;
+    width: 240px;
+    max-width: 40%;
+    height: auto;
+    margin-top: 0;
+    filter: drop-shadow(0 16px 40px rgba(0,0,0,.6));
+    border-radius: 24px;
+  }
+
+  /* Standardized training tile */
+  .feature--structured { grid-column: span 1; }
+  .duration-mock { margin-top: 20px; display: flex; flex-direction: column; gap: 10px; }
+  .duration-mock__row {
+    display: grid;
+    grid-template-columns: 90px 1fr 56px;
+    align-items: center;
+    gap: 12px;
+  }
+  .duration-mock__label { font-size: 11px; font-weight: 700; letter-spacing: .1em; color: #777; }
+  .duration-mock__bar { height: 5px; background: rgba(255,255,255,.08); border-radius: 3px; overflow: hidden; }
+  .duration-mock__fill { height: 100%; background: var(--color-accent); border-radius: 3px; }
+  .duration-mock__time { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--color-accent); text-align: right; }
+  .duration-mock__note { margin-top: 6px; font-size: 12px; color: #777; line-height: 1.5; }
+
+  /* Papa text tile */
+  .feature--papa {
+    grid-column: span 3;
+    background: #0a0a0a !important;
+    border-top: 1px solid rgba(255,255,255,.04) !important;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+  }
+  .papa__eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .2em;
+    color: #777;
+    text-transform: uppercase;
+  }
+  .papa__text {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(28px, 4vw, 44px);
+    letter-spacing: .04em;
+    color: #fff;
+    line-height: 1.1;
+  }
+  .papa__values {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .papa__values span {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 1px solid rgba(212,255,0,.2);
+    color: #d4ff00;
+    background: rgba(212,255,0,.05);
+  }
+  .papa__close { font-size: 15px; color: #888; line-height: 1.6; max-width: 520px; }
+
+  /* Streak types */
+  .streak__types { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }
+  .streak__type {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    background: rgba(255,255,255,.04);
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,.06);
+  }
+  .streak__type-icon { font-size: 18px; flex-shrink: 0; }
+  .streak__type-name {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 2px;
+  }
+  .streak__type-rule {
+    display: block;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: #888;
+    letter-spacing: .04em;
+  }
+  .streak__super {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 12px;
+    padding: 12px 14px;
+    background: rgba(212,255,0,.07);
+    border: 1px solid rgba(212,255,0,.2);
+    border-radius: 10px;
+  }
+  .streak__super-label { font-size: 13px; color: rgba(255,255,255,.6); }
+  .streak__super-badge {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 15px;
+    letter-spacing: .12em;
+    color: #d4ff00;
+  }
+
+  /* ─────────────────────────────── OPTIONAL DAZU */
+  .optional__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .optional__card {
+    background: #111;
+    border: 1px solid rgba(255,255,255,.07);
+    border-radius: 16px;
+    padding: 36px 32px;
+  }
+  .optional__label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .optional__title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(28px, 3.5vw, 40px);
+    letter-spacing: .03em;
+    color: #fff;
+    line-height: 1.05;
+    margin-bottom: 14px;
+  }
+  .optional__body {
+    font-size: 15px;
+    color: #aaaaaa;
+    line-height: 1.65;
+  }
+  @media (max-width: 767px) {
+    .optional__grid { grid-template-columns: 1fr; }
+  }
+
+  /* ─────────────────────────────── FAQ */
+  .faq__list { display: flex; flex-direction: column; gap: 1px; background: rgba(255,255,255,.06); border-radius: 16px; overflow: hidden; }
+  .faq {
+    background: #000;
+    transition: background .18s;
+  }
+  .faq[open] { background: #0d0d0d; }
+  .faq__q {
+    list-style: none;
+    padding: 22px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    user-select: none;
+    transition: color .18s;
+  }
+  .faq__q:hover { color: #d4ff00; }
+  .faq__q::-webkit-details-marker { display: none; }
+  .faq__q::after {
+    content: '+';
+    font-family: 'DM Mono', monospace;
+    font-size: 20px;
+    color: #777;
+    flex-shrink: 0;
+    transition: transform .25s, color .18s;
+  }
+  .faq[open] .faq__q::after { transform: rotate(45deg); color: #d4ff00; }
+  .faq__a {
+    padding: 0 28px 22px;
+    font-size: 15px;
+    color: #aaaaaa;
+    line-height: 1.7;
+    max-width: 680px;
+  }
+
+  /* ─────────────────────────────── CTA */
+  .cta-section { background: #111; text-align: center; }
+  .cta__inner { max-width: 680px; margin: 0 auto; }
+  .cta__quote {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(36px, 6.5vw, 76px);
+    line-height: 1.02;
+    letter-spacing: .03em;
+    color: #fff;
+    margin: 0 0 44px;
+    border: none;
+    padding: 0;
+    font-style: normal;
+  }
+  .cta__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+    margin: 0 0 8px;
+    padding: 20px 44px;
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 14px;
+    transition: background .18s, border-color .18s;
+  }
+  .cta__btn:hover { background: rgba(255,255,255,.05); border-color: rgba(255,255,255,.3); }
+  .cta__meta {
+    margin-top: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.18);
+  }
+
+  /* ─────────────────────────────── FOOTER */
+  .footer { padding: 36px 0; border-top: 1px solid rgba(255,255,255,.05); }
+  .footer__inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+  .footer__brand { font-family: 'Bebas Neue', cursive; font-size: 17px; letter-spacing: .12em; color: rgba(255,255,255,.25); }
+  .footer__links { display: flex; gap: 24px; flex-wrap: wrap; }
+  .footer__links a { font-size: 13px; color: rgba(255,255,255,.28); text-decoration: none; transition: color .18s; }
+  .footer__links a:hover { color: #fff; }
+  .footer__copy { font-size: 12px; color: rgba(255,255,255,.18); }
+
+  /* ─────────────────────────────── ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes barRise {
+    from { transform: scaleY(0); }
+    to   { transform: scaleY(1); }
+  }
+  @keyframes labelFade {
+    from { opacity: 0; transform: translateX(-50%) translateY(4px); }
+    to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+  }
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity .6s ease, transform .6s ease;
+    transition-delay: var(--delay, 0s);
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ─────────────────────────────── MID-PAGE CTA */
+  .midcta { padding: 56px 0; }
+
+  .midcta__inner {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .midcta__line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,.08), transparent);
+  }
+
+  .midcta__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    flex-shrink: 0;
+  }
+
+  .midcta__heading {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(28px, 4vw, 42px);
+    letter-spacing: .06em;
+    color: #555;
+    margin: 0;
+  }
+
+  .midcta__tf {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: #888;
+    text-decoration: none;
+    margin: 0;
+    transition: color .18s;
+  }
+  .midcta__tf:hover { color: #fff; }
+
+  /* ─────────────────────────────── RESPONSIVE */
+  @media (max-width: 1024px) {
+    .features { grid-template-columns: 1fr 1fr; }
+    .feature--accent { grid-column: span 2; }
+    .feature--papa { grid-column: span 2; }
+    .about__layout { grid-template-columns: 1fr; }
+    .about__left { position: static; }
+  }
+  @media (max-width: 860px) {
+    .philosophy__layout { grid-template-columns: 1fr; }
+    .philosophy__mockup { order: -1; }
+    .pain__grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 680px) {
+    .training__grid { grid-template-columns: 1fr; }
+    .philosophy__cards { grid-template-columns: 1fr; }
+    .features { grid-template-columns: 1fr; }
+    .features > .feature { grid-column: span 1; }
+    .feature--widget { flex-direction: column; }
+    .feature--widget .widget-mockup-img { width: 100%; max-width: 280px; max-height: 260px; object-fit: contain; }
+    .pain__grid { grid-template-columns: 1fr; }
+    .hero__bars { display: none; }
+  }
+</style>
+
+<script>
+  const revealObserver = new IntersectionObserver(
+    (entries) => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); }
+    }),
+    { threshold: 0.1 }
+  );
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  const fill = document.getElementById('progFill');
+  if (fill) {
+    new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { fill.classList.add('active'); } },
+      { threshold: 0.6 }
+    ).observe(fill);
+  }
+</script>

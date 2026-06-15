@@ -1,45 +1,78 @@
 ---
 import '../styles/global.css';
+import { meta, alternatesFor, ogLocale, type Lang, type PageKey } from '../i18n/ui';
 
 interface Props {
+  lang?: Lang;
+  page?: PageKey;
   title?: string;
   description?: string;
-  canonical?: string;
 }
 
-const {
-  title = 'Dad Strong – Krafttraining App für Väter mit wenig Zeit',
-  description = 'Die Krafttraining-App für vielbeschäftigte Väter mit Gym oder Homegym. 2 feste Krafttrainings pro Woche, linearer Fortschritt, kein tägliches Training. Zum Start kostenlos für iPhone.',
-  canonical = 'https://dadstrong.app/',
-} = Astro.props;
+const { lang = 'de', page = 'home', title, description } = Astro.props;
+
+const m = meta[page][lang];
+const pageTitle = title ?? m.title;
+const pageDescription = description ?? m.description;
+
+const alt = alternatesFor(page);
+const canonical = alt[lang];
+const altLang: Lang = lang === 'de' ? 'en' : 'de';
 
 const ogImage = 'https://dadstrong.app/screenshots/dadstrong-app-home-screen.png';
 ---
 
 <!doctype html>
-<html lang="de">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Language auto-detection (browser language). Runs before paint, only on first
+         visit, then remembers the choice in localStorage. The DE|EN switcher overrides it. -->
+    <script is:inline>
+      (function () {
+        try {
+          if (localStorage.getItem('ds_lang')) return;
+          var path = location.pathname;
+          var onEn = path === '/en' || path.indexOf('/en/') === 0;
+          var prefersEn = (navigator.language || '').toLowerCase().indexOf('en') === 0;
+          var target = prefersEn ? 'en' : 'de';
+          localStorage.setItem('ds_lang', target);
+          if (target === 'en' && !onEn) {
+            location.replace('/en' + path + location.search + location.hash);
+          } else if (target === 'de' && onEn) {
+            location.replace((path.replace(/^\/en/, '') || '/') + location.search + location.hash);
+          }
+        } catch (e) {}
+      })();
+    </script>
+
     <meta name="generator" content={Astro.generator} />
 
-    <title>{title}</title>
-    <meta name="description" content={description} />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
     <link rel="canonical" href={canonical} />
+
+    <!-- hreflang: language alternates for this page -->
+    <link rel="alternate" hreflang="de" href={alt.de} />
+    <link rel="alternate" hreflang="en" href={alt.en} />
+    <link rel="alternate" hreflang="x-default" href={alt.de} />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
     <meta property="og:image" content={ogImage} />
-    <meta property="og:locale" content="de_DE" />
+    <meta property="og:locale" content={ogLocale[lang]} />
+    <meta property="og:locale:alternate" content={ogLocale[altLang]} />
     <meta property="og:site_name" content="Dad Strong" />
 
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
     <meta name="twitter:image" content={ogImage} />
 
     <!-- Mobile -->
@@ -48,14 +81,13 @@ const ogImage = 'https://dadstrong.app/screenshots/dadstrong-app-home-screen.png
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
     <!-- Structured Data: WebSite (Sitelinks Search) -->
-    <script type="application/ld+json" is:inline>
-      {JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Dad Strong",
-        "url": "https://dadstrong.app/"
-      })}
-    </script>
+    <script type="application/ld+json" is:inline set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Dad Strong",
+      "url": "https://dadstrong.app/",
+      "inLanguage": lang,
+    })} />
 
     <!-- Fonts (self-hosted – no external requests) -->
     <style>

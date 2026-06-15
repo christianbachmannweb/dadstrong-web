@@ -1,0 +1,42 @@
+---
+// Localized JSON-LD for the home page: SoftwareApplication + FAQPage.
+// FAQ schema is generated from the same dictionary the visible FAQ uses (single source).
+import { home } from '../i18n/home';
+import { SITE, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const c = home[lang];
+
+const softwareApp = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Dad Strong',
+  url: SITE + '/',
+  operatingSystem: 'iOS 17+',
+  applicationCategory: 'HealthApplication',
+  description: c.schema.description,
+  keywords: c.schema.keywords,
+  inLanguage: lang,
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'EUR' },
+  author: { '@type': 'Person', name: 'Christian Bachmann', url: SITE + '/' },
+  publisher: { '@type': 'Person', name: 'Christian Bachmann' },
+};
+
+const faqPage = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  inLanguage: lang,
+  mainEntity: c.faq.items.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a.join(' ') },
+  })),
+};
+---
+
+<script type="application/ld+json" is:inline set:html={JSON.stringify(softwareApp)} />
+<script type="application/ld+json" is:inline set:html={JSON.stringify(faqPage)} />

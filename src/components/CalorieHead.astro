@@ -1,0 +1,38 @@
+---
+// Localized JSON-LD for the calorie calculator page: FAQPage + BreadcrumbList.
+// FAQ schema is generated from the same dictionary the visible FAQ uses.
+import { calcPage } from '../i18n/calculator';
+import { SITE, routes, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const p = calcPage[lang];
+const homeUrl = SITE + routes.home[lang];
+const calcUrl = SITE + routes.calculator[lang];
+
+const faqPage = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  inLanguage: lang,
+  mainEntity: p.faq.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a.join(' ') },
+  })),
+};
+
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Dad Strong', item: homeUrl },
+    { '@type': 'ListItem', position: 2, name: p.h1, item: calcUrl },
+  ],
+};
+---
+
+<script type="application/ld+json" is:inline set:html={JSON.stringify(faqPage)} />
+<script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumb)} />

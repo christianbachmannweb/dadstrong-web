@@ -1,0 +1,66 @@
+---
+import { routes, common, type Lang, type PageKey } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  page: PageKey;
+}
+
+const { lang, page } = Astro.props;
+const labels = common[lang].langSwitch;
+---
+
+<div class="langswitch" role="group" aria-label="Language / Sprache">
+  <a
+    href={routes[page].de}
+    class:list={['langswitch__btn', { 'is-active': lang === 'de' }]}
+    data-setlang="de"
+    hreflang="de"
+    aria-current={lang === 'de' ? 'true' : undefined}>{labels.de}</a>
+  <span class="langswitch__sep" aria-hidden="true">/</span>
+  <a
+    href={routes[page].en}
+    class:list={['langswitch__btn', { 'is-active': lang === 'en' }]}
+    data-setlang="en"
+    hreflang="en"
+    aria-current={lang === 'en' ? 'true' : undefined}>{labels.en}</a>
+</div>
+
+<script>
+  // Remember the manual choice so the auto-redirect never overrides the user again.
+  document.querySelectorAll('[data-setlang]').forEach((el) => {
+    el.addEventListener('click', () => {
+      try {
+        localStorage.setItem('ds_lang', el.getAttribute('data-setlang') || 'de');
+      } catch (e) {}
+    });
+  });
+</script>
+
+<style>
+  .langswitch {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .langswitch__btn {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #777;
+    text-decoration: none;
+    padding: 4px 2px;
+    transition: color 0.18s;
+  }
+  .langswitch__btn:hover {
+    color: #fff;
+  }
+  .langswitch__btn.is-active {
+    color: #d4ff00;
+  }
+  .langswitch__sep {
+    color: #333;
+    font-size: 11px;
+  }
+</style>

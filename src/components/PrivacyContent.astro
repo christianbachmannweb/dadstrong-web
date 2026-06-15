@@ -1,0 +1,180 @@
+---
+import LangSwitcher from './LangSwitcher.astro';
+import { privacy, type Block } from '../i18n/privacy';
+import type { Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const c = privacy[lang];
+const homeHref = lang === 'de' ? '/' : '/en/';
+---
+
+<nav class="legal-nav">
+  <a href={homeHref} class="legal-nav__brand">DAD STRONG</a>
+  <div class="legal-nav__right">
+    <LangSwitcher lang={lang} page="privacy" />
+    <a href={homeHref} class="legal-nav__back">{c.navBack}</a>
+  </div>
+</nav>
+
+<div class="legal-page">
+
+  <!-- ═══════════════════════════════ DATENSCHUTZ -->
+  <section class="legal-section">
+    <p class="legal-label">{c.dsLabel}</p>
+    <h1 class="legal-title" set:html={c.dsTitle}></h1>
+
+    {c.dsBlocks.map((b: Block) =>
+      b.type === 'h2' ? <h2>{b.text}</h2> :
+      b.type === 'h3' ? <h3>{b.text}</h3> :
+      b.type === 'box' ? <div class="highlight-box"><p set:html={b.html} /></div> :
+      b.type === 'ul' ? <ul>{b.items.map((it: string) => <li set:html={it} />)}</ul> :
+      <p set:html={b.html} />
+    )}
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ═══════════════════════════════ IMPRESSUM -->
+  <section class="legal-section">
+    <p class="legal-label">{c.imLabel}</p>
+    <h1 class="legal-title">{c.imTitle}</h1>
+
+    {c.imNote && <p class="legal-note">{c.imNote}</p>}
+
+    {c.imBlocks.map((b: Block) =>
+      b.type === 'h2' ? <h2>{b.text}</h2> :
+      b.type === 'h3' ? <h3>{b.text}</h3> :
+      b.type === 'box' ? <div class="highlight-box"><p set:html={b.html} /></div> :
+      b.type === 'ul' ? <ul>{b.items.map((it: string) => <li set:html={it} />)}</ul> :
+      <p set:html={b.html} />
+    )}
+  </section>
+
+</div>
+
+<style>
+  .legal-page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 100px 24px 80px;
+  }
+
+  .legal-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    padding: 16px 24px;
+    background: rgba(0,0,0,.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,.06);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .legal-nav__brand {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 18px;
+    letter-spacing: .12em;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .legal-nav__right { display: flex; align-items: center; gap: 18px; }
+
+  .legal-nav__back {
+    font-size: 13px;
+    color: #888;
+    text-decoration: none;
+    transition: color .18s;
+  }
+
+  .legal-nav__back:hover { color: #fff; }
+
+  .legal-section {
+    margin-bottom: 64px;
+  }
+
+  .legal-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #d4ff00;
+    margin-bottom: 12px;
+  }
+
+  .legal-title {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(32px, 6vw, 52px);
+    letter-spacing: .04em;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 32px;
+  }
+
+  .legal-note {
+    font-size: 13px;
+    color: #777;
+    font-style: italic;
+    margin-bottom: 24px;
+  }
+
+  h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    margin: 32px 0 10px;
+    letter-spacing: .02em;
+  }
+
+  h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #ccc;
+    margin: 24px 0 8px;
+  }
+
+  p, li {
+    font-size: 15px;
+    color: #aaa;
+    line-height: 1.75;
+  }
+
+  ul {
+    padding-left: 20px;
+    margin: 8px 0;
+  }
+
+  li { margin-bottom: 4px; }
+
+  .divider {
+    border: none;
+    border-top: 1px solid rgba(255,255,255,.08);
+    margin: 64px 0;
+  }
+
+  .highlight-box {
+    background: #0d0d0d;
+    border: 1px solid rgba(212,255,0,.12);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 20px 0;
+  }
+
+  .highlight-box p {
+    color: #ccc;
+    margin: 0;
+    font-size: 14px;
+  }
+
+  strong { color: #ddd; font-weight: 600; }
+
+  a { color: #d4ff00; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+</style>
