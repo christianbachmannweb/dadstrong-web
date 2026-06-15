@@ -56,7 +56,7 @@ const de: PrivacyContent = {
   dsBlocks: [
     {
       type: 'box',
-      html: '<strong>Kurzfassung:</strong> Dad Strong sammelt keine persönlichen Daten, sendet nichts an Server und enthält keine Tracking- oder Analyse-Tools. Alle Daten bleiben auf deinem Gerät.',
+      html: '<strong>Kurzfassung:</strong> Die App Dad Strong sammelt keine persönlichen Daten, sendet nichts an Server und enthält keine Tracking- oder Analyse-Tools. Alle App-Daten bleiben auf deinem Gerät. Diese Website misst die Reichweite anonym mit Plausible (ohne Cookies) — Details unten.',
     },
     { type: 'h2', text: 'Verantwortlicher' },
     { type: 'p', html: `${ADDRESS}<br>${EMAIL_LINK}` },
@@ -116,7 +116,12 @@ const de: PrivacyContent = {
     { type: 'h2', text: 'Drittanbieter' },
     {
       type: 'p',
-      html: 'Dad Strong enthält keine Drittanbieter-SDKs, keine Analyse-Tools (z.&thinsp;B. Firebase, Crashlytics), keine Werbenetze und kein Tracking.',
+      html: 'Die App Dad Strong enthält keine Drittanbieter-SDKs, keine Analyse-Tools (z.&thinsp;B. Firebase, Crashlytics), keine Werbenetze und kein Tracking.',
+    },
+    { type: 'h2', text: 'Webanalyse (diese Website)' },
+    {
+      type: 'p',
+      html: 'Diese Website verwendet Plausible Analytics zur anonymen Reichweitenmessung. Plausible setzt <strong>keine Cookies</strong> und speichert <strong>keine personenbezogenen Daten</strong>. Erfasst werden ausschließlich aggregierte Statistiken (z.&thinsp;B. Seitenaufrufe, Verweisquelle, Land, Geräte- und Browsertyp). IP-Adressen werden nicht gespeichert, eine Wiedererkennung einzelner Personen ist nicht möglich. Die Auswertung läuft über eine selbst gehostete Plausible-Instanz. Mehr dazu: <a href="https://plausible.io/data-policy" target="_blank" rel="noopener">plausible.io/data-policy</a>.',
     },
     { type: 'h2', text: 'Deine Rechte' },
     {
@@ -143,7 +148,7 @@ const en: PrivacyContent = {
   dsBlocks: [
     {
       type: 'box',
-      html: '<strong>In short:</strong> Dad Strong collects no personal data, sends nothing to servers and contains no tracking or analytics tools. All data stays on your device.',
+      html: '<strong>In short:</strong> The Dad Strong app collects no personal data, sends nothing to servers and contains no tracking or analytics tools. All app data stays on your device. This website measures traffic anonymously with Plausible (no cookies) — details below.',
     },
     { type: 'h2', text: 'Controller' },
     { type: 'p', html: `${ADDRESS}<br>${EMAIL_LINK}` },
@@ -203,7 +208,12 @@ const en: PrivacyContent = {
     { type: 'h2', text: 'Third parties' },
     {
       type: 'p',
-      html: 'Dad Strong contains no third-party SDKs, no analytics tools (e.g. Firebase, Crashlytics), no ad networks and no tracking.',
+      html: 'The Dad Strong app contains no third-party SDKs, no analytics tools (e.g. Firebase, Crashlytics), no ad networks and no tracking.',
+    },
+    { type: 'h2', text: 'Web analytics (this website)' },
+    {
+      type: 'p',
+      html: 'This website uses Plausible Analytics for anonymous traffic measurement. Plausible sets <strong>no cookies</strong> and stores <strong>no personal data</strong>. Only aggregated statistics are recorded (e.g. page views, referrer, country, device and browser type). IP addresses are not stored and individual visitors cannot be identified. Analytics run on a self-hosted Plausible instance. More: <a href="https://plausible.io/data-policy" target="_blank" rel="noopener">plausible.io/data-policy</a>.',
     },
     { type: 'h2', text: 'Your rights' },
     {
