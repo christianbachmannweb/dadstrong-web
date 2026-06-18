@@ -515,7 +515,7 @@ const calcHref = lang === 'de' ? '/kalorienrechner/' : '/en/calorie-calculator/'
         {c.faq.items.map((item, i) => (
           <details class="faq reveal" style={i > 0 ? `--delay:${(i * 0.06).toFixed(2)}s` : undefined}>
             <summary class="faq__q">{item.q}</summary>
-            {item.a.map((p) => (<p class="faq__a">{p}</p>))}
+            {item.a.map((p) => (<p class="faq__a" set:html={p} />))}
           </details>
         ))}
       </div>
@@ -1373,6 +1373,13 @@ const calcHref = lang === 'de' ? '/kalorienrechner/' : '/en/calorie-calculator/'
     line-height: 1.7;
     max-width: 680px;
   }
+  .faq__a a {
+    color: #d4ff00;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(212,255,0,.25);
+    transition: border-color .15s;
+  }
+  .faq__a a:hover { border-color: #d4ff00; }
 
   /* ─────────────────────────────── CTA */
   .cta-section { background: #111; text-align: center; }

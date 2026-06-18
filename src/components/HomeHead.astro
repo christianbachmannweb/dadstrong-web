@@ -33,7 +33,7 @@ const faqPage = {
   mainEntity: c.faq.items.map((item) => ({
     '@type': 'Question',
     name: item.q,
-    acceptedAnswer: { '@type': 'Answer', text: item.a.join(' ') },
+    acceptedAnswer: { '@type': 'Answer', text: item.a.join(' ').replace(/<[^>]+>/g, '') },
   })),
 };
 ---

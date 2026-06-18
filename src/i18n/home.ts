@@ -308,6 +308,12 @@ const de: HomeContent = {
         ],
       },
       {
+        q: 'Muss ich auf meine Ernährung achten?',
+        a: [
+          'Der Trainingsplan ist der Kern — aber wenn du sichtbar Fett verlieren willst, entscheidet die Ernährung mit. Wie viele Kalorien du brauchst und wie groß dein Defizit sein sollte, kannst du mit unserem <a href="/kalorienrechner/">Kalorienrechner für Männer</a> berechnen.',
+        ],
+      },
+      {
         q: 'Wie unterscheidet sich Dad Strong von anderen Trainings-Apps?',
         a: [
           'Es gibt gute Apps da draußen. Hevy, Strong, Fitbod, Gainsfire — die sind nicht schlecht. Für viele funktionieren sie prima.',
@@ -536,6 +542,12 @@ const en: HomeContent = {
         q: 'What if I miss a workout?',
         a: [
           'Then you do the next one. Done. Dad Strong has no artificial streak pressure. Life happens — the system is built for it.',
+        ],
+      },
+      {
+        q: 'Do I need to watch my diet?',
+        a: [
+          'The training plan is the core — but if you want to visibly lose fat, nutrition matters too. You can work out how many calories you need and how big your deficit should be with our <a href="/en/calorie-calculator/">calorie calculator for men</a>.',
         ],
       },
       {
