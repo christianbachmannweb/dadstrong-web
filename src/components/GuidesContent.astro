@@ -1,0 +1,387 @@
+---
+import LangSwitcher from './LangSwitcher.astro';
+import { guides } from '../i18n/guides';
+import { TESTFLIGHT_URL } from '../i18n/home';
+import type { Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const c = guides[lang];
+const homeHref = lang === 'de' ? '/' : '/en/';
+const privacyHref = lang === 'de' ? '/privacy/' : '/en/privacy/';
+const calculatorHref = lang === 'de' ? '/kalorienrechner/' : '/en/calorie-calculator/';
+---
+
+<nav class="guide-nav">
+  <div class="guide-nav__inner">
+    <a href={homeHref} class="guide-nav__brand">
+      <img src="/app-icon-64.png" width="30" height="30" alt="" />
+      DAD STRONG
+    </a>
+    <div class="guide-nav__right">
+      <a href={homeHref} class="guide-nav__back">{c.nav.back}</a>
+      <LangSwitcher lang={lang} page="guides" />
+      <a href={TESTFLIGHT_URL} class="guide-nav__beta" target="_blank" rel="noopener">{c.nav.beta}</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <header class="guide-hero">
+    <div class="guide-container">
+      <p class="guide-label">{c.hero.label}</p>
+      <h1>{c.hero.title.map((line, index) => <Fragment>{index > 0 && <br />}{line}</Fragment>)}</h1>
+      <p class="guide-hero__lead">{c.hero.lead}</p>
+      <p class="guide-hero__status"><span aria-hidden="true"></span>{c.hero.status}</p>
+    </div>
+  </header>
+
+  <section class="jump-section" aria-labelledby="jump-title">
+    <div class="guide-container">
+      <h2 id="jump-title" class="sr-only">{c.jumpLabel}</h2>
+      <p class="jump-section__label">{c.jumpLabel}</p>
+      <nav class="jump-grid" aria-label={c.jumpLabel}>
+        {c.sections.map((section) => (
+          <a class="jump-card" href={`#${section.id}`}>
+            <span>{section.number}</span>
+            <strong>{section.title}</strong>
+            <span class="jump-card__arrow" aria-hidden="true">↘</span>
+          </a>
+        ))}
+        <a class="jump-card jump-card--accent" href="#levels">
+          <span>05</span>
+          <strong>{c.levels.title}</strong>
+          <span class="jump-card__arrow" aria-hidden="true">↘</span>
+        </a>
+      </nav>
+    </div>
+  </section>
+
+  {c.sections.map((section, index) => (
+    <section id={section.id} class:list={['guide-section', { 'guide-section--surface': index % 2 === 0 }]}>
+      <div class="guide-container guide-section__layout">
+        <div class="guide-section__heading">
+          <span class="guide-section__number">{section.number}</span>
+          <p class="guide-label">{section.eyebrow}</p>
+          <h2>{section.title}</h2>
+          <p class="guide-section__intro">{section.intro}</p>
+        </div>
+        <div class="steps">
+          {section.steps.map((step, stepIndex) => (
+            <article class="step">
+              <span class="step__number">{String(stepIndex + 1).padStart(2, '0')}</span>
+              <div>
+                <h3>{step.title}</h3>
+                <p>{step.body}</p>
+              </div>
+            </article>
+          ))}
+          {section.note && <aside class="guide-note"><span aria-hidden="true">→</span><p>{section.note}</p></aside>}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section id="levels" class="levels-section">
+    <div class="guide-container">
+      <div class="levels-section__head">
+        <span class="guide-section__number">05</span>
+        <p class="guide-label">BADGES</p>
+        <h2>{c.levels.title}</h2>
+        <p>{c.levels.intro}</p>
+      </div>
+
+      <div class="levels-table-wrap">
+        <table class="levels-table">
+          <thead>
+            <tr>{c.levels.columns.map((column) => <th scope="col">{column}</th>)}</tr>
+          </thead>
+          <tbody>
+            {c.levels.rows.map((row, index) => (
+              <tr>
+                <th scope="row"><span class:list={['level-dot', `level-dot--${index}`]}></span>{row.level}</th>
+                <td>{row.strength}</td>
+                <td>{row.pullups}</td>
+                <td>{row.run}</td>
+                <td>{row.carry}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <aside class="renewal-note">
+        <div class="renewal-note__icon" aria-hidden="true">183</div>
+        <p>{c.levels.renewal}</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="video-section">
+    <div class="guide-container">
+      <div class="video-card">
+        <div class="video-card__mark" aria-hidden="true">
+          <span>▶</span>
+        </div>
+        <div>
+          <p class="guide-label">{c.video.label}</p>
+          <h2>{c.video.title}</h2>
+          <p>{c.video.body}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide-cta">
+    <div class="guide-container guide-cta__inner">
+      <h2>{c.cta.title}</h2>
+      <p>{c.cta.body}</p>
+      <a href={TESTFLIGHT_URL} target="_blank" rel="noopener">{c.cta.button}<span aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+</main>
+
+<footer class="guide-footer">
+  <div class="guide-container guide-footer__inner">
+    <a href={homeHref} class="guide-footer__brand">DAD STRONG</a>
+    <nav aria-label="Footer Navigation">
+      <a href={privacyHref}>{c.footer.privacy}</a>
+      <a href={calculatorHref}>{c.footer.calculator}</a>
+      <a href="mailto:info@dadstrong.app">{c.footer.contact}</a>
+    </nav>
+    <p>© 2026 Christian Bachmann</p>
+  </div>
+</footer>
+
+<style>
+  :global(html) { scroll-padding-top: 88px; }
+
+  .guide-container {
+    width: min(1160px, calc(100% - 48px));
+    margin-inline: auto;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .guide-label {
+    color: #d4ff00;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+  }
+
+  .guide-nav {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 100;
+    background: rgba(0, 0, 0, .84);
+    border-bottom: 1px solid rgba(255, 255, 255, .07);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .guide-nav__inner {
+    width: min(1160px, calc(100% - 48px));
+    min-height: 68px;
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .guide-nav__brand,
+  .guide-footer__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 20px;
+    letter-spacing: .12em;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .guide-nav__brand img { border-radius: 7px; }
+  .guide-nav__right { display: flex; align-items: center; gap: 18px; }
+  .guide-nav__back { color: #888; font-size: 13px; text-decoration: none; }
+  .guide-nav__back:hover { color: #fff; }
+  .guide-nav__beta {
+    color: #d4ff00;
+    border: 1px solid rgba(212, 255, 0, .35);
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  .guide-nav__beta:hover { color: #000; background: #d4ff00; }
+
+  .guide-hero {
+    padding: clamp(150px, 18vw, 220px) 0 clamp(84px, 11vw, 132px);
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+    background:
+      radial-gradient(circle at 82% 30%, rgba(212, 255, 0, .1), transparent 28%),
+      linear-gradient(145deg, #000 55%, #090b00);
+  }
+
+  .guide-hero h1,
+  .guide-section h2,
+  .levels-section h2,
+  .video-card h2,
+  .guide-cta h2 {
+    color: #fff;
+    font-family: 'Bebas Neue', cursive;
+    font-weight: 400;
+    letter-spacing: .025em;
+    line-height: .95;
+  }
+
+  .guide-hero h1 {
+    max-width: 900px;
+    margin: 22px 0 30px;
+    font-size: clamp(72px, 13vw, 156px);
+  }
+
+  .guide-hero__lead {
+    max-width: 630px;
+    color: #bbb;
+    font-size: clamp(18px, 2.4vw, 24px);
+    line-height: 1.5;
+  }
+
+  .guide-hero__status {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    max-width: 620px;
+    margin-top: 32px;
+    color: #777;
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  .guide-hero__status span {
+    width: 8px;
+    height: 8px;
+    margin-top: 6px;
+    background: #d4ff00;
+    border-radius: 50%;
+    box-shadow: 0 0 14px rgba(212, 255, 0, .7);
+    flex: 0 0 auto;
+  }
+
+  .jump-section { padding: 42px 0 72px; background: #111; }
+  .jump-section__label { margin-bottom: 18px; color: #777; font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
+  .jump-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+  .jump-card {
+    min-height: 132px;
+    padding: 18px;
+    color: #fff;
+    background: #191919;
+    border: 1px solid rgba(255, 255, 255, .07);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    transition: border-color .18s, transform .18s;
+  }
+  .jump-card:hover { border-color: rgba(212, 255, 0, .45); transform: translateY(-2px); }
+  .jump-card > span:first-child { color: #686868; font-family: 'DM Mono', monospace; font-size: 11px; }
+  .jump-card strong { margin-top: 18px; font-size: 14px; line-height: 1.25; }
+  .jump-card__arrow { margin: auto 0 0 auto; color: #777 !important; font-size: 17px !important; }
+  .jump-card--accent { background: #d4ff00; color: #000; }
+  .jump-card--accent > span { color: rgba(0, 0, 0, .55) !important; }
+
+  .guide-section { padding: clamp(86px, 11vw, 140px) 0; }
+  .guide-section--surface { background: #0d0d0d; }
+  .guide-section__layout { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(52px, 9vw, 120px); }
+  .guide-section__heading { position: relative; }
+  .guide-section__number { display: block; margin-bottom: 34px; color: #3d3d3d; font-family: 'DM Mono', monospace; font-size: 13px; letter-spacing: .12em; }
+  .guide-section h2, .levels-section h2 { margin: 18px 0 24px; font-size: clamp(48px, 6.5vw, 78px); }
+  .guide-section__intro, .levels-section__head > p:last-child { color: #aaa; font-size: 17px; line-height: 1.7; }
+
+  .steps { padding-top: 42px; }
+  .step { display: grid; grid-template-columns: 42px 1fr; gap: 18px; padding: 26px 0; border-top: 1px solid rgba(255, 255, 255, .1); }
+  .step__number { color: #d4ff00; font-family: 'DM Mono', monospace; font-size: 11px; padding-top: 4px; }
+  .step h3 { color: #fff; font-size: 18px; margin-bottom: 8px; }
+  .step p { color: #929292; font-size: 15px; line-height: 1.65; }
+  .guide-note { display: flex; gap: 14px; margin-top: 18px; padding: 20px 22px; border: 1px solid rgba(212, 255, 0, .22); border-radius: 12px; background: rgba(212, 255, 0, .05); }
+  .guide-note span { color: #d4ff00; font-family: 'DM Mono', monospace; }
+  .guide-note p { color: #c4c4c4; font-size: 14px; line-height: 1.6; }
+
+  .levels-section { padding: clamp(92px, 12vw, 150px) 0; background: #111; }
+  .levels-section__head { max-width: 790px; margin-bottom: 52px; }
+  .levels-table-wrap { overflow-x: auto; border: 1px solid rgba(255, 255, 255, .09); border-radius: 16px; }
+  .levels-table { width: 100%; min-width: 820px; border-collapse: collapse; background: #080808; }
+  .levels-table th, .levels-table td { padding: 20px 18px; text-align: left; border-bottom: 1px solid rgba(255, 255, 255, .07); }
+  .levels-table thead th { color: #686868; font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+  .levels-table tbody th { color: #fff; font-size: 15px; white-space: nowrap; }
+  .levels-table tbody td { color: #aaa; font-family: 'DM Mono', monospace; font-size: 12px; white-space: nowrap; }
+  .levels-table tbody tr:last-child th, .levels-table tbody tr:last-child td { border-bottom: 0; }
+  .level-dot { display: inline-block; width: 8px; height: 8px; margin-right: 10px; border-radius: 50%; background: #35d966; }
+  .level-dot--1 { background: #d4ff00; }
+  .level-dot--2 { background: #ff8c1a; }
+  .level-dot--3 { background: #b34dff; }
+  .renewal-note { display: grid; grid-template-columns: 70px 1fr; gap: 22px; align-items: center; max-width: 800px; margin-top: 28px; }
+  .renewal-note__icon { width: 70px; height: 70px; display: grid; place-items: center; color: #000; background: #d4ff00; border-radius: 50%; font-family: 'Bebas Neue', cursive; font-size: 25px; }
+  .renewal-note p { color: #aaa; font-size: 14px; line-height: 1.65; }
+
+  .video-section { padding: clamp(76px, 10vw, 120px) 0; }
+  .video-card { display: grid; grid-template-columns: 160px 1fr; gap: clamp(32px, 6vw, 72px); align-items: center; padding: clamp(30px, 6vw, 72px); border: 1px solid rgba(255, 255, 255, .09); border-radius: 18px; background: #0b0b0b; }
+  .video-card__mark { aspect-ratio: 9 / 16; max-height: 210px; display: grid; place-items: center; border: 1px solid rgba(212, 255, 0, .18); border-radius: 18px; background: linear-gradient(155deg, #1d2300, #080900); }
+  .video-card__mark span { width: 52px; height: 52px; display: grid; place-items: center; padding-left: 3px; color: #000; background: #d4ff00; border-radius: 50%; font-size: 16px; }
+  .video-card h2 { margin: 14px 0 16px; font-size: clamp(44px, 6vw, 70px); }
+  .video-card p:last-child { max-width: 570px; color: #999; line-height: 1.7; }
+
+  .guide-cta { padding: clamp(90px, 13vw, 160px) 0; background: #d4ff00; text-align: center; }
+  .guide-cta h2 { color: #000; font-size: clamp(54px, 9vw, 106px); }
+  .guide-cta p { margin-top: 20px; color: rgba(0, 0, 0, .68); font-size: 17px; }
+  .guide-cta a { display: inline-flex; align-items: center; gap: 24px; margin-top: 34px; padding: 16px 24px; color: #fff; background: #000; border-radius: 10px; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-decoration: none; text-transform: uppercase; }
+
+  .guide-footer { padding: 36px 0; border-top: 1px solid rgba(255, 255, 255, .07); }
+  .guide-footer__inner { display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+  .guide-footer nav { display: flex; gap: 24px; }
+  .guide-footer nav a, .guide-footer p { color: #666; font-size: 12px; text-decoration: none; }
+  .guide-footer nav a:hover { color: #fff; }
+
+  @media (max-width: 900px) {
+    .jump-grid { grid-template-columns: repeat(3, 1fr); }
+    .guide-section__layout { grid-template-columns: 1fr; gap: 26px; }
+    .steps { padding-top: 0; }
+    .guide-section__heading { max-width: 720px; }
+  }
+
+  @media (max-width: 680px) {
+    .guide-container, .guide-nav__inner { width: min(100% - 36px, 1160px); }
+    .guide-hero h1 { font-size: clamp(50px, 14vw, 60px); }
+    .guide-nav__back { display: none; }
+    .guide-nav__right { gap: 12px; }
+    .guide-nav__beta { display: none; }
+    .jump-grid { grid-template-columns: 1fr 1fr; }
+    .jump-card { min-height: 118px; }
+    .video-card { grid-template-columns: 1fr; }
+    .video-card__mark { width: 110px; max-height: 190px; }
+    .renewal-note { grid-template-columns: 54px 1fr; }
+    .renewal-note__icon { width: 54px; height: 54px; font-size: 20px; }
+    .guide-footer__inner { flex-direction: column; align-items: flex-start; }
+    .guide-footer nav { flex-wrap: wrap; gap: 14px 20px; }
+  }
+</style>
