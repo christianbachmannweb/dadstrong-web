@@ -17,6 +17,7 @@ const { lang } = Astro.props;
 const c = home[lang];
 const tf = TESTFLIGHT_URL;
 const calcHref = lang === 'de' ? '/kalorienrechner/' : '/en/calorie-calculator/';
+const guidesHref = lang === 'de' ? '/guides/' : '/en/guides/';
 ---
 
 <!-- ANNOUNCEMENT STRIPE -->
@@ -32,6 +33,7 @@ const calcHref = lang === 'de' ? '/kalorienrechner/' : '/en/calorie-calculator/'
       DAD STRONG
     </span>
     <div class="nav__right">
+      <a href={guidesHref} class="nav__link">{c.nav.guides}</a>
       <LangSwitcher lang={lang} page="home" />
       <a href={tf} class="nav__cta" target="_blank" rel="noopener">{c.nav.cta}</a>
     </div>
@@ -208,7 +210,7 @@ const calcHref = lang === 'de' ? '/kalorienrechner/' : '/en/calorie-calculator/'
         </div>
       </div>
 
-      <!-- Warum nicht veränderbar -->
+      <!-- Controlled exercise selection -->
       <div class="training__why reveal" style="--delay:.2s">
         <div class="training__why-icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -421,6 +423,41 @@ const calcHref = lang === 'de' ? '/kalorienrechner/' : '/en/calorie-calculator/'
           </div>
         </div>
 
+        <!-- Carry Mission + Badge system -->
+        <div class="feature feature--carry reveal" style="--delay:.14s">
+          <div class="feature__top">
+            <div class="feature__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M8 7V5a4 4 0 0 1 8 0v2"/><rect x="4" y="7" width="16" height="13" rx="3"/><path d="M8 13h8"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="feature__title">{c.app.fCarry.title}</h3>
+              <p class="feature__body">{c.app.fCarry.body}</p>
+            </div>
+          </div>
+          <div class="carry-mock" aria-hidden="true">
+            <span>00:30:00</span>
+            <div><b>24</b> KG</div>
+            <i>PR ↑</i>
+          </div>
+        </div>
+
+        <div class="feature feature--badges reveal" style="--delay:.18s">
+          <div class="feature__top">
+            <div class="feature__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="8" r="6"/><path d="m8.5 13-1 8 4.5-2.5 4.5 2.5-1-8"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="feature__title">{c.app.fBadges.title}</h3>
+              <p class="feature__body">{c.app.fBadges.body}</p>
+            </div>
+          </div>
+          <a href={`${guidesHref}#levels`} class="feature__text-link">{lang === 'de' ? 'Level ansehen →' : 'View levels →'}</a>
+        </div>
+
         <!-- Row 3: Widget (span 2, horizontal) + Planbar (1 col) -->
         <div class="feature feature--widget reveal" style="--delay:.16s">
           <div class="feature__widget-text">
@@ -504,6 +541,30 @@ const calcHref = lang === 'de' ? '/kalorienrechner/' : '/en/calorie-calculator/'
     </div>
   </section>
 
+  <!-- ═══════════════════════════════════════════════════ GUIDES -->
+  <section class="section guides-section" id="guides">
+    <div class="container">
+      <div class="guides__header">
+        <div>
+          <p class="label label--accent">{c.guides.label}</p>
+          <h2 class="section__title">{c.guides.title}</h2>
+        </div>
+        <p class="section__lead">{c.guides.lead}</p>
+      </div>
+      <div class="guides__grid">
+        {c.guides.items.map((item) => (
+          <a href={item.href} class="guide-preview reveal">
+            <span class="guide-preview__number">{item.number}</span>
+            <h3>{item.title}</h3>
+            <p>{item.body}</p>
+            <span class="guide-preview__arrow" aria-hidden="true">↗</span>
+          </a>
+        ))}
+      </div>
+      <a href={guidesHref} class="guides__cta">{c.guides.cta}<span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
   <!-- ══════════════════════════════════════════════════════ FAQ -->
   <section class="section section--surface" id="faq">
     <div class="container">
@@ -551,6 +612,7 @@ const calcHref = lang === 'de' ? '/kalorienrechner/' : '/en/calorie-calculator/'
   <div class="container footer__inner">
     <span class="footer__brand">DAD STRONG</span>
     <nav class="footer__links" aria-label="Footer Navigation">
+      <a href={guidesHref}>{c.footer.guides}</a>
       <a href={lang === 'de' ? '/privacy/' : '/en/privacy/'}>{c.footer.privacy}</a>
       <a href={calcHref}>{lang === 'de' ? 'Kalorienrechner' : 'Calorie calculator'}</a>
       <a href="mailto:info@dadstrong.app">{c.footer.contact}</a>
@@ -675,6 +737,14 @@ const calcHref = lang === 'de' ? '/kalorienrechner/' : '/en/calorie-calculator/'
   .nav__logo { font-family: 'Bebas Neue', cursive; font-size: 21px; letter-spacing: .12em; color: #fff; display: flex; align-items: center; gap: 10px; }
   .nav__icon { width: 32px; height: 32px; border-radius: 8px; display: block; flex-shrink: 0; }
   .nav__right { display: flex; align-items: center; gap: 18px; }
+  .nav__link {
+    color: #888;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color .18s;
+  }
+  .nav__link:hover { color: #fff; }
   .nav__cta {
     font-size: 11px;
     font-weight: 700;
@@ -1139,6 +1209,30 @@ const calcHref = lang === 'de' ? '/kalorienrechner/' : '/en/calorie-calculator/'
 
   /* Body check-in mock */
   .feature--body { grid-column: span 2; }
+  .feature--carry { grid-column: span 2; }
+  .feature--badges { grid-column: span 1; }
+  .feature__text-link {
+    margin-top: auto;
+    color: #d4ff00;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-decoration: none;
+  }
+  .carry-mock {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: auto;
+    padding: 14px 16px;
+    background: rgba(255,255,255,.03);
+    border: 1px solid rgba(255,255,255,.06);
+    border-radius: 10px;
+  }
+  .carry-mock > span { color: #fff; font-family: 'DM Mono', monospace; font-size: clamp(20px, 3vw, 30px); }
+  .carry-mock div { margin-left: auto; color: #777; font-family: 'DM Mono', monospace; font-size: 11px; }
+  .carry-mock b { color: #fff; font-size: 18px; }
+  .carry-mock i { color: #d4ff00; font-family: 'DM Mono', monospace; font-size: 11px; font-style: normal; }
   .body-mock { margin-top: 4px; display: flex; gap: 16px; align-items: flex-end; }
   .body-mock__photos { display: flex; gap: 10px; flex: 1; }
   .body-mock__photo {
@@ -1334,6 +1428,36 @@ const calcHref = lang === 'de' ? '/kalorienrechner/' : '/en/calorie-calculator/'
     .optional__grid { grid-template-columns: 1fr; }
   }
 
+  /* ─────────────────────────────── GUIDES */
+  .guides-section { background: #000; }
+  .guides__header {
+    display: grid;
+    grid-template-columns: 1.4fr .6fr;
+    gap: clamp(32px, 8vw, 100px);
+    align-items: end;
+    margin-bottom: clamp(44px, 7vw, 76px);
+  }
+  .guides__header .section__title { margin-bottom: 0; }
+  .guides__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .guide-preview {
+    min-height: 290px;
+    padding: 28px;
+    color: #fff;
+    background: #111;
+    border: 1px solid rgba(255,255,255,.07);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    transition: transform .18s, border-color .18s;
+  }
+  .guide-preview:hover { transform: translateY(-3px); border-color: rgba(212,255,0,.4); }
+  .guide-preview__number { color: #555; font-family: 'DM Mono', monospace; font-size: 11px; }
+  .guide-preview h3 { margin: 42px 0 14px; font-family: 'Bebas Neue', cursive; font-size: clamp(28px, 3vw, 38px); font-weight: 400; letter-spacing: .03em; line-height: 1.05; }
+  .guide-preview p { color: #999; font-size: 14px; line-height: 1.65; }
+  .guide-preview__arrow { margin: auto 0 0 auto; color: #d4ff00; font-size: 22px; }
+  .guides__cta { display: inline-flex; gap: 22px; margin-top: 32px; color: #d4ff00; font-size: 12px; font-weight: 700; letter-spacing: .12em; text-decoration: none; text-transform: uppercase; }
+
   /* ─────────────────────────────── FAQ */
   .faq__list { display: flex; flex-direction: column; gap: 1px; background: rgba(255,255,255,.06); border-radius: 16px; overflow: hidden; }
   .faq {
@@ -1511,12 +1635,16 @@ const calcHref = lang === 'de' ? '/kalorienrechner/' : '/en/calorie-calculator/'
     .pain__grid { grid-template-columns: 1fr 1fr; }
   }
   @media (max-width: 680px) {
+    .nav__link { display: none; }
     .training__grid { grid-template-columns: 1fr; }
     .philosophy__cards { grid-template-columns: 1fr; }
     .features { grid-template-columns: 1fr; }
     .features > .feature { grid-column: span 1; }
     .feature--widget { flex-direction: column; }
     .feature--widget .widget-mockup-img { width: 100%; max-width: 280px; max-height: 260px; object-fit: contain; }
+    .guides__header { grid-template-columns: 1fr; }
+    .guides__grid { grid-template-columns: 1fr; }
+    .guide-preview { min-height: 240px; }
     .pain__grid { grid-template-columns: 1fr; }
     .hero__bars { display: none; }
   }

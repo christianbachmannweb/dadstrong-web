@@ -23,7 +23,7 @@ interface Faq {
 
 export interface HomeContent {
   announcement: { pre: string; link: string };
-  nav: { cta: string };
+  nav: { guides: string; cta: string };
   hero: { label: string; tagline: string[]; body: string[]; tf: string };
   problem: {
     label: string;
@@ -80,6 +80,8 @@ export interface HomeContent {
     bodyPhotoLabels: string[];
     bodyStats: { label: string; val: string }[];
     fZone: Card;
+    fCarry: Card;
+    fBadges: Card;
     fWidget: Card;
     widgetAlt: string;
     fStructured: Card;
@@ -98,16 +100,23 @@ export interface HomeContent {
     zone2: { label: string; title: string; body: string };
     sprint: { label: string; title: string; body: string };
   };
+  guides: {
+    label: string;
+    title: string;
+    lead: string;
+    items: { number: string; title: string; body: string; href: string }[];
+    cta: string;
+  };
   faq: { label: string; title: string; items: Faq[] };
   cta: { label: string; quote: string; btn: string; meta: string };
-  footer: { privacy: string; contact: string; copy: string };
+  footer: { guides: string; privacy: string; contact: string; copy: string };
   /** SoftwareApplication schema fields that need translation. */
   schema: { description: string; keywords: string };
 }
 
 const de: HomeContent = {
   announcement: { pre: 'App in Beta', link: 'Jetzt in TestFlight testen →' },
-  nav: { cta: 'Beta testen' },
+  nav: { guides: 'Guides', cta: 'Beta testen' },
   hero: {
     label: 'FÜR VÄTER · TRAINING · iOS',
     tagline: ['Zwei Einheiten.', 'Echter Fortschritt.'],
@@ -123,12 +132,12 @@ const de: HomeContent = {
     title: 'Kennst du das?',
     pains: [
       'Zu viele Übungen zur Auswahl. Du weißt nicht, womit du anfangen sollst. Das führt zur Prokrastination oder Überwältigung.',
-      'Du denkst, du müsstest täglich trainieren. Fängst damit an und hast schnell wieder Ausreden am Start warum es heute nicht klappt.',
+      'Du denkst, du müsstest täglich trainieren. Du fängst damit an und hast schnell wieder Ausreden parat, warum es heute nicht klappt.',
       'Du trainierst, aber siehst keine echten Ergebnisse. Irgendwas stimmt nicht.',
     ],
     answerTitle: 'Dann ist Dad Strong für dich.',
     answerSub:
-      'Für Papas die wenig Zeit haben und Gym oder Homegym nutzen. Dad Strong ist kein zufälliger Workout-Katalog — sondern ein progressiver Kraftplan. Zwei feste Einheiten pro Woche. Kurze Zusatz-Einheiten können ergänzen, wenn der Alltag eng wird. Aber der Kern bleibt der Plan.',
+      'Für Papas, die wenig Zeit haben und ein Gym oder Homegym nutzen. Dad Strong ist kein zufälliger Workout-Katalog — sondern ein progressiver Kraftplan. Zwei feste Einheiten pro Woche. Kurze Zusatz-Einheiten können ergänzen, wenn der Alltag eng wird. Aber der Kern bleibt der Plan.',
   },
   philosophy: {
     label: 'DIE PHILOSOPHIE',
@@ -186,9 +195,9 @@ const de: HomeContent = {
       { name: 'Frontkniebeuge', why: 'Beinvorderseite · aufrechte Haltung · Mobilität' },
       { name: 'SZ-Curls', why: 'Bizeps · Ellenbeuger · Ergänzung zum Ziehen' },
     ],
-    whyTitle: 'Warum kann ich den Plan nicht anpassen?',
+    whyTitle: 'Kontrollierte Auswahl statt beliebiger Wechsel',
     whyBody:
-      'Weil Variation den Fortschritt hindert. Wer die Übungen ständig wechselt, trainiert nie lange genug an einer Bewegung um wirklich stark zu werden. Lineare Progression braucht Kontinuität — keine Abwechslung. Der Plan ist das Produkt.',
+      'Vor einem 12-Wochen-Block kannst du pro Übung aus zwei bis drei freigegebenen Alternativen wählen, die zu deinem Gym und deinen Voraussetzungen passen. Bewegungsmuster, Reihenfolge und Trainingsdesign bleiben gleich. Deine Auswahl bleibt während des Blocks fest — denn messbare Progression braucht Kontinuität.',
     progLabel: 'LINEARE PROGRESSION · BEISPIEL KNIEBEUGE',
     weeks: ['Woche 1', 'Woche 4', 'Woche 8', 'Woche 12'],
     progNote: 'Nicht garantiert — aber realistisch.',
@@ -197,7 +206,7 @@ const de: HomeContent = {
   app: {
     label: 'DIE APP',
     title: ['Dein Training.', 'Deine Zahlen.'],
-    lead: 'Für Papas die wenig Zeit haben - und Fortschritt greifbar machen wollen.',
+    lead: 'Für Papas, die wenig Zeit haben — und Fortschritt greifbar machen wollen.',
     phoneWarmup: {
       label: 'Warmup',
       alt: 'Dad Strong App – geführtes Warmup vor dem Krafttraining',
@@ -233,7 +242,7 @@ const de: HomeContent = {
     superBadge: 'SUPERSTREAK',
     fBody: {
       title: 'Körper-Dokumentation',
-      body: 'Gewicht, Maße, Fotos. Du siehst wo du angefangen hast — und wohin die Reise geht.',
+      body: 'Gewicht, Maße und vergleichbare Fotos. Kamera wechseln, Smartphone aufstellen und mit dem Fünf-Sekunden-Selbstauslöser Front, Rücken und Seite aufnehmen.',
     },
     bodyPhotoLabels: ['FRONT', 'BACK', 'SEITE'],
     bodyStats: [
@@ -245,6 +254,14 @@ const de: HomeContent = {
     fZone: {
       title: 'Zone 2 & Sprint',
       body: 'Ausdauer und Kondition als Ergänzung zum Krafttraining. Herzfrequenz direkt via HealthKit.',
+    },
+    fCarry: {
+      title: 'Carry Mission',
+      body: 'Eine Stoppuhr unter Last: Zielzeit, Gesamtgewicht und Tool wählen, tragen und deinen Versuch automatisch in der Progression speichern.',
+    },
+    fBadges: {
+      title: 'Badges, die man sich verdient',
+      body: 'Vom Active Dad bis zur Dad Legend. Erst wenn Kraft, Klimmzüge, Lauf und Carry gemeinsam erfüllt sind, wird das nächste Level aktiv.',
     },
     fWidget: {
       title: 'Home Screen Widget',
@@ -281,6 +298,17 @@ const de: HomeContent = {
       body: 'Kurz, explosiv, fertig. Erinnert deinen Körper wofür er gemacht wurde. Bergsprints oder auf einer Geraden — 20 Minuten und du bist durch.',
     },
   },
+  guides: {
+    label: 'DAD STRONG GUIDES',
+    title: 'Die App verstehen. Dann trainieren.',
+    lead: 'Kurze Anleitungen beantworten genau die Fragen, die vor oder während des Trainings entstehen.',
+    items: [
+      { number: '01', title: 'Übungen richtig tauschen', body: 'Was du vor dem 12-Wochen-Block wählen kannst — und warum das Bewegungsmuster gleich bleibt.', href: '/guides/#uebungen-tauschen' },
+      { number: '02', title: 'Carry Mission', body: 'Zielzeit, Gewicht, Pausen, Rekorde und die automatische Speicherung erklärt.', href: '/guides/#carry-mission' },
+      { number: '03', title: 'Badges & Level', body: 'Alle Anforderungen und die Erneuerung über den sechsmonatigen Lauftest.', href: '/guides/#levels' },
+    ],
+    cta: 'Alle Guides ansehen',
+  },
   faq: {
     label: 'FAQ',
     title: 'Häufige Fragen',
@@ -298,7 +326,7 @@ const de: HomeContent = {
       {
         q: 'Kann ich meinen Trainingsplan anpassen?',
         a: [
-          'Nein — und das ist Absicht. Variation hindert Fortschritt. Wer die Übungen ständig wechselt, baut keine echte Stärke auf. Der Plan ist das Produkt. Das ist der Punkt.',
+          'Kontrolliert. Vor einem neuen 12-Wochen-Block wählst du pro Übung aus zwei bis drei freigegebenen Alternativen. Das Bewegungsmuster und das Trainingsdesign bleiben gleich; deine Auswahl bleibt für den Block fest. So passt der Plan zu deinem Gym und bleibt trotzdem messbar.',
         ],
       },
       {
@@ -318,7 +346,7 @@ const de: HomeContent = {
         a: [
           'Es gibt gute Apps da draußen. Hevy, Strong, Fitbod, Gainsfire — die sind nicht schlecht. Für viele funktionieren sie prima.',
           'Mein Problem war ein anderes: Ich hatte zu viel Auswahl. Zu viele Möglichkeiten, meinen Plan selbst zusammenzustellen. Zu viele Übungen, zu viele Einstellungen, zu viele Entscheidungen vor dem Training. Das hat mich abgelenkt — weg vom eigentlichen Training, hin zur App-Konfiguration.',
-          'Gainsfire zum Beispiel hat mir lange gut gefallen. Solide App. Aber mir fehlte die Möglichkeit, meinen Körper direkt in der App zu tracken — Fotos, Maße, Gewicht — alles zusammen mit dem Training. Dad Strong löst genau das: ein fixer Plan, keine ablenkende Wahlfreiheit — und ein echtes Körper-Tagebuch an einem Ort.',
+          'Gainsfire zum Beispiel hat mir lange gut gefallen. Solide App. Aber mir fehlte die Möglichkeit, meinen Körper direkt in der App zu tracken — Fotos, Maße, Gewicht — alles zusammen mit dem Training. Dad Strong löst genau das: ein fokussierter Plan mit kontrollierten Übungsalternativen — und ein echtes Körper-Tagebuch an einem Ort.',
         ],
       },
     ],
@@ -330,13 +358,14 @@ const de: HomeContent = {
     meta: 'iOS 17+ · Keine Werbung · Kostenlos in der Beta',
   },
   footer: {
+    guides: 'Guides',
     privacy: 'Datenschutz & Impressum',
     contact: 'Kontakt',
     copy: '© 2026 Christian Bachmann',
   },
   schema: {
     description:
-      'Krafttraining-App für Väter mit wenig Zeit. Der Kern ist ein fixer progressiver Kraftplan für Gym oder Homegym: 2 Einheiten pro Woche, lineare Progression und klare Trainingsführung. Zum Start kostenlos für iPhone.',
+      'Krafttraining-App für Väter mit wenig Zeit. Der Kern ist ein progressiver Kraftplan für Gym oder Homegym: 2 Einheiten pro Woche, kontrollierte Übungsalternativen und klare Trainingsführung. Zum Start kostenlos für iPhone.',
     keywords:
       'Krafttraining Väter, Fitness App Väter, Training App Papas, Krafttraining wenig Zeit, Väter Fitness',
   },
@@ -344,7 +373,7 @@ const de: HomeContent = {
 
 const en: HomeContent = {
   announcement: { pre: 'App in beta', link: 'Try it on TestFlight now →' },
-  nav: { cta: 'Try the beta' },
+  nav: { guides: 'Guides', cta: 'Try the beta' },
   hero: {
     label: 'FOR DADS · TRAINING · iOS',
     tagline: ['Two sessions.', 'Real progress.'],
@@ -423,9 +452,9 @@ const en: HomeContent = {
       { name: 'Front Squat', why: 'Quads · upright posture · mobility' },
       { name: 'EZ-Bar Curls', why: 'Biceps · elbow flexors · pulling accessory' },
     ],
-    whyTitle: 'Why can\'t I customize the plan?',
+    whyTitle: 'Controlled choice instead of random swaps',
     whyBody:
-      'Because variation gets in the way of progress. If you keep swapping exercises, you never train one movement long enough to get truly strong. Linear progression needs continuity — not variety. The plan is the product.',
+      'Before a 12-week block, you can choose from two or three approved alternatives per exercise to fit your gym and your needs. Movement patterns, order and training design stay the same. Your choice remains fixed throughout the block — measurable progression needs continuity.',
     progLabel: 'LINEAR PROGRESSION · SQUAT EXAMPLE',
     weeks: ['Week 1', 'Week 4', 'Week 8', 'Week 12'],
     progNote: 'Not guaranteed — but realistic.',
@@ -470,7 +499,7 @@ const en: HomeContent = {
     superBadge: 'SUPERSTREAK',
     fBody: {
       title: 'Body tracking',
-      body: 'Weight, measurements, photos. You see where you started — and where the journey is heading.',
+      body: 'Weight, measurements and comparable photos. Switch cameras, position your phone and use the five-second self-timer for front, back and side views.',
     },
     bodyPhotoLabels: ['FRONT', 'BACK', 'SIDE'],
     bodyStats: [
@@ -482,6 +511,14 @@ const en: HomeContent = {
     fZone: {
       title: 'Zone 2 & Sprint',
       body: 'Endurance and conditioning to complement strength training. Heart rate straight from HealthKit.',
+    },
+    fCarry: {
+      title: 'Carry Mission',
+      body: 'A stopwatch under load: choose target time, total weight and tool, carry, and save the attempt automatically in Progression.',
+    },
+    fBadges: {
+      title: 'Badges you have to earn',
+      body: 'From Active Dad to Dad Legend. The next level only activates when strength, pull-ups, running and carry are all complete.',
     },
     fWidget: {
       title: 'Home Screen Widget',
@@ -518,6 +555,17 @@ const en: HomeContent = {
       body: 'Short, explosive, done. Reminds your body what it was built for. Hill sprints or on the flat — 20 minutes and you\'re through.',
     },
   },
+  guides: {
+    label: 'DAD STRONG GUIDES',
+    title: 'Understand the app. Then train.',
+    lead: 'Short guides answer the exact questions that come up before or during a workout.',
+    items: [
+      { number: '01', title: 'Swap exercises correctly', body: 'What you can choose before a 12-week block — and why the movement pattern stays the same.', href: '/en/guides/#exercise-swaps' },
+      { number: '02', title: 'Carry Mission', body: 'Target time, weight, pauses, records and automatic logging explained.', href: '/en/guides/#carry-mission' },
+      { number: '03', title: 'Badges & levels', body: 'Every requirement and renewal through the six-month run test.', href: '/en/guides/#levels' },
+    ],
+    cta: 'View all guides',
+  },
   faq: {
     label: 'FAQ',
     title: 'Common questions',
@@ -535,7 +583,7 @@ const en: HomeContent = {
       {
         q: 'Can I customize my training plan?',
         a: [
-          'No — and that\'s intentional. Variation gets in the way of progress. If you keep swapping exercises, you never build real strength. The plan is the product. That\'s the point.',
+          'In a controlled way. Before a new 12-week block, choose from two or three approved alternatives per exercise. The movement pattern and training design stay the same, and your choice remains fixed for the block. That lets the plan fit your gym while keeping progress measurable.',
         ],
       },
       {
@@ -555,7 +603,7 @@ const en: HomeContent = {
         a: [
           'There are good apps out there. Hevy, Strong, Fitbod, Gainsfire — they\'re not bad. For a lot of people they work great.',
           'My problem was different: I had too much choice. Too many ways to build my own plan. Too many exercises, too many settings, too many decisions before training. It distracted me — away from actually training, toward configuring the app.',
-          'Gainsfire, for example, I liked for a long time. Solid app. But it was missing a way to track my body right in the app — photos, measurements, weight — all together with the training. Dad Strong solves exactly that: a fixed plan, no distracting freedom of choice — and a real body journal in one place.',
+          'Gainsfire, for example, I liked for a long time. Solid app. But it was missing a way to track my body right in the app — photos, measurements, weight — all together with the training. Dad Strong solves exactly that: a focused plan with controlled exercise alternatives — and a real body journal in one place.',
         ],
       },
     ],
@@ -567,13 +615,14 @@ const en: HomeContent = {
     meta: 'iOS 17+ · No ads · Free during beta',
   },
   footer: {
+    guides: 'Guides',
     privacy: 'Privacy & Imprint',
     contact: 'Contact',
     copy: '© 2026 Christian Bachmann',
   },
   schema: {
     description:
-      'Strength-training app for dads with little time. The core is a fixed progressive strength plan for gym or home gym: 2 sessions per week, linear progression and clear training guidance. Free at launch for iPhone.',
+      'Strength-training app for dads with little time. The core is a progressive strength plan for gym or home gym: 2 sessions per week, controlled exercise alternatives and clear training guidance. Free at launch for iPhone.',
     keywords:
       'strength training dads, fitness app dads, training app fathers, strength training little time, dad fitness',
   },

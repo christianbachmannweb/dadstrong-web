@@ -16,6 +16,7 @@ export const defaultLang: Lang = 'de';
  */
 export const routes = {
   home: { de: '/', en: '/en/' },
+  guides: { de: '/guides/', en: '/en/guides/' },
   privacy: { de: '/privacy/', en: '/en/privacy/' },
   calculator: { de: '/kalorienrechner/', en: '/en/calorie-calculator/' },
 } as const;
@@ -36,12 +37,24 @@ export const meta: Record<PageKey, Record<Lang, { title: string; description: st
     de: {
       title: 'Dad Strong – Krafttraining App für Väter mit wenig Zeit',
       description:
-        'Die Krafttraining-App für vielbeschäftigte Väter mit Gym oder Homegym. 2 feste Krafttrainings pro Woche, linearer Fortschritt, kein tägliches Training. Zum Start kostenlos für iPhone.',
+        'Die Krafttraining-App für vielbeschäftigte Väter mit Gym oder Homegym. 2 Krafttrainings pro Woche, kontrollierte Übungsalternativen und messbarer Fortschritt. Zum Start kostenlos für iPhone.',
     },
     en: {
       title: 'Dad Strong – Strength Training App for Busy Dads',
       description:
-        'The strength-training app for busy dads with a gym or home gym. 2 fixed strength workouts per week, linear progress, no daily training. Free at launch for iPhone.',
+        'The strength-training app for busy dads with a gym or home gym. 2 strength workouts per week, controlled exercise alternatives and measurable progress. Free at launch for iPhone.',
+    },
+  },
+  guides: {
+    de: {
+      title: 'Dad Strong Guides – Training, Carry Mission & Badges',
+      description:
+        'Kurze Anleitungen für Dad Strong: erster Trainingsblock, Übungsalternativen, Carry Mission, Badge-Level und Fortschrittsfotos.',
+    },
+    en: {
+      title: 'Dad Strong Guides – Training, Carry Mission & Badges',
+      description:
+        'Short Dad Strong guides covering your first training block, exercise alternatives, Carry Mission, badge levels and progress photos.',
     },
   },
   privacy: {
